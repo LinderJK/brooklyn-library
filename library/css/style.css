@@ -4,15 +4,21 @@
 
 body {
     height: 100%;
-    font-family: Inter;
+    font-family: Inter Regular;
     font-size: 20px;
     line-height: 50px;
     font-weight: 400;
+    font-style: normal;
     
 }
 
 a {
     text-decoration: none;
+}
+
+ul,
+li {
+    list-style: none;
 }
 
 [class*="__container"] {
@@ -21,44 +27,18 @@ a {
 
 }
 
-@media (min-width: 576px) {
-    [class*="__container"] {
-      max-width: 576px;
-    }
-  }
-  
-  @media (min-width: 768px) {
-    [class*="__container"] {
-      max-width: 768px;
-    }
-  }
-
-  @media (min-width: 992px) {
-    [class*="__container"] {
-      max-width: 992px;
-    }
-  }
-
-@media (min-width: 1200px) {
-    [class*="__container"] {
-      max-width: 1440px;
-    }
-  }
-
-
   /* *________________________________________________HEADER________________ */
-.header__elem {
+.header__elements {
     display: flex;
-    background-color: var(--header-background);
+    background-color: var(--black);
     height:90px;
     flex-wrap: wrap; /*TODO: burgermenu*/
     
 }
 
-.header__title h1 {
-    font-size: 30px;
-    color: var(--header-text);
+.header__logo {
     margin: 20px;
+    text-align: center;
     
 }
 
@@ -67,6 +47,12 @@ a {
     margin-right: 20px;
     justify-content: flex-end;
 }
+
+@media (max-width: 1200px) {
+    .header__nav {
+      display: none; /*TODO: burgermenu*/
+    }
+  }
 
 .nav__list {
     display: flex;
@@ -82,6 +68,7 @@ a {
 
 .nav__link {
     color: var(--header-text);
+    font-family: Inter;
 
 }
 
@@ -93,9 +80,79 @@ a {
  /* *________________________________________________WELCOME_SECTION________________ */
 
  .welcome__image {
+    height: 600px;
+    background: url(/library/img/header-img-library.jpeg) no-repeat center;
+    background-size: cover;
+
+}
+
+.welcome__text {
     width: 600px;
+    height: 220px;
+    background-color: var(--black);
+    padding: 35px 40px;
+    text-align: center;
+    margin: 220px 840px 160px 0px;
+    position: absolute;
+}
+
+@media (max-width: 600px) {
+    .welcome__text {
+      width: 100%;
+      height: 300px;
+    }
+  }
+
+
+.welcome__overlay {
+    height: 300px;
+    background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.10) 100%);
+    z-index: 999;
     
 }
+
+
+
+
+
+
+
+
+
+
+/* *________________________________________________FONTS________________ */
+
+/* TODO fix_fonts */
+
+.title {
+    font-family: Forum;
+    font-style: normal;
+    font-weight: 400;
+    margin: 0px;
+
+}
+
+
+.header__title {
+    font-size: 30px;
+    color: var(--header-text);
+    letter-spacing: 0.6px;
+    line-height: 50px;
+
+}
+
+.welcome__title {
+    font-size: 40px;
+    color: var(--header-text);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    line-height: 50px;
+    
+}
+
+
+
+
 
 
 
@@ -142,14 +199,13 @@ a {
 .title {
 }
 
-
 .nav__link.nav__link--active {
 }
 
-/*________________________________________________________________________ COLOR */
+/**________________________________________________________________________ COLOR */
 
 
 :root {
-    --header-background: #000000;
-    --header-text: #ffffff;
+    --header-text: #fff;
+    --black: #0C0C0E;
   }
