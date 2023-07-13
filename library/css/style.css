@@ -1,0 +1,155 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    font-family: Inter;
+    font-size: 20px;
+    line-height: 50px;
+    font-weight: 400;
+    
+}
+
+a {
+    text-decoration: none;
+}
+
+[class*="__container"] {
+    max-width: 1440px;
+    margin: 0px auto;
+
+}
+
+@media (min-width: 576px) {
+    [class*="__container"] {
+      max-width: 576px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    [class*="__container"] {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    [class*="__container"] {
+      max-width: 992px;
+    }
+  }
+
+@media (min-width: 1200px) {
+    [class*="__container"] {
+      max-width: 1440px;
+    }
+  }
+
+
+  /* *________________________________________________HEADER________________ */
+.header__elem {
+    display: flex;
+    background-color: var(--header-background);
+    height:90px;
+    flex-wrap: wrap; /*TODO: burgermenu*/
+    
+}
+
+.header__title h1 {
+    font-size: 30px;
+    color: var(--header-text);
+    margin: 20px;
+    
+}
+
+.header__nav {
+    margin-left: auto;
+    margin-right: 20px;
+    justify-content: flex-end;
+}
+
+.nav__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+}
+
+.auth-icon__img {
+    margin: 31px 20px;
+}
+
+.nav__link {
+    color: var(--header-text);
+
+}
+
+.nav__link:hover {
+    color: blanchedalmond;
+
+}
+
+ /* *________________________________________________WELCOME_SECTION________________ */
+
+ .welcome__image {
+    width: 600px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+.nav__item {
+    
+}
+
+.wrapper {
+}
+.header {
+}
+.main {
+}
+.footer {
+}
+.header__container {
+}
+.welcome {
+}
+.about {
+}
+
+.nav {
+}
+.login {
+}
+.welcome__container {
+}
+.about__container {
+}
+
+.login__link {
+}
+
+.welcome__title {
+}
+.title {
+}
+
+
+.nav__link.nav__link--active {
+}
+
+/*________________________________________________________________________ COLOR */
+
+
+:root {
+    --header-background: #000000;
+    --header-text: #ffffff;
+  }
