@@ -1,15 +1,16 @@
-*{
+* {
     box-sizing: border-box;
 }
 
 body {
-    height: 100%;
-    font-family: Inter Regular;
+    /* height: 100%; */
+    font-family: Inter;
     font-size: 20px;
-    line-height: 50px;
+    line-height: 40px;
     font-weight: 400;
     font-style: normal;
-    
+    height: 2000px;
+
 }
 
 a {
@@ -27,19 +28,20 @@ li {
 
 }
 
-  /* *________________________________________________HEADER________________ */
+/* *________________________________________________HEADER________________ */
 .header__elements {
     display: flex;
     background-color: var(--black);
-    height:90px;
-    flex-wrap: wrap; /*TODO: burgermenu*/
-    
+    height: 90px;
+    flex-wrap: wrap;
+    /*TODO: burgermenu*/
+
 }
 
 .header__logo {
     margin: 20px;
     text-align: center;
-    
+
 }
 
 .header__nav {
@@ -50,9 +52,10 @@ li {
 
 @media (max-width: 1200px) {
     .header__nav {
-      display: none; /*TODO: burgermenu*/
+        display: none;
+        /*TODO: burgermenu*/
     }
-  }
+}
 
 .nav__list {
     display: flex;
@@ -69,24 +72,25 @@ li {
 .nav__link {
     color: var(--header-text);
     font-family: Inter;
+    line-height: 50px;
 
 }
 
 .nav__link:hover {
-    color: blanchedalmond;
+    color: var(--main-library);
 
 }
 
- /* *________________________________________________WELCOME_SECTION________________ */
+/* *________________________________________________WELCOME_SECTION________________ */
 
- .welcome__image {
+.welcome__image {
     height: 600px;
     background: url(/library/img/header-img-library.jpeg) no-repeat center;
     background-size: cover;
 
 }
 
-.welcome__text {
+.welcome__text-block {
     width: 600px;
     height: 220px;
     background-color: var(--black);
@@ -97,24 +101,89 @@ li {
 }
 
 @media (max-width: 600px) {
-    .welcome__text {
-      width: 100%;
-      height: 300px;
+    .welcome__text-block {
+        width: 100%;
+        height: 300px;
     }
-  }
-
+}
 
 .welcome__overlay {
     height: 300px;
     background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.10) 100%);
     z-index: 999;
+
+}
+
+/* *________________________________________________ABOUT_SECTION________________ */
+
+.about__elements {
+    display: flex; /* ? BETTER USE GRID */
+    flex-direction: column;
+    align-items: center;
+
     
 }
 
+.main__title-block {
+    margin: 20px 0 20px 0;
+    
+}
 
+.main__title-block hr {
+    margin: 0 auto 0;
+    width: 50px;
 
+}
 
+.main__description {
+    text-align: center;
+    
+}
 
+@media (max-width: 768px) {
+    .main__description  {
+    margin: 0 20px;
+    }
+}
+
+.slider {
+    display: flex;
+    gap: 25px;
+    flex-wrap: nowrap;
+
+    
+}
+
+.slider__item {
+    width: 450px;
+    height: 560px;
+    overflow: hidden;
+
+}
+
+.slider__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    
+}
+
+@media (max-width: 768px) {
+    .slider {
+        width: 100%;
+        justify-content: center;
+        margin: 0 100px;
+
+    }
+    .slider__item {
+        /* width: 100%; */
+        padding: 0 58px 25px 58px; /*? OR Gap*/
+        
+    }
+    .slider__item:not(:first-child) { 
+        display: none;
+    }
+}
 
 
 
@@ -128,10 +197,12 @@ li {
     font-family: Forum;
     font-style: normal;
     font-weight: 400;
+    font-size: 40px;
     margin: 0px;
+    line-height: 40px;
+    color: var(--black-library);
 
 }
-
 
 .header__title {
     font-size: 30px;
@@ -142,13 +213,31 @@ li {
 }
 
 .welcome__title {
-    font-size: 40px;
     color: var(--header-text);
     letter-spacing: 3px;
     text-transform: uppercase;
     line-height: 50px;
+
+}
+
+.main__title {
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
     
-}
 
 
 
@@ -160,52 +249,50 @@ li {
 
 
 
+.title__sect .nav__item {}
 
+.wrapper {}
 
+.header {}
 
-.nav__item {
-    
-}
+.main {}
 
-.wrapper {
-}
-.header {
-}
-.main {
-}
-.footer {
-}
-.header__container {
-}
-.welcome {
-}
-.about {
-}
+.footer {}
 
-.nav {
-}
-.login {
-}
-.welcome__container {
-}
-.about__container {
-}
+.header__container {}
 
-.login__link {
-}
+.welcome {}
 
-.welcome__title {
-}
-.title {
-}
+.about {}
 
-.nav__link.nav__link--active {
-}
+.nav {}
+
+.login {}
+
+.welcome__container {}
+
+.about__container {}
+
+.login__link {}
+
+.welcome__title {}
+
+.title {}
+
+.nav__link.nav__link--active {}
 
 /**________________________________________________________________________ COLOR */
-
 
 :root {
     --header-text: #fff;
     --black: #0C0C0E;
-  }
+    --black-library: #0C0C0E;
+    --main-library: #BB945F;
+    --white: #fff;
+    --gray-library: #8E8E8E;
+    
+
+
+
+
+}
