@@ -34,6 +34,7 @@ li {
 [class*="__container"] {
     max-width: 1440px;
     margin: 0px auto;
+    width: 100%;
     
 }
 
@@ -155,6 +156,10 @@ li {
 
 /* *__SLIDER__*/
 
+.slider {
+    width: 100%;
+}
+
 .slider__item-list {
     display: flex;
     gap: 25px;
@@ -222,51 +227,55 @@ li {
 
 
 /* *________________________________________________favorites_SECTION________________ */
-.favorites__season {
+.favorites__description {
     align-self: start;
     margin: 10px 0px;
 }
+
+/* *__CUSTOM RADIO__*/  
+/* TODO think of a simple release __ element alignment*/
 
 .radio-button {
     display: flex;
     flex-direction: row;
     align-self: start;
+    column-gap: 40px;
+    flex-wrap: wrap;
+    width: 100%;
     
 }
-
-/* *__CUSTOM RADIO__*/  
-/* TODO think of a simple release __ element alignment*/
 
 .radio-button__item input[type="radio"] {
     display: none;
 }
 
 .radio-button__item {
-    position: relative;
-    padding-left: 40px;
-    margin: 15px 90px 0px 0px;
-    
-    
+    margin-top: 15px;
+    flex: 0 0 150px;
+    text-align: left;
+    margin-bottom: 30px;
+   
 }
 
-.radio-button__item span{
-    width: 17px;
-    height: 17px;
-    border-radius: 100%;
-    border: 2px solid black;
-    position: absolute;
-    left: 0px;
-    top: 13px;
-
-}
-
-.radio-button__item span:hover {
+.radio-button__item:hover {
     cursor: pointer;
 }
 
-.radio-button__item input[type="radio"]:checked + span::before {
+.custom-radio{
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    border: 2px solid black;
+    position:relative;
+    margin-right: 14px;
+    vertical-align:middle;
+}
+
+.radio-button__item input[type="radio"]:checked + .custom-radio::before {
     content: "" ;
-    border-radius: 100%;
+    display: inline-block;
+    border-radius: 50%;
     background-color: #0C0C0E;
     width: 8px;
     height: 8px;
@@ -277,9 +286,54 @@ li {
 
 }
 
-.radio-button__item input[type="radio"]:checked ~ p {
+.radio-button__item input[type="radio"]:checked ~ .custom-radio-name {
     font-weight: bold;
 }
+
+.favorites-list {
+    display: flex;
+    flex-flow:row wrap;
+    width: 100%;
+    row-gap: 40px;
+    column-gap: 260px;
+    
+}
+
+.book {
+    width: 550px;
+    height: 555px;
+    border: 1px solid black;
+    display: flex;
+    flex-flow: column wrap;
+    row-gap: 20px;
+    padding: 15px 20px;
+
+}
+
+
+
+.border-styled {
+    width: 60px;
+    height: 1px;
+    border-bottom: 1px solid var(--main-library);
+}
+
+
+
+.book__button {
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+
+
+
+
+
+
+
+
+
 
 /* *________________________________________________FONTS________________ */
 
@@ -287,7 +341,6 @@ li {
 
 .title {
     font-family: Forum;
-    font-style: normal;
     font-weight: 400;
     font-size: 40px;
     margin: 0px;
@@ -318,6 +371,30 @@ li {
     margin-bottom: 20px;
 
 }
+
+
+
+.book__name {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    
+    }
+    
+    .book__title { 
+        letter-spacing: 2px;
+        text-transform: capitalize;
+        font-family: Forum;
+        
+        }
+    
+    .book__text {
+      
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    }
 
 
 
