@@ -9,11 +9,13 @@
     <meta name="keywords" content="library, books, library in brooklyn">
     <link rel="icon" href="#" type="image/x-icon">
 
-    <link rel="stylesheet" type="text/css" href="./css/normalize.css" charset="UTF-8">
+
     <link rel="stylesheet" type="text/css" href="./css/style.css" charset="UTF-8">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css" charset="UTF-8">
 
 
 
@@ -28,8 +30,9 @@
 
                 <div class="header__elements">
                     <div class="header__logo">
-                        <h1 class="title header__title ">Brooklyn Public Library</h1>
+                        <h1 class="header__title title">Brooklyn Public Library</h1>
                     </div>
+
                     <nav class="nav header__nav">
                         <ul class="nav__list">
                             <li class="nav__item">
@@ -49,11 +52,13 @@
                             </li>
                         </ul>
                     </nav>
+
                     <div class="auth-icon">
                         <a class="auth-icon__link" href="#">
                             <img class="auth-icon__img" src="./img/auth-icon-img.svg" alt="login user">
                         </a>
                     </div>
+
                 </div>
             </div>
         </header>
@@ -71,13 +76,19 @@
                 </div>
             </section>
 
+
+
+
+
             <section class="about">
                 <div class="about__container">
+
+
                     <div class="about__content content">
 
                         <div class="main__title-block">
-                            <h2 class="title main__title">About</h2>
-                            <hr color="#000">
+                            <h2 class="main__title title">About</h2>
+                            <div class="main__title-border"></div>
                         </div>
 
                         <div class="main__description">
@@ -86,32 +97,39 @@
                         </div>
 
                         <div class="slider">
-                            <div class="slider__item-list">
-                                <div class="slider__item">
-                                    <img class="image" src="./img/slider-image/slider-img-1.jpeg" alt="">
+                            <div class="slider__item">
+                                <div class="slider__image-list">
+                                    <div class="slider__image">
+                                        <img class="image" src="./img/slider-image/slider-img-1.jpeg" alt="">
+                                    </div>
+
+                                    <div class="slider__image">
+                                        <img class="image" src="./img/slider-image/slider-img-2.jpeg" alt="">
+                                    </div>
+
+                                    <div class="slider__image">
+                                        <img class="image" src="./img/slider-image/slider-img-3.jpeg" alt="">
+                                    </div>
                                 </div>
 
-                                <div class="slider__item">
-                                    <img class="image" src="./img/slider-image/slider-img-2.jpeg" alt="">
-                                </div>
+                                <ul class="slider__navigation">
+                                    
+                                    <li class="slider__navigation-item">
+                                        <span class="slider__dot slider__dot--active"></span>
+                                    </li>
+                                    <li class="slider__navigation-item">
+                                        <span class="slider__dot"></span>
+                                    </li>
+                                    <li class="slider__navigation-item">
+                                        <span class="slider__dot"></span>
+                                    </li>
+                                </ul>
 
-                                <div class="slider__item">
-                                    <img class="image" src="./img/slider-image/slider-img-3.jpeg" alt="">
-                                </div>
+
+
                             </div>
 
-                            <ul class="slider__navigation-list">
-                                <!--? span or button -->
-                                <li class="slider__navigation-item">
-                                    <span class="slider__dot slider__dot--active"></span>
-                                </li>
-                                <li class="slider__navigation-item">
-                                    <span class="slider__dot"></span>
-                                </li>
-                                <li class="slider__navigation-item">
-                                    <span class="slider__dot"></span>
-                                </li>
-                            </ul>
+
                         </div>
 
                     </div>
@@ -123,9 +141,8 @@
                     <div class="favorites__content content">
 
                         <div class="main__title-block">
-
-                            <h2 class="title main__title">Favorites</h2>
-                            <hr color="#000">
+                            <h2 class="main__title title">Favorites</h2>
+                            <div class="main__title-border"></div>
                         </div>
 
                         <div class="favorites__description">
@@ -133,59 +150,70 @@
 
                         </div>
 
-                        <div class="radio-button">
-                            <label class="radio-button__item" for="winter">
-                                <input type="radio" id="winter" name="season" value="1" checked>
-                                <span class="custom-radio"></span>
-                                <span class="custom-radio-name">Winter</span>
-                            </label>
-                            <label class="radio-button__item" for="spring">
-                                <input type="radio" id="spring" name="season" value="2">
-                                <span class="custom-radio"></span>
-                                <span class="custom-radio-name">Spring</span>
-                            </label>
-                            <label class="radio-button__item" for="summer">
-                                <input type="radio" id="summer" name="season" value="3">
-                                <span class="custom-radio"></span>
-                                <span class="custom-radio-name">Summer</span>
-                            </label>
-                            <label class="radio-button__item" for="autumn">
-                                <input type="radio" id="autumn" name="season" value="4">
-                                <span class="custom-radio"></span>
-                                <span class="custom-radio-name">Autumn</span>
-                            </label>
+                        <div class="radio-button-block">
+                            <div class="radio-button-block__item">
+                                <div class="radio">
+                                    <input type="radio" id="winter" name="season" value="1" checked>
+                                    <label for="winter">Winter</label>
+                                </div>
+                            </div>
+
+                            <div class="radio-button-block__item">
+                                <div class="radio">
+                                    <input type="radio" id="spring" name="season" value="2">
+                                    <label for="spring">Spring</label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="radio-button-block__item">
+                                <div class="radio">
+                                    <input type="radio" id="summer" name="season" value="2">
+                                    <label for="summer">Summer</label>
+                                </div>
+                            </div>
+
+                            <div class="radio-button-block__item">
+                                <div class="radio">
+                                    <input type="radio" id="autumn" name="season" value="2">
+                                    <label for="autumn">Autumn</label>
+                                </div>
+                            </div>
                         </div>
+                        
 
                         <div class="favorites-list">
                             <div class="book">
                                 <div class="book__border">
-                                <div class="book__title">
-                                    <p>Staff Picks</p>
-                                    <div class="border-styled">
+                                    <div class="book__title">
+                                        <p>Staff Picks</p>
+                                        <div class="border-styled">
+                                        </div>
+                                    </div>
+                                    <div class="book__name">
+                                        <p>THE BOOK EATERS</p>
+                                        <p>By Sunyi Dean</p>
+                                    </div>
+                                    <div class="book__text">
+                                        <p>
+                                            An unusual sci-fi story about a book eater woman who tries desperately to
+                                            save
+                                            her
+                                            dangerous mind-eater son from tradition and certain death. Complete with
+                                            dysfunctional family values, light Sapphic romance, and a strong, complex
+                                            protagonist. Not for the faint of heart.
+
+                                        </p>
+                                    </div>
+                                    <div class="book__button">
+                                        <button class="button-low">Buy</button>
+                                    </div>
+                                    <div class="book__preview">
+                                        <img src="./img/book/winter-book/winter-book-1.jpeg" alt="The Book Eaters
+                                    By Sunyi Dean" class="image">
                                     </div>
                                 </div>
-                                <div class="book__name">
-                                    <p>THE BOOK EATERS</p>
-                                    <p>By Sunyi Dean</p>
-                                </div>
-                                <div class="book__text">
-                                    <p>
-                                        An unusual sci-fi story about a book eater woman who tries desperately to save
-                                        her
-                                        dangerous mind-eater son from tradition and certain death. Complete with
-                                        dysfunctional family values, light Sapphic romance, and a strong, complex
-                                        protagonist. Not for the faint of heart.
-
-                                    </p>
-                                </div>
-                                <div class="book__button">
-                                    <button class="button-low">Buy</button>
-                                </div>
-                                <div class="book__preview">
-                                    <img src="./img/book/winter-book/winter-book-1.jpeg" alt="The Book Eaters
-                                    By Sunyi Dean" class="image">
-                                </div>
-                            </div>
                             </div>
 
                             <div class="book">
@@ -200,7 +228,9 @@
                                 </div>
                                 <div class="book__text">
                                     <p>
-                                        Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.
+                                        Are your Halloween movies of choice The Witches of Eastwick and Practical Magic?
+                                        Look no further than here - where a woman recovering from a breakup moves to a
+                                        quaint town in upstate New York and befriends a beautiful witch.
 
                                     </p>
                                 </div>
@@ -208,7 +238,8 @@
                                     <button class="button-low">Buy</button>
                                 </div>
                                 <div class="book__preview">
-                                    <img src="./img/book/winter-book/winter-book-2.jpeg" alt="CACKLE By Rachel Harrison" class="image">
+                                    <img src="./img/book/winter-book/winter-book-2.jpeg" alt="CACKLE By Rachel Harrison"
+                                        class="image">
                                 </div>
                             </div>
 
@@ -224,7 +255,10 @@
                                 </div>
                                 <div class="book__text">
                                     <p>
-                                        Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.
+                                        Auerbach's engaging book places the 'Comedy' within the tradition of epic,
+                                        tragedy, and philosophy in general, arguing for Dante's uniqueness as one who
+                                        raised the individual and his drama of soul into something of divine
+                                        significance—an inspired introduction to Dante's main themes.
 
                                     </p>
                                 </div>
@@ -248,7 +282,9 @@
                                 </div>
                                 <div class="book__text">
                                     <p>
-                                        A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
+                                        A timely and revelatory new biography of Queen Elizabeth (and her family)
+                                        exploring how the Windsors have evolved and thrived as the modern world has
+                                        changed around them.
 
                                     </p>
                                 </div>

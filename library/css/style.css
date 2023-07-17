@@ -4,18 +4,15 @@
 
 
 body {
-    /* height: 100%; */
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 20px;
-    line-height: 40px;
     font-weight: 400;
-    font-style: normal;
-
-
 }
 
 a {
     text-decoration: none;
+    margin: 0px;
+    padding: 0px;
 }
 
 p {
@@ -27,10 +24,26 @@ ul,
 li {
     list-style: none;
     padding: 0px;
+    margin: 0px;
 
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin:0px;
+    padding: 0px;
 
+}
+
+b, strong {
+    font-weight: 700 !important;
+}
+
+/* *________________________________________________SUMMARY________________ */
 [class*="__container"] {
     max-width: 1440px;
     margin: 0px auto;
@@ -38,31 +51,102 @@ li {
 
 }
 
-.about__container,
-.favorites__container {
-    padding: 0 20px;
+/* *________________________________________________FONTS________________ */
+
+/* TODO fix_fonts */
+
+.title {
+    font-family: Forum, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    margin: 0px;
 }
+
+.header__title {
+    font-size: 30px;
+    color: var(--header-text);
+    letter-spacing: 0.6px;
+    line-height: 50px;
+}
+
+.welcome__title {
+    color: var(--header-text);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    line-height: 50px;
+
+}
+
+.main__title {
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    line-height: 40px;
+}
+
+.main__title-border{
+    width: 50px;
+    border-bottom: 1px solid var(--black-library);
+    margin-top: 20px;
+    margin: 20px auto;
+
+}
+
+.main__description {
+line-height: 40px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.book__name {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+
+}
+
+.book__title {
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    font-family: Forum;
+}
+
+.book__text {
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    width: 355px;
+}
+
+
 
 /* *________________________________________________HEADER________________ */
 .header__elements {
     display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
     background-color: var(--black);
     height: 90px;
-    flex-wrap: wrap;
+    padding: 20px;
+    align-content: center;
+    align-items: center;
     /*TODO: burgermenu*/
-
-}
-
-.header__logo {
-    margin: 20px;
-    text-align: center;
 
 }
 
 .header__nav {
     margin-left: auto;
-    margin-right: 20px;
-    justify-content: flex-end;
 }
 
 @media (max-width: 1200px) {
@@ -81,14 +165,12 @@ li {
 
 }
 
-.auth-icon__img {
-    margin: 31px 20px;
+.auth-icon {
+    margin-left: 40px;
 }
 
 .nav__link {
     color: var(--header-text);
-    line-height: 50px;
-
 }
 
 .nav__link:hover {
@@ -100,17 +182,23 @@ li {
 
 .welcome__image {
     height: 600px;
-    background: url(/library/img/header-img-library.jpeg) no-repeat center;
+    width: 100%;
+    background: url(../img/header-img-library.jpeg) no-repeat center;
     background-size: cover;
+    
 
+}
+
+.welcome__container{
+    display: flex;
 }
 
 .welcome__text-block {
     width: 600px;
     height: 220px;
     background-color: var(--black);
-    padding: 35px 40px;
     text-align: center;
+    padding: 35px 40px;
     margin: 220px 840px 160px 0px;
     position: absolute;
 }
@@ -134,43 +222,28 @@ li {
 
 .content {
     display: flex;
-    /* ? USE GRID */
     flex-direction: column;
+    align-content: center;
     align-items: center;
 
 }
 
-.main__title-block {
-    margin: 20px 0px;
-
+.about__content {
+    padding: 20px;
+    gap: 20px;
 }
 
-.main__title-block hr {
-    margin: 0 auto;
-    width: 50px;
+/* *______________________________SLIDER__*/
 
-}
-
-.main__description {
-    text-align: center;
-    margin: 20px 0;
-
-}
-
-/* *__SLIDER__*/
-
-.slider {
-    width: 100%;
-}
-
-.slider__item-list {
+.slider__image-list{
     display: flex;
-    gap: 25px;
+    flex-direction: row;
+    column-gap: 25px;
     flex-wrap: nowrap;
 
 }
 
-.slider__item {
+.slider__image {
     width: 450px;
     height: 560px;
     overflow: hidden;
@@ -185,45 +258,46 @@ li {
 }
 
 @media (max-width: 768px) {
-    .slider__item-list {
+    .slider__item {
         width: 100%;
         justify-content: center;
 
     }
 
-    .slider__item:not(:first-child) {
+    .slider__image-list:not(:first-child) {
         display: none;
     }
 
-    /* .slider__navigation-list ul {
-        margin: 0px 0px 45px 0px;
-    } */
 }
 
-.slider__navigation-list {
+
+.slider__navigation {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 30px 0px 40px 0px;
+    margin-top: 40px;
+    margin-bottom: 10px;
 }
-
 
 .slider__navigation-item {
     display: flex;
     width: 26px;
     height: 26px;
     justify-content: center;
-    align-items: center;
 
 }
 
 .slider__dot {
     background-color: var(--black-library);
-    border-radius: 100%;
+    border-radius: 50%;
     width: 16px;
     height: 16px;
     cursor: pointer;
 
+}
+
+.slider__dot--active {
+    background-color: var(--main-library);
 }
 
 .slider__dot:hover {
@@ -231,69 +305,98 @@ li {
 }
 
 
-/* *________________________________________________favorites_SECTION________________ */
-.favorites__description {
-    align-self: start;
-    margin: 10px 0px;
+/* *______________________________________________FAVORITES_SECTION______________ */
+
+.favorites__content {
+    padding: 20px;
+    gap: 20px;
 }
 
-/* *__CUSTOM RADIO__*/
-/* TODO think of a simple release __ element alignment*/
+.favorites__description {
+    align-self: start;
+    
+}
 
-.radio-button {
+/* *______________________________CUSTOM RADIO__*/
+
+/* TODO Ements alignment*/
+
+.radio-button-block {
     display: flex;
     flex-direction: row;
     align-self: start;
-    column-gap: 40px;
-    flex-wrap: wrap;
-    width: 100%;
-
+    gap: 90px;
+    margin: 20px 0;
+    
 }
 
-.radio-button__item input[type="radio"] {
-    display: none;
-}
-
-.radio-button__item {
-    margin-top: 15px;
-    flex: 0 0 150px;
-    text-align: left;
-    margin-bottom: 31px;
-
-}
-
-.radio-button__item:hover {
-    cursor: pointer;
-}
-
-.custom-radio {
-    display: inline-block;
-    width: 19px;
-    height: 19px;
-    border-radius: 50%;
-    border: 2px solid black;
+.radio {
     position: relative;
-    margin-right: 14px;
-    vertical-align: middle;
+    
 }
 
-.radio-button__item input[type="radio"]:checked+.custom-radio::before {
+.radio input[type="radio"] {
+    display: none;
+    
+}
+
+.radio label {
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    line-height: normal;
+    margin-right: auto;
+    margin-left: 40px;
+    
+}
+
+.radio label:before {
     content: "";
     display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: 2px solid black;
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    
+    
+}
+
+.radio input[type="radio"]:checked + label::after {
+    content: "";
+    display: block;
     border-radius: 50%;
     background-color: #0C0C0E;
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
+    top: 10px;
+    left: 5px;
+    
+    
 }
+/* TODO pointer 5px */
+/* .radio-button-block__item {
+    cursor: pointer;
+    padding: 5px 0px;
+  }
+  
+  .radio-button-block__item *,
+  .radio-button-block__item *:before,
+  .radio-button-block__item *:after {
+    cursor: pointer;
+  } */
 
-.radio-button__item input[type="radio"]:checked~.custom-radio-name {
+.radio input[type="radio"]:checked ~ label {
     font-weight: bold;
-}
+    
+} 
+
+
+
+/* *______________________________FAVORITES_LIST__*/
 
 .favorites-list {
     display: flex;
@@ -377,66 +480,6 @@ li {
 
 
 
-/* *________________________________________________FONTS________________ */
-
-/* TODO fix_fonts */
-
-.title {
-    font-family: Forum;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    margin: 0px;
-    line-height: 40px;
-    color: var(--black-library);
-
-}
-
-.header__title {
-    font-size: 30px;
-    color: var(--header-text);
-    letter-spacing: 0.6px;
-    line-height: 50px;
-
-}
-
-.welcome__title {
-    color: var(--header-text);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    line-height: 50px;
-
-}
-
-.main__title {
-    letter-spacing: 2px;
-    text-transform: capitalize;
-    margin-bottom: 20px;
-
-}
-
-.book__name {
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: capitalize;
-
-}
-
-.book__title {
-    letter-spacing: 2px;
-    text-transform: capitalize;
-    font-family: Forum;
-}
-
-.book__text {
-    font-size: 15px;
-    letter-spacing: 2px;
-    text-transform: capitalize;
-    width: 355px;
-}
-
-
 
 
 
@@ -497,11 +540,14 @@ li {
 
 :root {
     --header-text: #fff;
-    --black: #0C0C0E;
+    
     --black-library: #0C0C0E;
     --main-library: #BB945F;
-    --white: #fff;
     --gray-library: #8E8E8E;
+
+    --black: #000000;
+    --white: #fff;
+    
 
 
 
