@@ -34,12 +34,13 @@ h3,
 h4,
 h5,
 h6 {
-    margin:0px;
+    margin: 0px;
     padding: 0px;
 
 }
 
-b, strong {
+b,
+strong {
     font-weight: 700 !important;
 }
 
@@ -84,7 +85,7 @@ b, strong {
     line-height: 40px;
 }
 
-.main__title-border{
+.main__title-border {
     width: 50px;
     border-bottom: 1px solid var(--black-library);
     margin-top: 20px;
@@ -93,43 +94,9 @@ b, strong {
 }
 
 .main__description {
-line-height: 40px;
+    line-height: 40px;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-.book__name {
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: capitalize;
-
-}
-
-.book__title {
-    letter-spacing: 2px;
-    text-transform: capitalize;
-    font-family: Forum;
-}
-
-.book__text {
-    font-size: 15px;
-    letter-spacing: 2px;
-    text-transform: capitalize;
-    width: 355px;
-}
-
-
 
 /* *________________________________________________HEADER________________ */
 .header__elements {
@@ -185,11 +152,11 @@ line-height: 40px;
     width: 100%;
     background: url(../img/header-img-library.jpeg) no-repeat center;
     background-size: cover;
-    
+
 
 }
 
-.welcome__container{
+.welcome__container {
     display: flex;
 }
 
@@ -235,7 +202,11 @@ line-height: 40px;
 
 /* *______________________________SLIDER__*/
 
-.slider__image-list{
+.slider {
+    width: 100%;
+}
+
+.slider__image-list {
     display: flex;
     flex-direction: row;
     column-gap: 25px;
@@ -314,7 +285,7 @@ line-height: 40px;
 
 .favorites__description {
     align-self: start;
-    
+
 }
 
 /* *______________________________CUSTOM RADIO__*/
@@ -327,17 +298,17 @@ line-height: 40px;
     align-self: start;
     gap: 90px;
     margin: 20px 0;
-    
+
 }
 
 .radio {
     position: relative;
-    
+
 }
 
 .radio input[type="radio"] {
     display: none;
-    
+
 }
 
 .radio label {
@@ -347,7 +318,7 @@ line-height: 40px;
     line-height: normal;
     margin-right: auto;
     margin-left: 40px;
-    
+
 }
 
 .radio label:before {
@@ -360,11 +331,11 @@ line-height: 40px;
     position: absolute;
     top: 5px;
     left: 0px;
-    
-    
+
+
 }
 
-.radio input[type="radio"]:checked + label::after {
+.radio input[type="radio"]:checked+label::after {
     content: "";
     display: block;
     border-radius: 50%;
@@ -374,9 +345,10 @@ line-height: 40px;
     position: absolute;
     top: 10px;
     left: 5px;
-    
-    
+
+
 }
+
 /* TODO pointer 5px */
 /* .radio-button-block__item {
     cursor: pointer;
@@ -389,10 +361,10 @@ line-height: 40px;
     cursor: pointer;
   } */
 
-.radio input[type="radio"]:checked ~ label {
+.radio input[type="radio"]:checked~label {
     font-weight: bold;
-    
-} 
+
+}
 
 
 
@@ -403,7 +375,13 @@ line-height: 40px;
     flex-flow: row wrap;
     width: 100%;
     row-gap: 40px;
-    column-gap: 260px;
+    column-gap: 220px;
+
+}
+
+.favorites__item {
+    width: 590px;
+    height: 555px;
 
 }
 
@@ -411,32 +389,60 @@ line-height: 40px;
     width: 550px;
     height: 555px;
     border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    /* row-gap: 20px; */
+    display: grid;
+    grid-template-rows: 40px 80 auto 35px;
     padding: 15px 20px;
+    row-gap: 20px;
     position: relative;
+
 }
 
-.book__name,
 .book__title {
-    margin-bottom: 20px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    line-height: 40px;
 
 }
 
-.border-styled {
+.border-book {
     width: 60px;
     height: 1px;
     border-bottom: 1px solid var(--main-library);
 }
 
+.book__name {
+    font-size: 15px;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+
+}
+
+.book__name-autor {
+    text-transform: capitalize;
+
+}
+
+.book__text {
+    font-size: 15px;
+    font-style: normal;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    width: 355px;
+    height: 320px;
+    overflow: hidden;
+
+}
+
+
+
 
 .book__button {
-    /* position: relative; */
-    bottom: 14px;
-    margin-top: auto;
-    margin-right: auto;
+    position: relative;
+    bottom: 5px;
 
 }
 
@@ -448,6 +454,7 @@ line-height: 40px;
     letter-spacing: 1px;
     border: 1px solid var(--black-library);
     border-radius: 2px;
+    background-color: var(--white);
 }
 
 .button-low:hover {
@@ -457,13 +464,13 @@ line-height: 40px;
 
 }
 
-
 .book__preview {
     width: 200px;
     height: 300px;
     position: absolute;
-    left: 389px;
-    top: 254px;
+    left: 390px;
+    top: 255px;
+
 }
 
 .book__preview-image {
@@ -473,8 +480,9 @@ line-height: 40px;
 
 }
 
-
-
+.favorites-list>.favorites__item:nth-child(n+5) {
+    display: none;
+}
 
 
 
@@ -540,14 +548,14 @@ line-height: 40px;
 
 :root {
     --header-text: #fff;
-    
+
     --black-library: #0C0C0E;
     --main-library: #BB945F;
     --gray-library: #8E8E8E;
 
     --black: #000000;
     --white: #fff;
-    
+
 
 
 

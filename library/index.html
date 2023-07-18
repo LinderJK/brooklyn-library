@@ -10,12 +10,12 @@
     <link rel="icon" href="#" type="image/x-icon">
 
 
-    <link rel="stylesheet" type="text/css" href="./css/style.css" charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./css/normalize.css" charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
 
 
 
@@ -23,11 +23,8 @@
 
 <body>
     <div class="wrapper">
-
-
         <header class="header">
             <div class="header__container">
-
                 <div class="header__elements">
                     <div class="header__logo">
                         <h1 class="header__title title">Brooklyn Public Library</h1>
@@ -58,7 +55,6 @@
                             <img class="auth-icon__img" src="./img/auth-icon-img.svg" alt="login user">
                         </a>
                     </div>
-
                 </div>
             </div>
         </header>
@@ -76,14 +72,8 @@
                 </div>
             </section>
 
-
-
-
-
             <section class="about">
                 <div class="about__container">
-
-
                     <div class="about__content content">
 
                         <div class="main__title-block">
@@ -113,7 +103,7 @@
                                 </div>
 
                                 <ul class="slider__navigation">
-                                    
+
                                     <li class="slider__navigation-item">
                                         <span class="slider__dot slider__dot--active"></span>
                                     </li>
@@ -124,8 +114,6 @@
                                         <span class="slider__dot"></span>
                                     </li>
                                 </ul>
-
-
 
                             </div>
 
@@ -147,7 +135,6 @@
 
                         <div class="favorites__description">
                             <p><b>Pick favorites of season</b></p>
-
                         </div>
 
                         <div class="radio-button-block">
@@ -165,8 +152,6 @@
                                 </div>
                             </div>
 
-
-
                             <div class="radio-button-block__item">
                                 <div class="radio">
                                     <input type="radio" id="summer" name="season" value="2">
@@ -181,19 +166,20 @@
                                 </div>
                             </div>
                         </div>
-                        
 
+
+                        <!-- WINTER BOOK -->
                         <div class="favorites-list">
-                            <div class="book">
-                                <div class="book__border">
-                                    <div class="book__title">
+                            <div class="favorites__item">
+                                <div class="book">
+                                    <div class="book__title title">
                                         <p>Staff Picks</p>
-                                        <div class="border-styled">
+                                        <div class="border-book">
                                         </div>
                                     </div>
                                     <div class="book__name">
-                                        <p>THE BOOK EATERS</p>
-                                        <p>By Sunyi Dean</p>
+                                        <p>The Book Eaters</p>
+                                        <p class="book__name-autor"><b>By Sunyi Dean</b></p>
                                     </div>
                                     <div class="book__text">
                                         <p>
@@ -203,6 +189,68 @@
                                             dangerous mind-eater son from tradition and certain death. Complete with
                                             dysfunctional family values, light Sapphic romance, and a strong, complex
                                             protagonist. Not for the faint of heart.
+                                        </p>
+                                    </div>
+                                    <div class="book__button">
+                                        <button class="button-low">Buy</button>
+
+                                    </div>
+                                    <div class="book__preview">
+                                        <img src="./img/book/winter-book/winter-book-1.jpeg"
+                                            alt="The Book Eaters By Sunyi Dean" class="image">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="favorites__item">
+                                <div class="book">
+                                    <div class="book__title title">
+                                        <p>Staff Picks</p>
+                                        <div class="border-book">
+                                        </div>
+                                    </div>
+                                    <div class="book__name">
+                                        <p>Cackle</p>
+                                        <p class="book__name-autor">By Rachel Harrison</p>
+                                    </div>
+                                    <div class="book__text">
+                                        <p>
+                                            Are your Halloween movies of choice The Witches of Eastwick and Practical
+                                            Magic?
+                                            Look no further than here - where a woman recovering from a breakup moves to
+                                            a
+                                            quaint town in upstate New York and befriends a beautiful witch.
+                                        </p>
+                                    </div>
+                                    <div class="book__button">
+                                        <button class="button-low">Buy</button>
+
+                                    </div>
+                                    <div class="book__preview">
+                                        <img src="./img/book/winter-book/winter-book-2.jpeg" alt="Cackle" class="image">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="favorites__item">
+                                <div class="book">
+                                    <div class="book__title title">
+                                        <p>Staff Picks</p>
+                                        <div class="border-book">
+                                        </div>
+                                    </div>
+                                    <div class="book__name">
+                                        <p>DANTE: POET OF THE SECULAR WORLD</p>
+                                        <p class="book__name-autor">By Erich Auerbach</p>
+                                    </div>
+                                    <div class="book__text">
+                                        <p>
+                                            Auerbach's engaging book places the 'Comedy' within the tradition of epic,
+                                            tragedy, and philosophy in general, arguing for Dante's uniqueness as one
+                                            who
+                                            raised the individual and his drama of soul into something of divine
+                                            significance—an inspired introduction to Dante's main themes.
 
                                         </p>
                                     </div>
@@ -210,112 +258,393 @@
                                         <button class="button-low">Buy</button>
                                     </div>
                                     <div class="book__preview">
-                                        <img src="./img/book/winter-book/winter-book-1.jpeg" alt="The Book Eaters
-                                    By Sunyi Dean" class="image">
+                                        <img src="./img/book/winter-book/winter-book-3.jpeg"
+                                            alt="DANTE: POET OF THE SECULAR WORLD" class="image">
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="book">
-                                <div class="book__title">
-                                    <p>Staff Picks</p>
-                                    <div class="border-styled">
+                            <div class="favorites__item">
+                                <div class="book">
+                                    <div class="book__title title">
+                                        <p>Staff Picks</p>
+                                        <div class="border-book">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="book__name">
-                                    <p>CACKLE</p>
-                                    <p>By Rachel Harrison</p>
-                                </div>
-                                <div class="book__text">
-                                    <p>
-                                        Are your Halloween movies of choice The Witches of Eastwick and Practical Magic?
-                                        Look no further than here - where a woman recovering from a breakup moves to a
-                                        quaint town in upstate New York and befriends a beautiful witch.
-
-                                    </p>
-                                </div>
-                                <div class="book__button">
-                                    <button class="button-low">Buy</button>
-                                </div>
-                                <div class="book__preview">
-                                    <img src="./img/book/winter-book/winter-book-2.jpeg" alt="CACKLE By Rachel Harrison"
-                                        class="image">
-                                </div>
-                            </div>
-
-                            <div class="book">
-                                <div class="book__title">
-                                    <p>Staff Picks</p>
-                                    <div class="border-styled">
+                                    <div class="book__name">
+                                        <p>THE LAST QUEEN</p>
+                                        <p class="book__name-autor">By Clive Irving</p>
                                     </div>
-                                </div>
-                                <div class="book__name">
-                                    <p>DANTE: POET OF THE SECULAR WORLD</p>
-                                    <p>By Erich Auerbach</p>
-                                </div>
-                                <div class="book__text">
-                                    <p>
-                                        Auerbach's engaging book places the 'Comedy' within the tradition of epic,
-                                        tragedy, and philosophy in general, arguing for Dante's uniqueness as one who
-                                        raised the individual and his drama of soul into something of divine
-                                        significance—an inspired introduction to Dante's main themes.
+                                    <div class="book__text">
+                                        <p>
+                                            A timely and revelatory new biography of Queen Elizabeth (and her family)
+                                            exploring how the Windsors have evolved and thrived as the modern world has
+                                            changed around them.
 
-                                    </p>
-                                </div>
-                                <div class="book__button">
-                                    <button class="button-low">Buy</button>
-                                </div>
-                                <div class="book__preview">
-                                    <img src="./img/book/winter-book/winter-book-3.jpeg" alt="" class="image">
-                                </div>
-                            </div>
-
-                            <div class="book">
-                                <div class="book__title">
-                                    <p>Staff Picks</p>
-                                    <div class="border-styled">
+                                        </p>
                                     </div>
-                                </div>
-                                <div class="book__name">
-                                    <p>THE LAST QUEEN</p>
-                                    <p>By Clive Irving</p>
-                                </div>
-                                <div class="book__text">
-                                    <p>
-                                        A timely and revelatory new biography of Queen Elizabeth (and her family)
-                                        exploring how the Windsors have evolved and thrived as the modern world has
-                                        changed around them.
-
-                                    </p>
-                                </div>
-                                <div class="book__button">
-                                    <button class="button-low" name="buy book" type="button">Buy</button>
-                                </div>
-                                <div class="book__preview">
-                                    <img src="./img/book/winter-book/winter-book-4.jpeg" alt="" class="image">
+                                    <div class="book__button">
+                                        <button class="button-low" name="buy book" type="button">Buy</button>
+                                    </div>
+                                    <div class="book__preview">
+                                        <img src="./img/book/winter-book/winter-book-4.jpeg" alt="THE LAST QUEEN"
+                                            class="image">
+                                    </div>
                                 </div>
                             </div>
 
 
 
+                            <!-- SPRING BOOK -->
+                            <div class="favorites__item">
+                                <div class="book">
+                                    <div class="book__title title">
+                                        <p>Staff Picks</p>
+                                        <div class="border-book">
+                                        </div>
+                                    </div>
+                                    <div class="book__name">
+                                        <p>The Body</p>
+                                        <p class="book__name-autor">By Stephen King</p>
+                                    </div>
+                                    <div class="book__text">
+                                        <p>
+                                            Powerful novel that takes you back to a nostalgic time, exploring both the
+                                            beauty and danger and loss of innocence that is youth.
+                                        </p>
+                                    </div>
+                                    <div class="book__button">
+                                        <button class="button-low" name="buy book" type="button">Buy</button>
+                                    </div>
+                                    <div class="book__preview">
+                                        <img src="./img/book/spring-book/spring-book-1.jpeg" alt="The Body"
+                                            class="image">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="favorites__item">
+                                <div class="book">
+                                    <div class="book__title title">
+                                        <p>Staff Picks</p>
+                                        <div class="border-book">
+                                        </div>
+                                    </div>
+                                    <div class="book__name">
+                                        <p>Carry: A Memoir of Survival on Stolen Land</p>
+                                        <p class="book__name-autor">By Toni Jenson</p>
+                                    </div>
+                                    <div class="book__text">
+                                        <p>
+                                            This memoir about the author's relationship with gun violence feels both
+                                            expansive and intimate, resulting in a lyrical indictment of the way things
+                                            are
+                                        </p>
+                                    </div>
+                                    <div class="book__button">
+                                        <button class="button-low" name="buy book" type="button">Buy</button>
+                                    </div>
+                                    <div class="book__preview">
+                                        <img src="./img/book/spring-book/spring-book-2.jpeg"
+                                            alt="Carry: A Memoir of Survival on Stolen Land" class="image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="favorites__item">
+                                <div class="book">
+                                    <div class="book__title title">
+                                        <p>Staff Picks</p>
+                                        <div class="border-book">
+                                        </div>
+                                    </div>
+                                    <div class="book__name">
+                                        <p>Days of Distraction</p>
+                                        <p class="book__name-autor">By Alexandra Chang</p>
+                                    </div>
+                                    <div class="book__text">
+                                        <p>
+                                            A sardonic view of Silicon Valley culture, a meditation on race, and a
+                                            journal of displacement and belonging, all in one form-defying package of
+                                            spare prose.
+                                        </p>
+                                    </div>
+                                    <div class="book__button">
+                                        <button class="button-low" name="buy book" type="button">Buy</button>
+                                    </div>
+                                    <div class="book__preview">
+                                        <img src="./img/book/spring-book/spring-book-3.jpeg" alt="Days of Distraction"
+                                            class="image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="favorites__item">
+                                <div class="book">
+                                    <div class="book__title title">
+                                        <p>Staff Picks</p>
+                                        <div class="border-book">
+                                        </div>
+                                    </div>
+                                    <div class="book__name">
+                                        <p>Dominicana</p>
+                                        <p class="book__name-autor">By Angie Cruz</p>
+                                    </div>
+                                    <div class="book__text">
+                                        <p>
+                                            A fascinating story of a teenage girl who marries a man twice her age with
+                                            the promise to bring her to America. Her marriage is an opportunity for her
+                                            family to eventually immigrate. For fans of Isabel Allende and Julia
+                                            Alvarez.
+                                        </p>
+                                    </div>
+                                    <div class="book__button">
+                                        <button class="button-low" name="buy book" type="button">Buy</button>
+                                    </div>
+                                    <div class="book__preview">
+                                        <img src="./img/book/spring-book/spring-book-4.jpeg" alt="Dominicana"
+                                            class="image">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SUMMER BOOK -->
+                            <div class="favorites__item">
+                                <div class="book">
+                                    <div class="book__title title">
+                                        <p>Staff Picks</p>
+                                        <div class="border-book">
+                                        </div>
+                                    </div>
+                                    <div class="book__name">
+                                        <p>Crude: A Memoir</p>
+                                        <p class="book__name--autor">By Pablo Fajardo & ​​Sophie Tardy-Joubert</p>
+                                    </div>
+                                    <div class="book__text">
+                                        <p>
+                                            Drawing and color by Damien Roudeau | This book illustrates the struggles of
+                                            a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco
+                                            company for damage their oil fields did to the Amazon and her people
+                                        </p>
+                                    </div>
+                                    <div class="book__button">
+                                        <button class="button-low" name="buy book" type="button">Buy</button>
+                                    </div>
+                                    <div class="book__preview">
+                                        <img src="./img/book/summer-book/summer-book-1.jpeg" alt="Crude: A Memoir"
+                                            class="image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="favorites__item">
+                                <div class="book">
+                                    <div class="book__title title">
+                                        <p>Staff Picks</p>
+                                        <div class="border-book">
+                                        </div>
+                                    </div>
+                                    <div class="book__name">
+                                        <p>Let My People Go Surfing</p>
+                                        <p class="book__name-autor">By Yvon Chouinard</p>
+                                    </div>
+                                    <div class="book__text">
+                                        <p>
+                                            Chouinard—climber, businessman, environmentalist—shares tales of courage and
+                                            persistence from his experience of founding and leading Patagonia, Inc. Full
+                                            title: Let My People Go Surfing: The Education of a Reluctant Businessman,
+                                            Including 10 More Years of Business Unusual.
+                                        </p>
+                                    </div>
+                                    <div class="book__button">
+                                        <button class="button-low" name="buy book" type="button">Buy</button>
+                                    </div>
+                                    <div class="book__preview">
+                                        <img src="./img/book/summer-book/summer-book-2.jpeg"
+                                            alt="Let My People Go Surfing" class="image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="favorites__item">
+                                <div class="book">
+                                    <div class="book__title title">
+                                        <p>Staff Picks</p>
+                                        <div class="border-book">
+                                        </div>
+                                    </div>
+                                    <div class="book__name">
+                                        <p>The Octopus Museum: Poems</p>
+                                        <p class="book__name-autor">By Brenda Shaughnessy</p>
+                                    </div>
+                                    <div class="book__text">
+                                        <p>
+                                            This collection of bold and scathingly beautiful feminist poems imagines
+                                            what comes after our current age of environmental destruction, racism,
+                                            sexism, and divisive politics.
+                                        </p>
+                                    </div>
+                                    <div class="book__button">
+                                        <button class="button-low" name="buy book" type="button">Buy</button>
+                                    </div>
+                                    <div class="book__preview">
+                                        <img src="./img/book/summer-book/summer-book-3.jpeg"
+                                            alt="The Octopus Museum: Poems" class="image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="favorites__item">
+                                <div class="book">
+                                    <div class="book__title title">
+                                        <p>Staff Picks</p>
+                                        <div class="border-book">
+                                        </div>
+                                    </div>
+                                    <div class="book__name">
+                                        <p>Shark Dialogues: A Novel</p>
+                                        <p class="book__name-autor">By Kiana Davenport</p>
+                                    </div>
+                                    <div class="book__text">
+                                        <p>
+                                            An epic saga of seven generations of one family encompasses the tumultuous
+                                            history of Hawaii as a Hawaiian woman gathers her four granddaughters
+                                            together in an erotic tale of villains and dreamers, queens and
+                                            revolutionaries, lepers and healers.
+                                        </p>
+                                    </div>
+                                    <div class="book__button">
+                                        <button class="button-low" name="buy book" type="button">Buy</button>
+                                    </div>
+                                    <div class="book__preview">
+                                        <img src="./img/book/summer-book/summer-book-4.jpeg"
+                                            alt="Shark Dialogues: A Novel" class="image">
+                                    </div>
+                                </div>
+                            </div>
 
 
-
+                            <!-- AUTUMN BOOKS -->
+                            <div class="favorites__item">
+                                <div class="book">
+                                    <div class="book__title title">
+                                        <p>Staff Picks</p>
+                                        <div class="border-book">
+                                        </div>
+                                    </div>
+                                    <div class="book__name">
+                                        <p>Casual Conversation</p>
+                                        <p class="book__name-autor">By Renia White</p>
+                                    </div>
+                                    <div class="book__text">
+                                        <p>
+                                            White's impressive debut collection takes readers through and beyond the
+                                            concepts of conversation and the casual - both what we say to each other and
+                                            what we don't, examining the possibilities around how we construct and
+                                            communicate identity.
+                                        </p>
+                                    </div>
+                                    <div class="book__button">
+                                        <button class="button-low" name="buy book" type="button">Buy</button>
+                                    </div>
+                                    <div class="book__preview">
+                                        <img src="./img/book/autumn-book/autumn-book-1.jpeg" alt="Casual Conversation"
+                                            class="image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="favorites__item">
+                                <div class="book">
+                                    <div class="book__title title">
+                                        <p>Staff Picks</p>
+                                        <div class="border-book">
+                                        </div>
+                                    </div>
+                                    <div class="book__name">
+                                        <p>The Great Fire</p>
+                                        <p class="book__name-autor">By Lou Ureneck</p>
+                                    </div>
+                                    <div class="book__text">
+                                        <p>
+                                            The harrowing story of an ordinary American and a principled Naval officer
+                                            who, horrified by the burning of Smyrna, led an extraordinary rescue effort
+                                            that saved a quarter of a million refugees from the Armenian Genocide
+                                        </p>
+                                    </div>
+                                    <div class="book__button">
+                                        <button class="button-low" name="buy book" type="button">Buy</button>
+                                    </div>
+                                    <div class="book__preview">
+                                        <img src="./img/book/autumn-book/autumn-book-2.jpeg" alt="The Great Fire"
+                                            class="image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="favorites__item">
+                                <div class="book">
+                                    <div class="book__title title">
+                                        <p>Staff Picks</p>
+                                        <div class="border-book">
+                                        </div>
+                                    </div>
+                                    <div class="book__name">
+                                        <p>Rickey: The Life and Legend</p>
+                                        <p class="book__name-autor">By Howard Bryant</p>
+                                    </div>
+                                    <div class="book__text">
+                                        <p>
+                                            With the fall rolling around, one can't help but think of baseball's
+                                            postseason coming up! And what better way to prepare for it than reading the
+                                            biography of one of the game's all-time greatest performers, the Man of
+                                            Steal, Rickey Henderson?
+                                        </p>
+                                    </div>
+                                    <div class="book__button">
+                                        <button class="button-low" name="buy book" type="button">Buy</button>
+                                    </div>
+                                    <div class="book__preview">
+                                        <img src="./img/book/autumn-book/autumn-book-3.jpeg"
+                                            alt="Rickey: The Life and Legend" class="image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="favorites__item">
+                                <div class="book">
+                                    <div class="book__title title">
+                                        <p>Staff Picks</p>
+                                        <div class="border-book">
+                                        </div>
+                                    </div>
+                                    <div class="book__name">
+                                        <p>Slug: And Other Stories</p>
+                                        <p class="book__name-autor">By Megan Milks</p>
+                                    </div>
+                                    <div class="book__text">
+                                        <p>
+                                            Exes Tegan and Sara find themselves chained together by hairballs of
+                                            codependency. A father and child experience the shared trauma of giving
+                                            birth to gods from their wounds.
+                                        </p>
+                                    </div>
+                                    <div class="book__button">
+                                        <button class="button-low" name="buy book" type="button">Buy</button>
+                                    </div>
+                                    <div class="book__preview">
+                                        <img src="./img/book/autumn-book/autumn-book-4.jpeg"
+                                            alt="Slug: And Other Stories" class="image">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-
-
-
-
-
-
-
-
-
-
                     </div>
                 </div>
             </section>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
