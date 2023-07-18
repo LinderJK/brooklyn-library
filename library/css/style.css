@@ -498,10 +498,27 @@ text-align: center;
 
 }
 
-.coffee-shop__items {
+.coffee-shop__menu {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 20px;
+
+}
+
+.menu__list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
 
 
-
+.coffee {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 
@@ -512,6 +529,40 @@ text-align: center;
 
 
 
+
+.menu-title {
+    color: #BB945F;
+font-family: Forum;
+font-size: 40px;
+font-style: normal;
+font-weight: 400;
+line-height: 40px; /* 100% */
+letter-spacing: 2px;
+text-transform: capitalize;
+
+}
+
+
+.name-coffee {
+    color: #000;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 40px; /* 200% */
+letter-spacing: 2px;
+text-transform: capitalize;
+margin-right: auto;
+}
+
+
+.border-book--long {
+    width: 100px;
+}
+
+
+
+/* TODO: border-book do object, fix fonts  */
 
 
 
