@@ -52,6 +52,13 @@ strong {
 
 }
 
+
+.about__content,
+.favorites__content {
+    padding: 20px;
+    gap: 20px;
+}
+
 /* *________________________________________________FONTS________________ */
 
 /* TODO fix_fonts */
@@ -195,10 +202,6 @@ strong {
 
 }
 
-.about__content {
-    padding: 20px;
-    gap: 20px;
-}
 
 /* *______________________________SLIDER__*/
 
@@ -277,11 +280,6 @@ strong {
 
 
 /* *______________________________________________FAVORITES_SECTION______________ */
-
-.favorites__content {
-    padding: 20px;
-    gap: 20px;
-}
 
 .favorites__description {
     align-self: start;
@@ -376,6 +374,7 @@ strong {
     width: 100%;
     row-gap: 40px;
     column-gap: 220px;
+    margin-bottom: 20px;
 
 }
 
@@ -485,8 +484,25 @@ strong {
 }
 
 
+/* *______________________________COFFEE-SHOP SECTION___ */
+
+.coffee-shop__content {
+    padding: 20px;
+    gap: 20px;
+}
+
+.coffee-shop__description{
+line-height: 40px;
+letter-spacing: 2px;
+text-align: center;
+
+}
+
+.coffee-shop__items {
 
 
+
+}
 
 
 
