@@ -487,8 +487,9 @@ strong {
 /* *______________________________COFFEE-SHOP SECTION___ */
 
 .coffee-shop__content {
-    padding: 20px;
+    padding: 20px 20px 40px 20px;
     gap: 20px;
+
 }
 
 .coffee-shop__description {
@@ -556,10 +557,54 @@ strong {
     width: 100px;
 }
 
-
+/* *______________________________CONTACTS SECTION___ */
 .contacts__content {
+    padding: 20px 20px 40px 20px;
+    gap: 20px;
+}
+
+.information {
+    width: 100%;
     display: flex;
-    
+    flex-direction: row;
+    justify-content: space-between !important;
+
+}
+
+.information__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+
+
+}
+
+.information__text li {
+    margin-bottom: 20px;
+}
+
+.information__text li:nth-child(1),
+.information__text li:nth-child(4),
+.information__text li:nth-child(6) {
+    margin-bottom: 40px;
+}
+
+.information__map {
+    width: 696px;
+    height: 414px;
+
+}
+
+.information-title {
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+
 }
 
 
@@ -576,7 +621,6 @@ strong {
 
 
 
-/* TODO: border-book do object, fix fonts  */
 
 
 
@@ -593,37 +637,6 @@ strong {
 
 
 
-.title__sect .nav__item {}
-
-.wrapper {}
-
-.header {}
-
-.main {}
-
-.footer {}
-
-.header__container {}
-
-.welcome {}
-
-.about {}
-
-.nav {}
-
-.login {}
-
-.welcome__container {}
-
-.about__container {}
-
-.login__link {}
-
-.welcome__title {}
-
-.title {}
-
-.nav__link.nav__link--active {}
 
 /**________________________________________________________________________ COLOR */
 
