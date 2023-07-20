@@ -455,12 +455,7 @@ strong {
     background-color: var(--white);
 }
 
-.button-low:hover {
-    background: var(--main-library);
-    transition: all 500ms linear;
-    cursor: pointer;
 
-}
 
 .book__preview {
     width: 200px;
@@ -645,7 +640,7 @@ strong {
 
 .find-card__input input[type="text"],
 .find-card__input input[type="number"] {
-    color: var(--black-library);
+    color: var(--main-library);
     font-family: Forum;
     font-size: 30px;
     line-height: 50px;
@@ -704,38 +699,112 @@ input[type="number"] {
     width: 244px;
     height: 44px;
     letter-spacing: 1px;
+
+}
+
+.find-card__button:hover,
+.button-low:hover {
+    background: var(--main-library);
+    transition: 0.5s;
+    border: 1px solid var(--main-library);
     cursor: pointer;
 
 }
 
-.find-card__button:hover {
-    background-color: var(--main-library);
-    transition: 0.5s;
+
+.get-card {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    align-items: end;
+}
+
+.get-card__title {
+    color: #000;
+    text-align: center;
+    font-family: Forum;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.6px;
+
+}
+
+.get-card__text {
+    color: #000;
+    text-align: right;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    /* 200% */
+    letter-spacing: 0.4px;
+    width: 456px;
 }
 
 
+.get-card__buttons {
+    display: flex;
+    align-items: end;
+    gap: 20px;
+}
+
+
+/* *______________________________FOOTER___ */
 
 
 
+.footer__container {
+    height: 250px;
+    background-color: var(--black-library);
+    padding: 20px;
+}
+
+.footer__information {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: var(--white);
+    align-items: center;
+}
 
 
+.footer__text {
+    color: #FFF;
+font-family: Inter;
+font-size: 15px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 133.333% */
+
+}
+
+.footer__text--right {
+    text-align: end;
+}
+
+.social {
+    display: flex;
+width: 102px;
+height: 24px;
+justify-content: center;
+align-items: flex-start;
+gap: 15px;
+
+}
 
 
+.footer__line {
+    width: 1400px;
+    height: 1px;
+    background-color: var(--white);
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-/**________________________________________________________________________ COLOR */
+/**_____________________________________________________ COLOR */
 
 :root {
     --header-text: #fff;
