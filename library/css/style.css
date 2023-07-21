@@ -58,52 +58,6 @@ strong {
 
 }
 
-/* *________________________________________________FONTS________________ */
-
-/* TODO fix_fonts */
-
-.title {
-    font-family: Forum, sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    margin: 0px;
-}
-
-.header__title {
-    font-size: 30px;
-    color: var(--header-text);
-    letter-spacing: 0.6px;
-    line-height: 50px;
-}
-
-.welcome__title {
-    color: var(--header-text);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    line-height: 50px;
-
-}
-
-.main__title {
-    letter-spacing: 2px;
-    text-transform: capitalize;
-    line-height: 40px;
-}
-
-.main__title-border {
-    width: 50px;
-    border-bottom: 1px solid var(--black-library);
-    margin-top: 20px;
-    margin: 20px auto;
-
-}
-
-.main__description {
-    line-height: 40px;
-
-}
-
 /* *________________________________________________HEADER________________ */
 .header__elements {
     display: flex;
@@ -170,7 +124,7 @@ strong {
     width: 600px;
     height: 220px;
     background-color: var(--black);
-    text-align: center;
+    text-align: center; 
     padding: 35px 40px;
     margin: 220px 840px 160px 0px;
     position: absolute;
@@ -395,48 +349,11 @@ strong {
 
 }
 
-.book__title {
-    font-size: 20px;
-    letter-spacing: 2px;
-    text-transform: capitalize;
-    line-height: 40px;
-
-}
-
 .border {
     width: 60px;
     height: 1px;
     border-bottom: 1px solid var(--main-library);
 }
-
-.book__name {
-    font-size: 15px;
-    line-height: 40px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 700;
-
-}
-
-.book__name-autor {
-    text-transform: capitalize;
-
-}
-
-.book__text {
-    font-size: 15px;
-    font-style: normal;
-    line-height: 40px;
-    letter-spacing: 2px;
-    text-transform: capitalize;
-    width: 355px;
-    height: 320px;
-    overflow: hidden;
-
-}
-
-
-
 
 .book__button {
     position: relative;
@@ -486,12 +403,7 @@ strong {
 
 } */
 
-.coffee-shop__description {
-    line-height: 40px;
-    letter-spacing: 2px;
-    text-align: center;
 
-}
 
 .coffee-shop__menu {
     display: flex;
@@ -524,29 +436,6 @@ strong {
 
 }
 
-.menu__title {
-    color: var(--main-library);
-    line-height: 40px;
-    letter-spacing: 2px;
-    text-transform: capitalize;
-}
-
-.menu__name {
-    line-height: 40px;
-    letter-spacing: 2px;
-    text-transform: capitalize;
-    margin-right: auto;
-}
-
-.menu__price {
-    font-family: Forum;
-    font-style: normal;
-    line-height: 40px;
-    letter-spacing: 2px;
-    text-transform: capitalize;
-
-}
-
 .border--long {
     width: 100px;
 }
@@ -559,16 +448,6 @@ strong {
     display: flex;
     flex-direction: row;
     justify-content: space-between !important;
-
-}
-
-.information__text {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    line-height: 40px;
-    letter-spacing: 2px;
-    text-transform: capitalize;
 
 }
 
@@ -585,13 +464,7 @@ strong {
 
 }
 
-.information-title {
-    font-weight: 700;
-    line-height: 40px;
-    letter-spacing: 2px;
-    text-transform: capitalize;
 
-}
 
 .cards {
     width: 100%;
@@ -608,13 +481,7 @@ strong {
 
 }
 
-.find-card__title {
-    font-size: 30px;
-    letter-spacing: 0.6px;
-    text-align: center;
-    margin-bottom: 30px;
 
-}
 
 .find-card__form {
     padding: 20px;
@@ -627,27 +494,6 @@ strong {
     margin-bottom: 20px;
 
 }
-
-.find-card__input input::placeholder {
-    color: var(--gray-library);
-    font-family: Forum;
-    font-size: 30px;
-    line-height: 50px;
-    /* 166.667% */
-    letter-spacing: 0.6px;
-
-}
-
-.find-card__input input[type="text"],
-.find-card__input input[type="number"] {
-    color: var(--main-library);
-    font-family: Forum;
-    font-size: 30px;
-    line-height: 50px;
-    /* 166.667% */
-    letter-spacing: 0.6px;
-}
-
 
 .find-card__input input {
     border: 1px solid white;
@@ -674,20 +520,6 @@ input[type="number"] {
 
 }
 
-.card-text {
-    color: var(--gray-library);
-    font-family: Forum;
-    font-size: 30px;
-    line-height: 50px;
-    /* 166.667% */
-    letter-spacing: 0.6px;
-    margin-bottom: 20px;
-}
-
-.card-text--black {
-    color: var(--black);
-
-}
 
 .find-card__button {
     display: block;
@@ -719,32 +551,6 @@ input[type="number"] {
     align-items: end;
 }
 
-.get-card__title {
-    color: #000;
-    text-align: center;
-    font-family: Forum;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 0.6px;
-
-}
-
-.get-card__text {
-    color: #000;
-    text-align: right;
-    font-family: Inter;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 40px;
-    /* 200% */
-    letter-spacing: 0.4px;
-    width: 456px;
-}
-
-
 .get-card__buttons {
     display: flex;
     align-items: end;
@@ -760,6 +566,10 @@ input[type="number"] {
     height: 250px;
     background-color: var(--black-library);
     padding: 20px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .footer__information {
@@ -772,27 +582,15 @@ input[type="number"] {
 }
 
 
-.footer__text {
-    color: #FFF;
-font-family: Inter;
-font-size: 15px;
-font-style: normal;
-font-weight: 400;
-line-height: 20px; /* 133.333% */
 
-}
-
-.footer__text--right {
-    text-align: end;
-}
 
 .social {
     display: flex;
-width: 102px;
-height: 24px;
-justify-content: center;
-align-items: flex-start;
-gap: 15px;
+    width: 102px;
+    height: 24px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
 
 }
 
@@ -803,6 +601,28 @@ gap: 15px;
     background-color: var(--white);
 }
 
+
+
+
+.footer__rss {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.information-main {
+    height: 100px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.information-main:last-child {
+    border-top: 1px solid white;
+}
 
 /**_____________________________________________________ COLOR */
 
