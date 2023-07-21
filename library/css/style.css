@@ -4,10 +4,11 @@
 
 
 body {
-    font-family: Inter, sans-serif;
-    font-size: 20px;
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-base);
+    margin: 0;
     font-weight: 400;
-}
+  }
 
 a {
     text-decoration: none;
@@ -58,6 +59,13 @@ strong {
 
 }
 
+.title__border {
+    width: 50px;
+    border-bottom: 1px solid var(--black-library);
+    margin-top: 20px;
+    margin: 20px auto;
+}
+
 /* *________________________________________________HEADER________________ */
 .header__elements {
     display: flex;
@@ -97,7 +105,7 @@ strong {
 }
 
 .nav__link {
-    color: var(--header-text);
+    color: var(--white);
 }
 
 .nav__link:hover {
@@ -154,6 +162,7 @@ strong {
     align-items: center;
 
 }
+
 
 
 /* *______________________________SLIDER__*/
@@ -349,6 +358,13 @@ strong {
 
 }
 
+.book__text {
+    width: 355px;
+    height: 320px;
+    overflow: hidden;
+
+}
+
 .border {
     width: 60px;
     height: 1px;
@@ -403,6 +419,9 @@ strong {
 
 } */
 
+.coffee-shop__description {
+    text-align: center;
+}
 
 
 .coffee-shop__menu {
@@ -451,10 +470,16 @@ strong {
 
 }
 
-.information__text li {}
+.information__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
-.information__text li:nth-child(1),
-.information__text li:nth-child(4) {
+.information__list li {}
+
+.information__list  li:nth-child(1),
+.information__list  li:nth-child(4) {
     margin-bottom: 20px;
 }
 
@@ -463,8 +488,6 @@ strong {
     height: 414px;
 
 }
-
-
 
 .cards {
     width: 100%;
@@ -481,17 +504,26 @@ strong {
 
 }
 
+.find-card__title {
+    font-size: 30px;
+    letter-spacing: 0.6px;
+    text-align: center;
+    margin-bottom: 30px;
 
+}
 
 .find-card__form {
-    padding: 20px;
+    padding: 17px;
     border: 3px solid var(--main-library);
 }
 
 .find-card__input {
-    padding: 20px 20px 0px 20px;
     background-color: var(--main-library);
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap:25px;
+    padding: 20px;
+    margin-bottom: 25px;
 
 }
 
@@ -499,6 +531,7 @@ strong {
     border: 1px solid white;
     border-radius: 10px;
     outline: none;
+    align-self: center;
 }
 
 input::-webkit-outer-spin-button,
@@ -516,8 +549,7 @@ input[type="number"] {
     height: 66px;
     border-radius: 10px;
     padding: 8px 20px;
-    margin-bottom: 25px;
-
+    
 }
 
 
@@ -549,6 +581,7 @@ input[type="number"] {
     flex-direction: column;
     gap: 35px;
     align-items: end;
+    width: 456px;
 }
 
 .get-card__buttons {
@@ -559,8 +592,6 @@ input[type="number"] {
 
 
 /* *______________________________FOOTER___ */
-
-
 
 .footer__container {
     height: 250px;
@@ -581,9 +612,6 @@ input[type="number"] {
     align-items: center;
 }
 
-
-
-
 .social {
     display: flex;
     width: 102px;
@@ -594,15 +622,12 @@ input[type="number"] {
 
 }
 
-
 .footer__line {
     width: 1400px;
     height: 1px;
     background-color: var(--white);
+
 }
-
-
-
 
 .footer__rss {
     margin-top: 20px;
@@ -622,23 +647,23 @@ input[type="number"] {
 
 .information-main:last-child {
     border-top: 1px solid white;
+
 }
 
-/**_____________________________________________________ COLOR */
+/**_____________________________________________________ ROOT */
 
 :root {
-    --header-text: #fff;
-
     --black-library: #0C0C0E;
     --main-library: #BB945F;
     --gray-library: #8E8E8E;
+    --header-footer-text-color: #fff;
 
     --black: #000000;
     --white: #fff;
 
-
-
-
-
+    --font-size-base: 1.25rem; /*20px*/
+    --font-family-forum: Forum, sans-serif;
+    --font-family-inter: Inter, sans-serif;
+    
 
 }
