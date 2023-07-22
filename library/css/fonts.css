@@ -52,7 +52,7 @@
 }
 
 .find-card__input input::placeholder {
-    color: var(--gray-library-text-color);
+    color: #8E8E8E;
     font-family: Forum;
     font-size: 30px;
     line-height: 50px;
@@ -63,7 +63,7 @@
 
 .find-card__input input[type="text"],
 .find-card__input input[type="number"] {
-    color: var(--main-library-text-color);
+    color: #BB945F;
     font-family: Forum;
     font-size: 30px;
     line-height: 50px;
