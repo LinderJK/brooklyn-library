@@ -19,6 +19,12 @@ a {
     text-decoration: none;
     margin: 0px;
     padding: 0px;
+    color: inherit;
+}
+
+a:hover {
+    color: var(--main-library);
+    transition: 500ms;
 }
 
 p {
@@ -135,12 +141,17 @@ strong {
 .nav__link:hover {
     animation-name: link;
     animation-duration: 500ms;
-    animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
 }
 
 @keyframes link {
-    0% {color: var(--header-footer-text-color);}
-    100% {color: var(--main-library);}
+    0% {
+        color: var(--header-footer-text-color);
+    }
+
+    100% {
+        color: var(--main-library);
+    }
 }
 
 
@@ -423,7 +434,7 @@ strong {
     border: solid 1px var(--main-library);
     color: var(--main-library);
     background-color: white;
-    
+
 }
 
 .book__preview {
@@ -687,6 +698,22 @@ input[type="number"] {
 
 }
 
+.footer-copyright__year {
+    min-width:200px;
+    flex: 0 0 auto;
+    text-align: start;
+}
+.footer-copyright__autor {
+    min-width:200px;
+    flex: 0 0 auto;  
+    text-align: end;
+}
+
+.footer-copyright__school{
+    flex: 2;
+    text-align: center;
+     
+}
 
 
 /**_____________________________________________________ ROOT */

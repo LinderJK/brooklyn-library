@@ -132,7 +132,7 @@
 }
 
 .footer-text-low {
-    color: var(--header-footer-text-color);
+    color: white;
     font-size: 15px;
     font-weight: 400;
     line-height: 20px;
