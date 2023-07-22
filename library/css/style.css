@@ -3,12 +3,17 @@
 }
 
 
+html {
+    scroll-behavior: smooth;
+}
+
+
 body {
     font-family: var(--font-family-inter);
     font-size: var(--font-size-base);
     margin: 0;
     font-weight: 400;
-  }
+}
 
 a {
     text-decoration: none;
@@ -132,7 +137,7 @@ strong {
     width: 600px;
     height: 220px;
     background-color: var(--black);
-    text-align: center; 
+    text-align: center;
     padding: 35px 40px;
     margin: 220px 840px 160px 0px;
     position: absolute;
@@ -478,8 +483,8 @@ strong {
 
 .information__list li {}
 
-.information__list  li:nth-child(1),
-.information__list  li:nth-child(4) {
+.information__list li:nth-child(1),
+.information__list li:nth-child(4) {
     margin-bottom: 20px;
 }
 
@@ -521,7 +526,7 @@ strong {
     background-color: var(--main-library);
     display: flex;
     flex-direction: column;
-    gap:25px;
+    gap: 25px;
     padding: 20px;
     margin-bottom: 25px;
 
@@ -549,7 +554,7 @@ input[type="number"] {
     height: 66px;
     border-radius: 10px;
     padding: 8px 20px;
-    
+
 }
 
 
@@ -603,7 +608,16 @@ input[type="number"] {
 
 }
 
-.footer__information {
+.footer-block {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+
+.footer-block__item {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -629,26 +643,20 @@ input[type="number"] {
 
 }
 
-.footer__rss {
-    margin-top: 20px;
+.footer-copyright {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-
+    margin-top: 20px;
 }
 
-.information-main {
-    height: 100px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-}
-
-.information-main:last-child {
+.footer-block:last-child {
     border-top: 1px solid white;
 
 }
+
+
 
 /**_____________________________________________________ ROOT */
 
@@ -661,9 +669,10 @@ input[type="number"] {
     --black: #000000;
     --white: #fff;
 
-    --font-size-base: 1.25rem; /*20px*/
+    --font-size-base: 1.25rem;
+    /*20px*/
     --font-family-forum: Forum, sans-serif;
     --font-family-inter: Inter, sans-serif;
-    
+
 
 }

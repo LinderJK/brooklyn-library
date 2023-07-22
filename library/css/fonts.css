@@ -55,7 +55,8 @@
     color: var(--gray-library-text-color);
     font-family: Forum;
     font-size: 30px;
-    line-height: 50px; /* 166.667% */
+    line-height: 50px;
+    /* 166.667% */
     letter-spacing: 0.6px;
 
 }
@@ -65,7 +66,8 @@
     color: var(--main-library-text-color);
     font-family: Forum;
     font-size: 30px;
-    line-height: 50px;/* 166.667% */
+    line-height: 50px;
+    /* 166.667% */
     letter-spacing: 0.6px;
 }
 
@@ -76,7 +78,7 @@
     font-family: var(--font-family-inter);
     font-style: normal;
     line-height: 40px;
-    
+
 }
 
 .description {
@@ -84,16 +86,16 @@
     text-transform: capitalize;
     font-weight: 400;
     letter-spacing: 2px;
-   
-}   
 
-.description--bold{
+}
+
+.description--bold {
     text-transform: uppercase;
     font-weight: 700;
 
 }
 
-.description--cap{
+.description--cap {
     text-transform: capitalize;
 
 }
@@ -114,16 +116,15 @@
 }
 
 .text--right {
-text-align: right;
+    text-align: right;
 }
 
 .text--spacing-low {
     letter-spacing: 0.4px;
 }
 
-
 .text-footer {
-    
+    color: var(--header-footer-text-color);
     font-size: 20px;
     font-style: normal;
     line-height: 20px;
@@ -136,4 +137,3 @@ text-align: right;
     font-weight: 400;
     line-height: 20px;
 }
-
