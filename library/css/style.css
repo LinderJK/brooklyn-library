@@ -426,15 +426,6 @@ strong {
     
 }
 
-
-button[disabled],
-button[disabled]:hover{
-  border: 1px solid var(--main-library);
-  background-color: var(--white);
-  color: var(--main-library);
-  cursor:default;
-}
-
 .book__preview {
     width: 200px;
     height: 300px;
@@ -612,7 +603,7 @@ input[type="number"] {
 }
 
 .find-card__button:hover,
-.button-low:hover {
+.button-low:hover:not([disabled]) {
     background: var(--main-library);
     transition: 0.5s;
     border: 1px solid var(--main-library);
