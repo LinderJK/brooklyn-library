@@ -133,19 +133,16 @@ strong {
 }
 
 .nav__link:hover {
-    animation-name: link-border;
+    animation-name: link;
     animation-duration: 500ms;
     animation-fill-mode:forwards;
 }
 
-@keyframes link-border {
-    from {
-        color: var(--header-footer-text-color);
-    }
-    to {
-        color: var(--main-library);
-    }
+@keyframes link {
+    0% {color: var(--header-footer-text-color);}
+    100% {color: var(--main-library);}
 }
+
 
 /* *________________________________________________WELCOME_SECTION________________ */
 
@@ -422,7 +419,21 @@ strong {
     background-color: var(--white);
 }
 
+.button-low--press {
+    border: solid 1px var(--main-library);
+    color: var(--main-library);
+    background-color: white;
+    
+}
 
+
+button[disabled],
+button[disabled]:hover{
+  border: 1px solid var(--main-library);
+  background-color: var(--white);
+  color: var(--main-library);
+  cursor:default;
+}
 
 .book__preview {
     width: 200px;
