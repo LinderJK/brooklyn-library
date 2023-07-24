@@ -78,11 +78,15 @@ strong {
 }
 
 /* *________________________________________________HEADER________________ */
+.header {
+    background-color: var(--black-library);
+}
+
 .header__elements {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    background-color: var(--black);
+    background-color: var(--black-library);
     height: 90px;
     padding: 20px;
     align-items: center;
@@ -157,12 +161,11 @@ strong {
 
 /* *________________________________________________WELCOME_SECTION________________ */
 
-.welcome__image {
+.welcome {
     height: 600px;
     width: 100%;
     background: url(../img/header-img-library.jpeg) no-repeat center;
     background-size: cover;
-
 
 }
 
@@ -173,7 +176,7 @@ strong {
 .welcome__text-block {
     width: 600px;
     height: 220px;
-    background-color: var(--black);
+    background-color: var(--black-library);
     text-align: center;
     padding: 35px 40px;
     margin: 220px 840px 160px 0px;
@@ -204,8 +207,9 @@ strong {
     align-items: center;
 
 }
-
-
+.about__content {
+    padding-bottom: 35px;
+}
 
 /* *______________________________SLIDER__*/
 
@@ -253,15 +257,16 @@ strong {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 40px;
-    /* margin-bottom: 10px; */
+    margin-top: 35px;
 }
 
 .slider__navigation-item {
     display: flex;
     width: 26px;
-    /* height: 26px; */
+    height: 26px;
+    padding: 5px;
     justify-content: center;
+    cursor: pointer;
 
 }
 
@@ -270,7 +275,7 @@ strong {
     border-radius: 50%;
     width: 16px;
     height: 16px;
-    cursor: pointer;
+    
 
 }
 
@@ -289,7 +294,6 @@ strong {
     align-self: start;
 
 }
-
 /* *______________________________CUSTOM RADIO__*/
 
 /* TODO Ements alignment*/
@@ -299,13 +303,14 @@ strong {
     flex-direction: row;
     align-self: start;
     gap: 90px;
-    margin: 20px 0;
+    margin: 15px 0;
 
 }
 
 .radio {
     position: relative;
-
+    overflow: hidden;
+    
 }
 
 .radio input[type="radio"] {
@@ -351,17 +356,17 @@ strong {
 
 }
 
-/* TODO pointer 5px */
-/* .radio-button-block__item {
+.radio-button-block__item {
     cursor: pointer;
     padding: 5px 0px;
+
   }
   
   .radio-button-block__item *,
   .radio-button-block__item *:before,
   .radio-button-block__item *:after {
     cursor: pointer;
-  } */
+  }
 
 .radio input[type="radio"]:checked~label {
     font-weight: bold;
@@ -378,7 +383,6 @@ strong {
     width: 100%;
     row-gap: 40px;
     column-gap: 220px;
-    /* margin-bottom: 20px; */
 
 }
 
@@ -639,6 +643,10 @@ input[type="number"] {
 
 
 /* *______________________________FOOTER___ */
+
+.footer {
+    background-color: var(--black-library);
+}
 
 .footer__container {
     height: 250px;
