@@ -488,6 +488,7 @@ strong {
     display: flex;
     flex-direction: column;
     gap: 40px;
+    
 
 }
 
@@ -545,6 +546,7 @@ strong {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
 
 }
 
@@ -635,6 +637,14 @@ input[type="number"] {
     width: 456px;
 }
 
+.get-card__text {
+    display: flex;
+    flex-direction: column;
+    gap:35px;
+    align-items: flex-end;
+}
+
+
 .get-card__buttons {
     display: flex;
     align-items: end;
@@ -722,6 +732,84 @@ input[type="number"] {
     text-align: center;
      
 }
+
+/**_____________________________________________________ MEDIA */
+
+@media (max-width:767px) {
+    .container{
+        max-width: none;
+
+    }
+
+    .text {
+        text-align: center;
+
+    }
+
+    .slider__image-list {
+       justify-content: center;
+    }
+    
+    .slider__navigation {
+        margin-top: 20px;
+
+    }
+    .favorites-list {
+        justify-content: center;
+    }
+    .coffee-shop__menu {
+        justify-content: center;
+        flex-flow: column wrap;
+        row-gap: 40px;
+    }
+    .information {
+        flex-direction: column;
+
+    }
+    .information__list {
+        align-items: flex-start;
+    }
+    .information__map {
+        margin-top: 100px;
+        align-self: center;
+    }
+    .cards {
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    .get-card {
+        align-items: center;
+        gap: 40px;
+
+    }
+    .get-card__text {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        gap: 40px;
+        align-items: center;
+        
+    }
+    .text--right {
+        text-align: center !important;
+    }
+    .get-card {
+        width: 600px;
+    }
+
+
+    /* less 768*/
+    /* .get-card,
+    .find-card,
+    .form,
+    .information__map {
+        width: 100%;
+    } */
+}
+
+
+
 
 
 /**_____________________________________________________ ROOT */
