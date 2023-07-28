@@ -2,11 +2,9 @@
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
-
 
 body {
     font-family: var(--font-family-inter);
@@ -37,7 +35,6 @@ li {
     list-style: none;
     padding: 0px;
     margin: 0px;
-
 }
 
 h1,
@@ -158,7 +155,6 @@ strong {
     }
 }
 
-
 /* *________________________________________________WELCOME_SECTION________________ */
 
 .welcome {
@@ -194,7 +190,7 @@ strong {
 .welcome__overlay {
     height: 300px;
     background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.10) 100%);
-    
+
 
 }
 
@@ -207,6 +203,7 @@ strong {
     align-items: center;
 
 }
+
 .about__content {
     padding-bottom: 35px;
 }
@@ -252,7 +249,6 @@ strong {
 
 }
 
-
 .slider__navigation {
     display: flex;
     flex-direction: row;
@@ -275,7 +271,6 @@ strong {
     border-radius: 50%;
     width: 16px;
     height: 16px;
-    
 
 }
 
@@ -287,17 +282,16 @@ strong {
     background-color: var(--main-library);
 }
 
-
 /* *______________________________________________FAVORITES_SECTION______________ */
 
 .favorites__description {
     align-self: start;
 
 }
+
 /* *______________________________CUSTOM RADIO__*/
 
-/* TODO Ements alignment*/
-
+/* TODO Elements alignment*/
 .radio-button-block {
     display: flex;
     flex-direction: row;
@@ -310,7 +304,7 @@ strong {
 .radio {
     position: relative;
     overflow: hidden;
-    
+
 }
 
 .radio input[type="radio"] {
@@ -339,7 +333,6 @@ strong {
     top: 5px;
     left: 0px;
 
-
 }
 
 .radio input[type="radio"]:checked+label::after {
@@ -353,27 +346,24 @@ strong {
     top: 10px;
     left: 5px;
 
-
 }
 
 .radio-button-block__item {
     cursor: pointer;
     padding: 5px 0px;
 
-  }
-  
-  .radio-button-block__item *,
-  .radio-button-block__item *:before,
-  .radio-button-block__item *:after {
+}
+
+.radio-button-block__item *,
+.radio-button-block__item *:before,
+.radio-button-block__item *:after {
     cursor: pointer;
-  }
+}
 
 .radio input[type="radio"]:checked~label {
     font-weight: bold;
 
 }
-
-
 
 /* *______________________________FAVORITES_LIST__*/
 
@@ -397,7 +387,6 @@ strong {
     border: 1px solid black;
     display: flex;
     flex-direction: column;
-    /* grid-template-rows: 40px 80 auto 35px; */
     padding: 15px 20px;
     row-gap: 20px;
     position: relative;
@@ -416,7 +405,6 @@ strong {
     height: 1px;
     border-bottom: 1px solid var(--main-library);
 }
-
 
 .button-low {
     width: 75px;
@@ -456,19 +444,11 @@ strong {
     display: none;
 }
 
-
 /* *______________________________COFFEE-SHOP SECTION___ */
-
-/* .coffee-shop__content {
-    padding: 20px 20px 40px 20px;
-    gap: 20px;
-
-} */
 
 .coffee-shop__description {
     text-align: center;
 }
-
 
 .coffee-shop__menu {
     display: flex;
@@ -483,7 +463,6 @@ strong {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    
 
 }
 
@@ -504,10 +483,10 @@ strong {
 
 .border--long {
     width: 100px;
+
 }
 
 /* *______________________________CONTACTS SECTION___ */
-
 
 .information {
     width: 100%;
@@ -522,8 +501,6 @@ strong {
     flex-direction: column;
     gap: 20px;
 }
-
-.information__list li {}
 
 .information__list li:nth-child(1),
 .information__list li:nth-child(4) {
@@ -588,10 +565,6 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-input[type="number"] {
-    -moz-appearance: textfield;
-}
-
 .form {
     width: 520px;
     height: 66px;
@@ -599,7 +572,6 @@ input[type="number"] {
     padding: 8px 20px;
 
 }
-
 
 .find-card__button {
     display: block;
@@ -623,7 +595,6 @@ input[type="number"] {
 
 }
 
-
 .get-card {
     display: flex;
     flex-direction: column;
@@ -635,17 +606,15 @@ input[type="number"] {
 .get-card__text {
     display: flex;
     flex-direction: column;
-    gap:35px;
+    gap: 35px;
     align-items: flex-end;
 }
-
 
 .get-card__buttons {
     display: flex;
     align-items: end;
     gap: 20px;
 }
-
 
 /* *______________________________FOOTER___ */
 
@@ -670,7 +639,6 @@ input[type="number"] {
     justify-content: center;
 
 }
-
 
 .footer-block__item {
     display: flex;
@@ -705,33 +673,33 @@ input[type="number"] {
     margin-top: 20px;
 }
 
-
 .footer-block:last-child {
     border-top: 1px solid white;
 
 }
 
 .footer-copyright__year {
-    min-width:200px;
+    min-width: 200px;
     flex: 0 0 auto;
     text-align: start;
 }
+
 .footer-copyright__autor {
-    min-width:200px;
-    flex: 0 0 auto;  
+    min-width: 200px;
+    flex: 0 0 auto;
     text-align: end;
 }
 
-.footer-copyright__school{
+.footer-copyright__school {
     flex: 2;
     text-align: center;
-     
+
 }
 
 /**_____________________________________________________ MEDIA */
 
 @media (max-width:767px) {
-    .container{
+    .container {
         max-width: none;
 
     }
@@ -742,65 +710,66 @@ input[type="number"] {
     }
 
     .slider__image-list {
-       justify-content: center;
+        justify-content: center;
     }
-    
+
     .slider__navigation {
         margin-top: 20px;
 
     }
+
     .favorites-list {
         justify-content: center;
     }
+
     .coffee-shop__menu {
         justify-content: center;
         flex-flow: column wrap;
         row-gap: 40px;
     }
+
     .information {
         flex-direction: column;
 
     }
+
     .information__list {
         align-items: flex-start;
     }
+
     .information__map {
         margin-top: 100px;
         align-self: center;
     }
+
     .cards {
         flex-direction: column;
         align-items: center;
-        
+
     }
+
     .get-card {
         align-items: center;
         gap: 40px;
 
     }
+
     .get-card__text {
         display: flex;
         flex-direction: column;
         margin-top: 20px;
         gap: 40px;
         align-items: center;
-        
+
     }
+
     .text--right {
         text-align: center !important;
     }
+
     .get-card {
         width: 600px;
     }
-
-
-    /* less 768*/
-    /* .get-card,
-    .find-card,
-    .form,
-    .information__map {
-        width: 100%;
-    } */
 }
 
 
@@ -814,14 +783,11 @@ input[type="number"] {
     --main-library: #BB945F;
     --gray-library: #8E8E8E;
     --header-footer-text-color: #fff;
-
     --black: #000000;
     --white: #fff;
-
     --font-size-base: 1.25rem;
     /*20px*/
     --font-family-forum: Forum, sans-serif;
     --font-family-inter: Inter, sans-serif;
-
 
 }

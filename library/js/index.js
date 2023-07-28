@@ -28,6 +28,6 @@ function grade() {
     }
     return (
         console.log('Максимально возможные баллы - 100'),
-        console.log ('Баллы самопроверки - ' + scoreSumm));
+        console.log('Баллы самопроверки - ' + scoreSumm));
 }
-grade ();
+grade();
