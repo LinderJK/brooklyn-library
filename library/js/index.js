@@ -16,7 +16,7 @@ const tasks = [{
 }, {
     number: 4,
     maxscore: 20,
-    myscore: 20,
+    myscore: 18,
     description: 'Общие требования к верстке'
 }]
 
