@@ -75,9 +75,6 @@ strong {
 }
 
 /* *________________________________________________HEADER________________ */
-.header {
-    background-color: var(--black-library);
-}
 
 .header__elements {
     display: flex;
@@ -157,7 +154,7 @@ strong {
 
 /* *________________________________________________WELCOME_SECTION________________ */
 
-.welcome {
+.welcome__image {
     height: 600px;
     width: 100%;
     background: url(../img/header-img-library.jpeg) no-repeat center;
@@ -190,7 +187,6 @@ strong {
 .welcome__overlay {
     height: 300px;
     background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.10) 100%);
-
 
 }
 
@@ -617,10 +613,6 @@ input::-webkit-inner-spin-button {
 }
 
 /* *______________________________FOOTER___ */
-
-.footer {
-    background-color: var(--black-library);
-}
 
 .footer__container {
     height: 250px;

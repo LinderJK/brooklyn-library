@@ -106,3 +106,5 @@ dist
 # User support folder
 /FAQ
 
+# Webstorm
+.idea
