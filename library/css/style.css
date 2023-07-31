@@ -691,6 +691,14 @@ input::-webkit-inner-spin-button {
 
 /**_____________________________________________________ MEDIA */
 
+@media (max-width:1025px) {
+    
+
+}
+
+
+
+
 @media (max-width:767px) {
     .container {
         max-width: none;
@@ -764,6 +772,7 @@ input::-webkit-inner-spin-button {
         width: 600px;
     }
 }
+
 
 
 
