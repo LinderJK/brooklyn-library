@@ -791,46 +791,76 @@ input::-webkit-inner-spin-button {
         width: 600px;
     }
 
-    .header__nav {
-        display: none;
-    }
-
     .auth-icon {
         margin-left: auto;
         margin-right: 40px;
 
     }
-    .navbar-toggler {
+
+    .navbar-toggler {  
         display: block;
         cursor: pointer;
         background-color: var(--black-library);
         border: none;
         margin: 0px;
         padding: 0px;
+        position: relative;
         
     }
+
     .navbar-toggler__line {
         display: block;
         width: 45px;
         height: 2px;
         margin: 8px 0px;
         background-color: white;
-    }
-
-    .navbar-toggler--active {
+        transition: all 300ms ease-in-out;
         
     }
 
+    .nav__list {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        justify-content: flex-start;
+        padding: 20px;
+        position: absolute;
+        right: -100%;
+        top: 90px;
+        line-height: 50px; /* 250% */
+        background-color: var(--black-library);
+        width: 332px;
+        height: 480px;
+        transition: 700ms;
+        z-index: 999;
+
+    }
+
+    .nav__list--active { 
+        right: 10px;
+
+    }
+
+    .navbar-toggler--active .navbar-toggler__line:nth-child(2) {
+        display: none;
+        
+
+    }
+
+    .navbar-toggler--active .navbar-toggler__line:nth-child(1) {
+        transform: translateY(5px) rotate(45deg);
+        background-color: var(--main-library);
+    }
+
+    .navbar-toggler--active .navbar-toggler__line:nth-child(3) {
+        transform: translateY(-5px) rotate(-45deg);
+        background-color: var(--main-library);
+    }
+
 
 }
 
 
-
-@media (min-width: 769px) {
-    
-
-    
-}
 
 
 
