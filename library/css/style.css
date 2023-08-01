@@ -92,13 +92,13 @@ strong {
     margin-left: auto;
 }
 
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
     .header__nav {
         display: none;
-        /*TODO: burgermenu*/
+        
 
     }
-}
+} */
 
 .nav__list {
     display: flex;
@@ -229,19 +229,6 @@ strong {
     width: 100%;
     height: 100%;
     object-fit: cover;
-
-}
-
-@media (max-width: 768px) {
-    .slider__item {
-        width: 100%;
-        justify-content: center;
-
-    }
-
-    .slider__image-list:not(:first-child) {
-        display: none;
-    }
 
 }
 
@@ -689,17 +676,34 @@ input::-webkit-inner-spin-button {
 
 }
 
-/**_____________________________________________________ MEDIA */
-
-@media (max-width:1025px) {
-    
-
+.navbar-toggler {
+    display: none;
 }
 
 
 
 
-@media (max-width:767px) {
+
+/**_____________________________________________________ MEDIA */
+
+@media (max-width: 1300px) {
+    .favorites-list {
+        flex-direction: column;
+    }
+  
+}
+
+@media (max-width: 1199.98px) {
+
+    .cards {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+
+}
+
+@media (max-width:1024px) {
     .container {
         max-width: none;
 
@@ -709,6 +713,15 @@ input::-webkit-inner-spin-button {
         text-align: center;
 
     }
+    /* .slider__item {
+        width: 100%;
+        justify-content: center;
+
+    }
+
+    .slider__image-list:not(:first-child) {
+        display: none;
+    } */
 
     .slider__image-list {
         justify-content: center;
@@ -729,6 +742,10 @@ input::-webkit-inner-spin-button {
         row-gap: 40px;
     }
 
+    .menu-coffee {
+        align-items: flex-start;
+    }
+
     .information {
         flex-direction: column;
 
@@ -741,6 +758,7 @@ input::-webkit-inner-spin-button {
     .information__map {
         margin-top: 100px;
         align-self: center;
+        width: 100%;
     }
 
     .cards {
@@ -763,14 +781,55 @@ input::-webkit-inner-spin-button {
         align-items: center;
 
     }
-
-    .text--right {
-        text-align: center !important;
+    
+    .get-card__text > p {
+        text-align: center;
+        /* TODO TEXT align */
     }
 
     .get-card {
         width: 600px;
     }
+
+    .header__nav {
+        display: none;
+    }
+
+    .auth-icon {
+        margin-left: auto;
+        margin-right: 40px;
+
+    }
+    .navbar-toggler {
+        display: block;
+        cursor: pointer;
+        background-color: var(--black-library);
+        border: none;
+        margin: 0px;
+        padding: 0px;
+        
+    }
+    .navbar-toggler__line {
+        display: block;
+        width: 45px;
+        height: 2px;
+        margin: 8px 0px;
+        background-color: white;
+    }
+
+    .navbar-toggler--active {
+        
+    }
+
+
+}
+
+
+
+@media (min-width: 769px) {
+    
+
+    
 }
 
 

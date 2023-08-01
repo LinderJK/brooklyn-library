@@ -137,3 +137,8 @@
     font-weight: 400;
     line-height: 20px;
 }
+
+.footer-text-low > p,
+.get-card__text > p {
+    text-align: right;
+}
