@@ -1,6 +1,6 @@
 function hideSliderImage() {
     const sliderImages = document.querySelectorAll('.slider__image');
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1024) {
 
         sliderImages.forEach(function (element, index) {
             if (index === 0) {
@@ -19,3 +19,4 @@ function hideSliderImage() {
 
 window.addEventListener('load', hideSliderImage);
 window.addEventListener('resize', hideSliderImage);
+
