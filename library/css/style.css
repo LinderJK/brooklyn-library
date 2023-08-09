@@ -214,7 +214,7 @@ strong {
 .slider__image-list {
   display: flex;
   flex-direction: row;
-  column-gap: 25px;
+  column-gap: 45px;
   flex-wrap: nowrap;
 
 }
@@ -836,7 +836,7 @@ input::-webkit-inner-spin-button {
     flex-direction: column;
     gap: 30px;
     justify-content: flex-start;
-    padding: 20px;
+    padding: 10px;
     position: absolute;
     right: -100%;
     top: 90px;
@@ -852,7 +852,7 @@ input::-webkit-inner-spin-button {
   }
 
   .nav__list--active {
-    right: 10px;
+    right: 0px;
 
   }
 
@@ -888,13 +888,13 @@ input::-webkit-inner-spin-button {
   .slider__button-next::before {
     content: '';
     position: absolute;
-    top: 52%;
-    left: 11px;
+    top: 53%;
+    left: 15px;
     display: block;
-    width: 13px;
-    height: 13px;
-    border-left: 4px solid rgb(0, 0, 0);
-    border-bottom: 4px solid rgb(0, 0, 0);
+    width: 8px;
+    height: 8px;
+    border-left: 2px solid rgb(0, 0, 0);
+    border-bottom: 2px solid rgb(0, 0, 0);
     transform: rotate(45deg);
     cursor: pointer;
 
