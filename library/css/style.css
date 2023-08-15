@@ -214,15 +214,41 @@ strong {
 .slider__image-list {
   display: flex;
   flex-direction: row;
-  column-gap: 45px;
+  column-gap: 25px;
   flex-wrap: nowrap;
+  position: relative;
 
 }
 
+@keyframes go-right {
+  from {right: 450px;}
+  to {right: 0;}
+
+}
+.trasition-right {
+  animation-name: go-right;
+  animation-duration: 2s;
+}
+
+@keyframes go-left {
+  from {left: 450px;}
+  to {left: 0;}
+
+}
+.trasition-left {
+  animation-name: go-left;
+  animation-duration: 2s;
+}
+
+.slider-carousel {
+ overflow: hidden;
+}
+
 .slider__image {
-  width: 450px;
+  min-width: 450px;
   height: 560px;
   overflow: hidden;
+
 
 }
 
