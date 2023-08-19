@@ -1,82 +1,39 @@
-// function hideSliderImage() {
-//     const sliderImages = document.querySelectorAll('.slider__image');
-//     if (window.innerWidth <= 1024) {
-//
-//         sliderImages.forEach(function (element, index) {
-//             if (index === 0) {
-//                 element.style.display = 'block';
-//             } else {
-//                 element.style.display = 'none';
-//             }
-//         });
-//
-//     } else {
-//         sliderImages.forEach(function (element) {
-//             element.style.display = 'block';
-//         });
-//     }
-// }
 
-// window.addEventListener('load', hideSliderImage);
-// window.addEventListener('resize', hideSliderImage);
-
-let items = document.querySelectorAll('.slider__image');
-let container = document.querySelector ('.slider__image-list ');
-let btnNext =  document.querySelector('.slider__button-next');
+let btnNext = document.querySelector('.slider__button-next');
 let btnPrev = document.querySelector('.slider__button-prev');
-let dots = document.querySelectorAll('.slider__navigation-item');
 
-console.log (dots);
-console.log(container);
+const images = document.querySelectorAll('.slider__image');
+const dots = document.querySelectorAll('.slider__navigation-item');
+const sliderContainer = document.querySelector('.slider__image-list ');
+let currentIndex = 0;
+const num = calculatePicsNumber(); // 
+console.log(num);
 
-btnPrev.onclick = function () {
-  return console.log('prev');
-};
-btnNext.onclick = function () {
-  return console.log('next');
-};
 
-dots.forEach( (elem, index)=> {
-  elem.addEventListener('click', function (event) {
-    console.log('ok');
-    console.log(index);
-    if (index === 1 ) {
-      container.classList.add("trasition-right");
-      dots[1].firstElementChild.classList.add('slider__dot--active');
-      dots[0].firstElementChild.classList.remove('slider__dot--active');
-    }
+function calculatePicsNumber () {
+  console.log(window.innerWidth <= 1024 ? 1 : 3);
+  return window.innerWidth <= 1024 ?  1 : 3;
+
+}
+
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+    console.log(dot, index);
+    imageSlide(index, num);
+    updateStyleDots();
   })
 })
 
-// dots.onclick = function (){
-//   // dots.forEach((elem)=>{
-//   //
-//   //
-//   // }
-//   return console.log ('ok')
-// }
+function imageSlide(index, num) {
+  currentIndex = index;
+  let translateXValue = currentIndex * 475; 
+  sliderContainer.style.transform = `translateX(-${translateXValue}px)`;
+  console.log (`translateX(-${translateXValue}px)` , num, index , currentIndex);
 
+}
 
-
-
-
-console.log(items);
-let position = 0;
-
-const showSlide = 3;
-const scrollSlide = 1;
-
-const itemWidth = container.offsetWidth/ showSlide;
-
-console.log (itemWidth);
-
-
-
-
-
-// slider__item   = track
-
-//slider__image-list  = track
-
-//slider__image = item
-
+function updateStyleDots() {
+  dots.forEach((dot, index) => {
+    dot.firstElementChild.classList.toggle('slider__dot--active', index === currentIndex);
+  });
+}
