@@ -443,9 +443,9 @@ strong {
 
 }
 
-.favorites-list>.favorites__item:nth-child(n+5) {
+/* .favorites-list>.favorites__item:nth-child(n+5) {
   display: none;
-}
+} */
 
 /* *______________________________COFFEE-SHOP SECTION___ */
 

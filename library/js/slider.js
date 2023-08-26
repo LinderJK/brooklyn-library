@@ -81,3 +81,8 @@ disableButtons();
 
 btnNext.addEventListener('click', nextSlide);
 btnPrev.addEventListener('click', prevSlide);
+
+
+//TODO
+// Доделать buttons неактивные при перелистывании с помощью dots в 768 версии 
+// Кнопка dots соответствующая активному слайду неактивная
