@@ -48,7 +48,17 @@
             <a class="auth-icon__link" href="#">
               <img class="auth-icon__img" src="./icons/auth-icon-img.svg" alt="login user">
             </a>
+
+            <div class="auth-popup popup-text">
+              <div class="auth-popup__body">
+                <p><b>Profile</b></p>
+                <div class="border"></div>
+                <a id="login">Log In</a>
+                <a id="register">Register</a>
+              </div>
+            </div>
           </div>
+
 
           <button class="navbar-toggler">
             <span class="navbar-toggler__line"></span>
@@ -144,9 +154,9 @@
             <div class="favorites__description">
               <p><b>Pick favorites of season</b></p>
             </div>
-            
+
             <div class="radio-button-block">
-              
+
               <div class="radio-button-block__item">
                 <div class="radio">
                   <input type="radio" id="winter" name="season" value="1" checked>
@@ -278,8 +288,9 @@
                     </p>
                   </div>
                   <div class="book__button">
-                    <button disabled class="button-low button-low--press" name="buy book" type="button">Own
-                    </button>
+                    <!-- <button disabled class="button-low button-low--press" name="buy book" type="button">Own
+                    </button> -->
+                    <button class="button-low">Buy</button>
                   </div>
                   <div class="book__preview">
                     <img src="./img/book/winter-book/winter-book-4.jpeg" alt="THE LAST QUEEN" class="image">
@@ -815,10 +826,36 @@
     </footer>
   </div>
 
+
+  <div class="modal">
+
+    <div class="modal-body">
+      <h3>LOGIN</h3>
+
+      <form class="form-modal">
+        <label for="GET-email">E-mail or readers card</label>
+        <input id="GET-email" type="text" name="email">
+        <label for="GET-password">Password</label>
+        <input id="GET-password" type="text" name="password">
+        <button type="button">Log In</button>
+        
+      </form>
+      <p>Don’t have an account? <a href="">Register</a></p>
+    </div>
+
+
+  </div>
+
+
+
+
+
+
   <script src="./js/index.js"></script>
   <script src="./js/slider.js"></script>
   <script src="./js/script.js"></script>
   <script src="./js/books.js"></script>
+  <script src="./js/popup.js"></script>
 </body>
 
 </html>

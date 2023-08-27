@@ -142,3 +142,12 @@
 .get-card__text > p {
     text-align: right;
 }
+
+
+.popup-text {
+font-size: 15px;
+font-weight: 400;
+line-height: 20px; /* 133.333% */
+}
+
+

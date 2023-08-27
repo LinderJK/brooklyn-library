@@ -41,3 +41,4 @@ window.addEventListener('scroll', function() {
     
 });
 
+//TODO fix sticky (wrapper overflow hidden )
