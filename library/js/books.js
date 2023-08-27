@@ -1,7 +1,6 @@
 const itemBook = document.querySelectorAll('.favorites__item');
-console.log(itemBook);
-const  radioFavorites = document.querySelectorAll('input[type="radio"]');
-console.log(radioFavorites);
+const container = document.querySelector('.favorites-list');
+const radioFavorites = document.querySelectorAll('input[type="radio"]');
 
 let numberOfCheck = 0
 
@@ -12,43 +11,40 @@ while (booksArray.length >= 1) {
   groups.push(booksArray.splice(0, 4));
 }
 
-console.log(groups);
-console.log (typeof groups);
-console.log(groups[0]);
-
-function hideBooks () {
-    itemBook.forEach ((elem, index) => {
-        console.log (elem, index);
-        elem.style.display = 'none';
+function booksVisible () {
+    groups.forEach ((group, index) => {
+        hideBooks(group);
+        showBooks();
+        
     })
 }
 
 function showBooks () {
     groups[numberOfCheck].forEach ((elem, index) => {
-        elem.style.display = 'block';
+        elem.classList.remove('favorites-item--hide');
+        elem.classList.add('favorites-item--active');
     })
 
 }
 
-
-function updateRadio () {
-    radioFavorites.forEach
+function hideBooks (group) {
+    group.forEach((book, index) => {
+        book.classList.remove('favorites-item--active');
+        book.classList.add('favorites-item--hide');
+    })
 }
 
 radioFavorites.forEach ((elem, index)=>{
     elem.addEventListener('click', ()=>{
         if (elem.checked) {
-            console.log(index);
             numberOfCheck = index;
-            hideBooks();
-            showBooks();
-            
+            booksVisible();
         }
         
     })
     
 })
 
-hideBooks();
-showBooks();
+booksVisible();
 
+//TODO fix fade in animation

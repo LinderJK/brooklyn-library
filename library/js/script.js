@@ -19,3 +19,25 @@ document.addEventListener ('click', function(event) {
 
 })
 
+
+
+const favoritesBlock = document.querySelector('.favorites');
+const radioBlock = document.querySelector('.radio-button-block');
+
+window.addEventListener('scroll', function() {
+    const favoritesRect = favoritesBlock.getBoundingClientRect();
+ 
+    if (favoritesRect.top <= 0) {
+        radioBlock.classList.add('radio-button-block--sticky');
+    }
+
+    else {
+        radioBlock.classList.remove('radio-button-block--sticky');
+    }
+
+    if (favoritesRect.bottom <= 0 && radioBlock.classList.contains('radio-button-block--sticky')) {
+        radioBlock.classList.remove('radio-button-block--sticky');
+    }
+    
+});
+

@@ -375,14 +375,45 @@ strong {
   flex-flow: row wrap;
   row-gap: 40px;
   justify-content: space-between;
+  position: relative;
+  
 
+}
+
+@keyframes fadeIn {
+  from { opacity: 0;}
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1;}
+    to { opacity: 0;}
 }
 
 .favorites__item {
   width: 590px;
   height: 555px;
-
+  
 }
+
+.favorites-item--hide {
+  visibility: hidden;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 2s ease-in;
+  
+}
+
+.favorites-item--active {
+  opacity: 1;
+  transition: opacity 2s ease-in;
+  visibility:visible; 
+  height: auto;
+  position: static;
+  
+}
+
 
 .book {
   width: 550px;
@@ -949,9 +980,29 @@ input::-webkit-inner-spin-button {
     transform: translateY(-5px) rotate(-45deg);
     background-color: var(--main-library);
   }
-
+  
 
 }
+
+
+
+@media (max-width: 769px) {
+
+  .radio-button-block--sticky {
+    
+    position: fixed;
+    top: 5px;
+    justify-content: center;
+    z-index: 5;
+    background-color: var(--main-library);
+    border: #000000 1px solid;
+    opacity: 0.8;
+  
+  }
+  
+}
+
+
 
 
 /**_____________________________________________________ ROOT */
