@@ -1,153 +1,179 @@
 /**________________________________________________________FORUM*/
 
 .title {
-    font-family: var(--font-family-forum);
-    font-weight: 400;
-    font-size: 2.5rem;
-    /*40px*/
-    margin: 0;
-    line-height: 50px;
+  font-family: var(--font-family-forum);
+  font-weight: 400;
+  font-size: 2.5rem;
+  /*40px*/
+  margin: 0;
+  line-height: 50px;
 }
 
 .header__title {
-    font-size: 1.875rem;
-    color: var(--header-footer-text-color);
-    letter-spacing: 0.6px;
+  font-size: 1.875rem;
+  color: var(--header-footer-text-color);
+  letter-spacing: 0.6px;
 
 }
 
 .welcome__title {
-    color: var(--header-footer-text-color);
-    letter-spacing: 3px;
-    text-transform: uppercase;
+  color: var(--header-footer-text-color);
+  letter-spacing: 3px;
+  text-transform: uppercase;
 
 }
 
 .section__title {
-    letter-spacing: 2px;
-    text-transform: capitalize;
-    line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  line-height: 40px;
 }
 
 .section__title--low {
-    font-size: 20px;
+  font-size: 20px;
 
 }
 
 .section__title--color {
-    color: var(--main-library-text-color);
+  color: var(--main-library-text-color);
 }
 
 .header__title--black {
-    color: var(--black-text-color);
+  color: var(--black-text-color);
 
 }
 
 .header__title--center {
-    text-align: center;
-    font-style: normal;
-    line-height: normal;
-    color: var(--black-text-color);
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+  color: var(--black-text-color);
 
 }
 
 .find-card__input input::placeholder {
-    color: #8E8E8E;
-    font-family: Forum;
-    font-size: 30px;
-    line-height: 50px;
-    /* 166.667% */
-    letter-spacing: 0.6px;
+  color: #8E8E8E;
+  font-family: Forum;
+  font-size: 30px;
+  line-height: 50px;
+  /* 166.667% */
+  letter-spacing: 0.6px;
 
 }
 
 .find-card__input input[type="text"],
 .find-card__input input[type="number"] {
-    color: #BB945F;
-    font-family: Forum;
-    font-size: 30px;
-    line-height: 50px;
-    /* 166.667% */
-    letter-spacing: 0.6px;
+  color: #BB945F;
+  font-family: Forum;
+  font-size: 30px;
+  line-height: 50px;
+  /* 166.667% */
+  letter-spacing: 0.6px;
 }
 
 /**________________________________________________________INTER*/
 
 .text,
 .description {
-    font-family: var(--font-family-inter);
-    font-style: normal;
-    line-height: 40px;
+  font-family: var(--font-family-inter);
+  font-style: normal;
+  line-height: 40px;
 
 }
 
 .description {
-    font-size: 15px;
-    text-transform: capitalize;
-    font-weight: 400;
-    letter-spacing: 2px;
+  font-size: 15px;
+  text-transform: capitalize;
+  font-weight: 400;
+  letter-spacing: 2px;
 
 }
 
 .description--bold {
-    text-transform: uppercase;
-    font-weight: 700;
+  text-transform: uppercase;
+  font-weight: 700;
 
 }
 
 .description--cap {
-    text-transform: capitalize;
+  text-transform: capitalize;
 
 }
 
 .text--spacing {
-    letter-spacing: 2px;
-    font-weight: 400;
+  letter-spacing: 2px;
+  font-weight: 400;
 
 }
 
 .text--cap {
-    text-transform: capitalize;
+  text-transform: capitalize;
 
 }
 
 .text--left {
-    margin-right: auto;
+  margin-right: auto;
 }
 
 .text--right {
-    text-align: right;
+  text-align: right;
 }
 
 .text--spacing-low {
-    letter-spacing: 0.4px;
+  letter-spacing: 0.4px;
 }
 
 .text-footer {
-    color: var(--header-footer-text-color);
-    font-size: 20px;
-    font-style: normal;
-    line-height: 20px;
-    letter-spacing: 2px;
+  color: var(--header-footer-text-color);
+  font-size: 20px;
+  font-style: normal;
+  line-height: 20px;
+  letter-spacing: 2px;
 }
 
 .footer-text-low {
-    color: white;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 20px;
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
 }
 
-.footer-text-low > p,
-.get-card__text > p {
-    text-align: right;
+.footer-text-low>p,
+.get-card__text>p {
+  text-align: right;
 }
+
+
+
+
+/**_____________________________________________________ MODALS */
 
 
 .popup-text {
-font-size: 15px;
-font-weight: 400;
-line-height: 20px; /* 133.333% */
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  /* 133.333% */
 }
 
+.form-modal label,
+input[type="text"] {
+  color: #000;
+  font-family: Inter;
+  font-size: 15px;
+  line-height: 20px;
+  /* 133.333% */
+  letter-spacing: 0.3px;
+}
+
+.modal-text {
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+    font-family: Inter;
+    font-size: 10px;
+}
+
+.modal-text a {
+    text-decoration-line: underline;
+    font-weight: 700;
+} 
 
