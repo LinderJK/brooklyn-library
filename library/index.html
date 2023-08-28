@@ -53,8 +53,8 @@
               <div class="auth-popup__body">
                 <p><b>Profile</b></p>
                 <div class="border"></div>
-                <a id="login" class="modal-link">Log In</a>
-                <a id="register" class="modal-link">Register</a>
+                <a href="#login-modal" class="modal-link">Log In</a>
+                <a href="#register-modal" class="modal-link">Register</a>
               </div>
             </div>
           </div>
@@ -827,10 +827,10 @@
   </div>
 
 
-  <div class="modal" style="transform: translate(-500px);" id="login-modal">
+  <div class="modal" id="login-modal">
     <div class="modal__body">
       <p class="title section__title section__title--low">LOGIN</p>
-      <div class="close-button">
+      <div class="modal__close-button">
         <svg class="close-button-svg"  width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
           <line x1="0" y1="0" x2="15" y2="15" stroke="black" stroke-width="3" />
           <line x1="0" y1="15" x2="15" y2="0" stroke="black" stroke-width="3" />
@@ -843,31 +843,31 @@
         <input id="GET-password" type="text" name="password">
         <button type="button">Log In</button>
       </form>
-      <p class="modal__text">Don’t have an account? <a href="">Register</a></p>
+      <p class="modal__text">Don’t have an account? <a href="#register-modal" class="modal-link">Register</a></p>
     </div>
   </div>
 
   <div class="modal" id="register-modal">
     <div class="modal__body">
       <p class="title section__title section__title--low">REGISTER</p>
-      <div class="close-button">
+      <div class="modal__close-button">
         <svg class="close-button-svg"  width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
           <line x1="0" y1="0" x2="15" y2="15" stroke="black" stroke-width="3" />
           <line x1="0" y1="15" x2="15" y2="0" stroke="black" stroke-width="3" />
         </svg>
       </div>
       <form class="form__modal">
-        <label for="GET-firstname">First name</label>
-        <input id="GET-firstname" type="text" name="firstname">
-        <label for="GET-lastname">Last name</label>
-        <input id="GET-lastname" type="text" name="lastname">
-        <label for="GET-email">E-mail</label>
-        <input id="GET-email" type="text" name="email">
-        <label for="GET-password">Password</label>
-        <input id="GET-password" type="text" name="password">
-        <button type="button">Sign Up</button>
+        <label for="SET-firstname">First name</label>
+        <input id="SET-firstname" type="text" name="firstName">
+        <label for="SET-lastname">Last name</label>
+        <input id="SET-lastname" type="text" name="lastName">
+        <label for="SET-email">E-mail</label>
+        <input id="SET-email" type="text" name="email">
+        <label for="SET-password">Password</label>
+        <input id="SET-password" type="text" name="password">
+        <button id="signup-button" type="button">Sign Up</button>
       </form>
-      <p class="modal__text">Already have an account? <a href="">Login</a></p>
+      <p class="modal__text">Already have an account? <a href="#login-modal"  class="modal-link">Login</a></p>
     </div>
   </div>
 

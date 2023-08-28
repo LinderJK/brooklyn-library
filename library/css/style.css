@@ -1047,8 +1047,8 @@ input::-webkit-inner-spin-button {
   background-color: rgb(0, 0, 0, 0.8);
   top: 0;
   left: 0;
-  /* opacity: 0;
-  visibility: hidden; */
+  opacity: 0;
+  visibility: hidden;
   overflow-y: auto;
   overflow-x: hidden;
   transition: all 500ms ease;
@@ -1111,7 +1111,7 @@ font-weight: 700;
   cursor: pointer;
 }
 
-.close-button {
+.modal__close-button {
   position: absolute;
   padding: 5px;
   top: 15px;
@@ -1119,7 +1119,7 @@ font-weight: 700;
   cursor: pointer;
 
 }
-.close-button-svg:hover line {
+.modal__close-button-svg:hover line {
   stroke: var(--main-library);
   transition: 0.5s;
 

@@ -26,3 +26,95 @@
 //         console.log('Баллы самопроверки - ' + scoreSumm));
 // }
 // grade();
+
+
+// Через класс?
+//   class User {
+//     constructor(firstName, lastName, email, password, id) {
+//         this.userid = id;
+//         this.userFirstName = firstName;
+//         this.userSecondName = lastName;
+//         this.userEmail = email;
+//         this.userPassword = password;
+//         this.userCardNumber = this.createCard();
+
+
+//     }
+
+//     createCard () {
+//         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+//         let cardNumber ='';
+//         let length = 8;
+//         for (let i = 0; i < length; i++) {
+//             const randomIndex = Math.floor(Math.random() * characters.length);
+//             cardNumber += characters.charAt(randomIndex);
+//           }
+//           console.log (cardNumber);
+//           return cardNumber;
+//     }
+
+//   }
+
+// const instanceName = formData.firstName + formData.lastName;
+// users[instanceName] = new User(formData.firstName, formData.lastName, formData.email, formData.password, id);
+// users.users[instanceName];
+//   const newUser = new User(1, "Иван", "Иванов", "ivan@example.com");
+
+
+//Без класса
+let users = JSON.parse(localStorage.getItem('users')) || [];
+if (!Array.isArray(users)) {
+    users = [];
+}
+
+//Генератор уникального номера карты
+function createCard() {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+  let cardNumber = '';
+  let length = 8;
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    cardNumber += characters.charAt(randomIndex);
+  }
+  return cardNumber;
+}
+
+// Обработчик на форму регистрации
+const signupButton = document.getElementById('signup-button');
+signupButton.addEventListener('click', () => {
+  const inputs = document.querySelectorAll('.form__modal input');
+  const formData = {};
+  inputs.forEach(input => {
+    formData[input.name] = input.value;
+  });
+
+  formData.CardNumber = createCard();
+  users.push(formData);
+  checkUser ();
+  local();
+  
+});
+
+//запись в локал
+function local() {
+  localStorage.setItem('users', JSON.stringify(users));
+}
+
+//проверка существования пользователя
+function checkUser () {
+    const storedUsers = JSON.parse(localStorage.getItem('users'));
+    const targetEmail = document.querySelector('#SET-email').value;
+    console.log (typeof storedUsers);
+    storedUsers.forEach(user => {
+        if (user.email === targetEmail) {
+          console.log("Этот пользватель существует", targetEmail);
+          
+        }
+      });
+
+}
+
+console.log('Текущие пользователи:');
+console.log(users);
+
+
