@@ -63,9 +63,7 @@
 
 //Без класса
 let users = JSON.parse(localStorage.getItem('users')) || [];
-if (!Array.isArray(users)) {
-    users = [];
-}
+
 
 //Генератор уникального номера карты
 function createCard() {
@@ -81,18 +79,38 @@ function createCard() {
 
 // Обработчик на форму регистрации
 const signupButton = document.getElementById('signup-button');
+
 signupButton.addEventListener('click', () => {
   const inputs = document.querySelectorAll('.form__modal input');
   const formData = {};
+
+  // valid
+//   if (validation() !== true) {
+//     return;
+//   }
+
   inputs.forEach(input => {
-    formData[input.name] = input.value;
+    formData[input.name] = input.value.trim();
   });
 
-  formData.CardNumber = createCard();
-  users.push(formData);
-  checkUser ();
-  local();
-  
+  const userEmail = formData.email.trim().toLowerCase();
+  formData.email = userEmail;
+  console.log (userEmail);
+  const flag = checkUser(userEmail);
+
+  if (flag === false) {
+    console.log (' Пользователь создан !!!!');
+    formData.CardNumber = createCard();
+    users.push(formData);
+    local();
+  }
+
+  if (flag === true) {
+    console.log (' Пользователь не создан ');
+
+    return;
+  }
+
 });
 
 //запись в локал
@@ -100,21 +118,68 @@ function local() {
   localStorage.setItem('users', JSON.stringify(users));
 }
 
+//TODO FIX BUG
 //проверка существования пользователя
-function checkUser () {
-    const storedUsers = JSON.parse(localStorage.getItem('users'));
-    const targetEmail = document.querySelector('#SET-email').value;
-    console.log (typeof storedUsers);
-    storedUsers.forEach(user => {
-        if (user.email === targetEmail) {
-          console.log("Этот пользватель существует", targetEmail);
-          
-        }
-      });
+function checkUser(email) {
+//   const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+  console.log(users);
+  let flag = null;
+    if (users.length <= 0) {
+        flag = false;
+    }
+
+  users.forEach(user => {
+    if (user.email === email) {
+      console.log("Этот пользватель существует", email);
+      flag = true;
+
+    }
+    else {
+    console.log("Этот пользватель не существует");
+    flag = false;
+    }
+    
+
+  });
+
+  return flag;
 
 }
 
-console.log('Текущие пользователи:');
-console.log(users);
+
+// валидация
+function validation () {
+    const inputs = document.querySelectorAll('.form__modal input');
+    const pass = document.querySelector('#SET-password');
+    const email = document.querySelector('#SET-email');
+    console.log (pass);
+
+    inputs.forEach(input => {
+        if (input.value === '') {
+            input.setAttribute('placeholder', 'Обязательное поле');
+        }
+        else {
+            input.setAttribute('placeholder', '');
+        }
+    })
+
+    if (pass.length < 8) {
+        pass.setAttribute('placeholder', 'Не менее 8 символов');
+
+    
+    
+    } 
+    else {
+        pass.setAttribute('placeholder', '');
+    }
+
+    const emailValue = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/;
+    if (!email.match(emailValue)) {
+        pass.setAttribute('placeholder', 'Введите корректный Email');
+    }
+       
+}
 
 
+
+// console.log (validation());

@@ -1125,6 +1125,10 @@ font-weight: 700;
 
 }
 
+ .modal input::placeholder {
+  color: rgba(255, 0, 0, 0.548);
+  font-size: 10px;
+ }
 
 
 /**_____________________________________________________ ROOT */
