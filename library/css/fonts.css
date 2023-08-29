@@ -157,7 +157,8 @@
 }
 
 .form__modal label,
-input[type="text"] {
+input[type="text"],
+input[type="email"] {
   color: #000;
   font-family: Inter;
   font-size: 15px;

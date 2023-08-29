@@ -62,8 +62,6 @@
 
 
 //Без класса
-let users = JSON.parse(localStorage.getItem('users')) || [];
-
 
 //Генератор уникального номера карты
 function createCard() {
@@ -82,104 +80,83 @@ const signupButton = document.getElementById('signup-button');
 
 signupButton.addEventListener('click', () => {
   const inputs = document.querySelectorAll('.form__modal input');
+  console.log (inputs);
   const formData = {};
+  const users = JSON.parse(localStorage.getItem('users')) || [];
+  console.log (users);
+  console.log (formData);
 
-  // valid
-//   if (validation() !== true) {
-//     return;
-//   }
+  //Проверка на валидацию
+  if (validation(inputs) === false){
+    return;
+  }
 
   inputs.forEach(input => {
     formData[input.name] = input.value.trim();
   });
-
   const userEmail = formData.email.trim().toLowerCase();
   formData.email = userEmail;
-  console.log (userEmail);
-  const flag = checkUser(userEmail);
 
-  if (flag === false) {
-    console.log (' Пользователь создан !!!!');
-    formData.CardNumber = createCard();
-    users.push(formData);
-    local();
+  // проверка существования пользователя
+  const flag = checkUser(userEmail, users);
+  if (flag === true) {
+    console.log ('Пользователь не создан', flag);
+    return;
   }
 
-  if (flag === true) {
-    console.log (' Пользователь не создан ');
+  if (flag === false) {
+    console.log ('Пользователь создан', flag);
+    
+    formData.CardNumber = createCard();
+    
+    users.push(formData);
+    console.log ('после push')
+    console.log (users)
+    local(users);
 
-    return;
+    //если ок закрываем регистрацию открываем логин
+    setTimeout(() => {
+      modalClose(document.querySelector('.modal--active'));
+      modalOpen(document.getElementById('login-modal'));
+    }, 1000);
+    
   }
 
 });
 
 //запись в локал
-function local() {
+function local(users) {
   localStorage.setItem('users', JSON.stringify(users));
 }
 
-//TODO FIX BUG
-//проверка существования пользователя
-function checkUser(email) {
-//   const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-  console.log(users);
-  let flag = null;
-    if (users.length <= 0) {
-        flag = false;
-    }
+//**TODO FIX BUG
+// фукция проверки существования пользователя
+function checkUser(email, users) {
+  let flag = false;
 
   users.forEach(user => {
     if (user.email === email) {
-      console.log("Этот пользватель существует", email);
+      
       flag = true;
+      console.log("Этот пользватель существует", flag, user.email);
 
-    }
-    else {
-    console.log("Этот пользватель не существует");
-    flag = false;
     }
     
-
   });
-
+  console.log ('функция проверки', flag)
   return flag;
 
 }
 
 
-// валидация
-function validation () {
-    const inputs = document.querySelectorAll('.form__modal input');
-    const pass = document.querySelector('#SET-password');
-    const email = document.querySelector('#SET-email');
-    console.log (pass);
-
-    inputs.forEach(input => {
-        if (input.value === '') {
-            input.setAttribute('placeholder', 'Обязательное поле');
-        }
-        else {
-            input.setAttribute('placeholder', '');
-        }
-    })
-
-    if (pass.length < 8) {
-        pass.setAttribute('placeholder', 'Не менее 8 символов');
-
-    
-    
-    } 
-    else {
-        pass.setAttribute('placeholder', '');
-    }
-
-    const emailValue = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/;
-    if (!email.match(emailValue)) {
-        pass.setAttribute('placeholder', 'Введите корректный Email');
-    }
-       
-}
-
-
-
-// console.log (validation());
+// функция валидации
+function validation (inputs) {
+    let isValid = true;
+    inputs.forEach( (input)=> {
+      if (input.checkValidity() === false){
+        isValid = false;
+        console.log ('NOT Valid');
+      }
+    });
+    return isValid;
+  }
