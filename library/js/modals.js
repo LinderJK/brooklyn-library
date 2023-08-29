@@ -14,7 +14,7 @@ for (let index = 0; index < modalLinks.length; index++) {
 }
 
 const modalCloseButtons = document.querySelectorAll('.modal__close-button')
-console.log(modalCloseButtons);
+// console.log(modalCloseButtons);
 for (let index = 0; index < modalCloseButtons.length; index++) {
   const button = modalCloseButtons[index];
   button.addEventListener('click', (evt) => {

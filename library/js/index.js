@@ -43,7 +43,7 @@ signupButton.addEventListener('click', (evt) => {
     evt.preventDefault();
     return;
   }
-
+  
   // для тестов можно удалить потом
   if (flag === false) {
     console.log('Пользователь создан', flag);
@@ -54,18 +54,12 @@ signupButton.addEventListener('click', (evt) => {
   users.push(formData);
   local(users);
 
-
-  setTimeout(() => {
-    modalClose(document.querySelector('.modal--active'));
-    // modalOpen(document.getElementById('login-modal'));
-  }, 1000);
-
 });
 
 
 //запись в локал пользователя
 function local(users) {
-  localStorage.setItem('users', JSON.stringify(users));
+    localStorage.setItem('users', JSON.stringify(users));
 }
 
 
@@ -100,28 +94,42 @@ function validation(inputs) {
 }
 
 
-// Изменене иконки после входа
-function updateIcon() {
-
-  const svgObj = document.getElementById('user-svg').getSVGDocument();
-  console.log(svgObj);
-  const icon = document.querySelector('.auth-icon__img');
-  icon.setAttribute('src', './icons/user-icon.svg');
-
-}
-
-updateIcon()
-
-
 // check card -- Digital Library Cards
-function checkCard() {
-  const users = JSON.parse(localStorage.getItem('users')) || [];
-  // const name = document.querySelector('')
-  // const number = document.querySelector('')
-  const inputs = document.querySelectorAll('.find-card__input input');
-  const button = document.querySelectorAll('.find-card__button');
-  console.log(inputs);
-  console.log(button);
-  console.log(users);
+// const checkCardButton = document.querySelector('.find-card__button');
+// console.log(checkCardButton);
+// checkCardButton.addEventListener('click', checkCard);
 
-}
+// function checkCard() {
+//   const inputs = document.querySelectorAll('.find-card__input input');
+
+//   console.log(inputs);
+//   // console.log(button);
+
+//   for (const user of users) {
+//     console.log(user);
+//     console.log(user.CardNumber);
+//     if (user.CardNumber === inputs[1].value) {
+//       console.log
+//       return console.log('sucsess', user.CardNumber);
+//     }
+
+//   }
+
+// }
+
+// function updateIcon (name1, name2) {
+//   let symbol = (name1[0] + name2[0]).toUpperCase();
+
+//   document.addEventListener('DOMContentLoaded', function() {
+//     let svgObj = document.getElementById('user-svg').getSVGDocument();
+//     console.log(svgObj);
+//     // svgObj.setAttribute('data','./icons/user-icon.svg');
+//     // console.log(svgObj);
+//     let text = svgObj.querySelector('text');
+//     text.textContent = `${symbol}`;
+
+//   });
+
+//  }
+
+// updateIcon('John', 'Rhamber');

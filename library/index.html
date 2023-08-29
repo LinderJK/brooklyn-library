@@ -46,7 +46,7 @@
 
           <div class="auth-icon">
             <a class="auth-icon__link" href="#">
-              <img class="auth-icon__img" src="./icons/auth-icon-img.svg" alt="login user">
+              <!-- <img class="auth-icon__img" src="./icons/auth-icon-img.svg" alt="login user"> -->
               <object class="user-svg" id="user-svg" data="./icons/user-icon.svg" type="image/svg+xml"></object>
             </a>
 
@@ -839,10 +839,10 @@
       </div>
       <form class="form__modal" id="login-form">
         <label for="GET-email">E-mail or readers card</label>
-        <input id="GET-email" type="text" name="email">
+        <input required id="GET-email" type="email" name="email">
         <label for="GET-password">Password</label>
-        <input id="GET-password" type="text" name="password">
-        <button type="button">Log In</button>
+        <input required minlength="8" id="GET-password" type="password" name="password">
+        <button id="login-button" type="submit">Log In</button>
       </form>
       <p class="modal__text">Don’t have an account? <a href="#register-modal" class="modal-link">Register</a></p>
     </div>
