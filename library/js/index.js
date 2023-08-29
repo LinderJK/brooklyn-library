@@ -65,13 +65,12 @@
 
 //Генератор уникального номера карты
 function createCard() {
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-  let cardNumber = '';
-  let length = 8;
-  for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * characters.length);
-    cardNumber += characters.charAt(randomIndex);
-  }
+  const min = 100000000;
+  const max = 999999999;
+
+  let cardNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+  cardNumber = cardNumber.toString(16);
+  
   return cardNumber;
 }
 
