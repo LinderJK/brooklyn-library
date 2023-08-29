@@ -47,6 +47,7 @@
           <div class="auth-icon">
             <a class="auth-icon__link" href="#">
               <img class="auth-icon__img" src="./icons/auth-icon-img.svg" alt="login user">
+              <object class="user-svg" id="user-svg" data="./icons/user-icon.svg" type="image/svg+xml"></object>
             </a>
 
             <div class="auth-popup popup-text">
@@ -756,12 +757,12 @@
               <div class="find-card">
                 <p class="find-card__title">Find your Library card</p>
                 <div class="find-card__form">
-                  <div class="find-card__input">
+                  <form class="find-card__input">
                     <p class="title header__title header__title--black">Brooklyn Public Library</p>
                     <input type="text" class="form" aria-label="input readers name" placeholder="Reader's name">
-                    <input type="text" class="form" aria-label="input card number" placeholder="Card number">
-                  </div>
-                  <button class="find-card__button">Check the card</button>
+                    <input type="text" class="form" minlength="8" aria-label="input card number" placeholder="Card number">
+                  </form>
+                  <button type="submit" class="find-card__button">Check the card</button>
                 </div>
               </div>
               <div class="get-card">
