@@ -46,7 +46,10 @@
 
           <div class="auth-icon">
             <a class="auth-icon__link" href="#">
-              <img class="auth-icon__img" src="./icons/auth-icon-img.svg" alt="login user">
+              <img class="auth-icon__img" src="./icons/auth-icon-img.svg" alt="login user">               
+              <!-- <object class="user-svg" id="user-svg" data="./icons/user-icon.svg" type="image/svg+xml"></object> -->
+            </a>
+            <a class="profile-icon__link" href="#">
               <svg class="user-svg" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path id="Subtract" d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14Z" fill="white"/>
                 <text x="50%" y="50%" text-anchor="middle" fill="#BB945F" font-size="15" line-height="20px" font-family="Inter" dy=".3em">JD</text>
@@ -54,12 +57,20 @@
               <!-- <object class="user-svg" id="user-svg" data="./icons/user-icon.svg" type="image/svg+xml"></object> -->
             </a>
 
-            <div class="auth-popup popup-text">
-              <div class="auth-popup__body">
+            <div class="popup popup-auth popup-text">
+              <div class="popup__body">
                 <p><b>Profile</b></p>
                 <div class="border"></div>
                 <a href="#login-modal" class="modal-link">Log In</a>
                 <a href="#register-modal" class="modal-link">Register</a>
+              </div>
+            </div>
+            <div class="popup popup-profile popup-text">
+              <div class="popup__body">
+                <p><b>Profile</b></p>
+                <div class="border"></div>
+                <a href="#profile-modal" class="modal-link">My profile</a>
+                <a href="#logout" class="modal-link">Log out</a>
               </div>
             </div>
           </div>

@@ -1,6 +1,13 @@
 const users = userList();
 console.log(users);
 
+
+
+let loginUser;
+console.log('start', loginUser);
+console.log(loginUser === undefined);
+
+
 //забираем даннные из локал
 function userList() {
   return JSON.parse(localStorage.getItem('users')) || [];
@@ -119,11 +126,19 @@ loginButton.addEventListener('click', (evt)=>{
   // const currentUser = new User (userObj);
   const currentUser = new User (userObj);
   console.log(currentUser);
+
   // тут вызов функции переделки страницы
-  
   currentUser.login();
+  loginUser = currentUser;
+  console.log('this login', loginUser);
+  console.log(loginUser === undefined);
+
+  
+
   modalClose(evt.target.closest('.modal'));
+
   }
+
   else {
   console.log('Пользователь с таким email не найден или пароль неверный');
   evt.preventDefault();
@@ -172,7 +187,7 @@ class User {
     this.visits = visits;
     this.bonus = bonus;
     this.books = books;
-    this.isLoggedIn = true;
+    this.isLoggedIn = false;
 
     this.cardNumber = this.createCard();
 
@@ -181,7 +196,8 @@ class User {
   login () {
     this.updateIcon();
     this.newVisit();
-    
+    this.isLoggedIn = true;
+
   }
 
   newVisit () {
@@ -192,10 +208,8 @@ class User {
     users[userIndex].visits = this.visits;
     localSet(users);
   }
+
   }
-
-
-
 
   createCard() {
     const min = 100000000;
@@ -206,24 +220,17 @@ class User {
   }
 
   updateIcon () {
-  // const symbol = (this.firstName[0] + this.lastName[0]).toUpperCase();
-  // document.addEventListener('DOMContentLoaded', () => {
-  //   const svgObj = document.getElementById('user-svg').getSVGDocument();
-  //   console.log(svgObj);
-  //   // svgObj.setAttribute('data','./icons/user-icon.svg');
-  //   // console.log(svgObj);
-  //   if (svgObj) {
-  //   let text = svgObj.querySelector('text');
-  //   text.textContent = `${symbol}`;
-  //   }
-  //   else{
-  //     console.log('Ошибка загрузки свг');
-  //   }
-    
-  // });
+  const symbol = (this.firstName[0] + this.lastName[0]).toUpperCase();
+  const svgCurrentUser = document.querySelector('.user-svg');
+  const authLink = document.querySelector('.auth-icon__link');
+  const profileLink = document.querySelector('.profile-icon__link');
 
-  
-  
+
+  authLink.classList.add('auth-icon__link-hide');
+  profileLink.classList.add('profile-icon__link-active');
+
+  let text = svgCurrentUser.querySelector('text');
+  text.textContent = `${symbol}`;
 
  }
 
@@ -232,37 +239,20 @@ class User {
 }
 
 
-function updateIcon (name1='ab', name2='cd') {
-  const symbol = (name1[0] + name2[0]).toUpperCase();
-  const svgCurrentUser = document.querySelector('.user-svg');
-  const svgAllUser = document.querySelector('.auth-icon__img');
+// function updateIcon (name1='ab', name2='cd') {
+//   const symbol = (name1[0] + name2[0]).toUpperCase();
+//   const svgCurrentUser = document.querySelector('.user-svg');
+//   const svgAllUser = document.querySelector('.auth-icon__img');
 
-  svgAllUser.classList.add('auth-icon__img-hide');
-  svgCurrentUser.classList.add('user-svg-active');
+//   svgAllUser.classList.add('auth-icon__img-hide');
+//   svgCurrentUser.classList.add('user-svg-active');
 
-  let text = svgCurrentUser.querySelector('text');
-  text.textContent = `${symbol}`;
+//   let text = svgCurrentUser.querySelector('text');
+//   text.textContent = `${symbol}`;
 
- }
-
-
-// const svgObj = document.addEventListener('DOMContentLoaded', () => {
-//   return document.getElementById('user-svg').getSVGDocument();
-//  });
-
-//  console.log(svgObj);
+//  }
 
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   const svgObj = document.getElementById('user-svg').contentDocument;
-//   const textElement = svgObj.querySelector('text');
-//   if (textElement) {
-//     const textContent = textElement.textContent;
-//     console.log(textContent);
-//   } else {
-//     console.log('not found');
-//   }
-// });
 
 // check card -- Digital Library Cards
 // const checkCardButton = document.querySelector('.find-card__button');

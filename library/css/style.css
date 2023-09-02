@@ -118,7 +118,7 @@ strong {
   
 }
 
-.auth-popup {
+.popup {
   position: absolute;
   z-index: 99999;
   right: 0;
@@ -129,7 +129,7 @@ strong {
 
 }
 
-.auth-popup__body {
+.popup__body {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -141,7 +141,7 @@ strong {
 
 }
 
-.auth-popup--active {
+.popup-active {
   opacity: 1;
   visibility: visible;
 }
@@ -1130,15 +1130,16 @@ font-weight: 700;
   font-size: 10px;
  }
 
- .auth-icon__img-hide {
+ .auth-icon__link-hide {
   display: none;
  }
 
- .user-svg {
+ .profile-icon__link {
   display: none;
 
  }
- .user-svg-active {
+ .profile-icon__link-active {
+
   display: block;
  } 
 
