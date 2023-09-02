@@ -1130,7 +1130,17 @@ font-weight: 700;
   font-size: 10px;
  }
 
+ .auth-icon__img-hide {
+  display: none;
+ }
 
+ .user-svg {
+  display: none;
+
+ }
+ .user-svg-active {
+  display: block;
+ } 
 
  
 /**_____________________________________________________ ROOT */

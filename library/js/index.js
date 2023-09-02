@@ -232,27 +232,19 @@ class User {
 }
 
 
-// function updateIcon (name1='ab', name2='cd', textContent) {
-//   const symbol = (name1[0] + name2[0]).toUpperCase();
-  // document.addEventListener('DOMContentLoaded', () => {
-  //   const svgObj = document.getElementById('user-svg').getSVGDocument();
-  //   console.log(svgObj);
-  //   // svgObj.setAttribute('data','./icons/user-icon.svg');
-  //   // console.log(svgObj);
-  //   if (svgObj) {
-  //   let text = svgObj.querySelector('text');
-  //   text.textContent = `${symbol}`;
-  //   }
-  //   else{
-  //     console.log('Ошибка загрузки свг');
-  //   }
-    
-  // });
-  
-    
-//     textContent = `${symbol}`;
+function updateIcon (name1='ab', name2='cd') {
+  const symbol = (name1[0] + name2[0]).toUpperCase();
+  const svgCurrentUser = document.querySelector('.user-svg');
+  const svgAllUser = document.querySelector('.auth-icon__img');
 
-//  }
+  svgAllUser.classList.add('auth-icon__img-hide');
+  svgCurrentUser.classList.add('user-svg-active');
+
+  let text = svgCurrentUser.querySelector('text');
+  text.textContent = `${symbol}`;
+
+ }
+
 
 // const svgObj = document.addEventListener('DOMContentLoaded', () => {
 //   return document.getElementById('user-svg').getSVGDocument();
