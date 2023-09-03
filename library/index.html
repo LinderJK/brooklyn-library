@@ -46,14 +46,18 @@
 
           <div class="auth-icon">
             <a class="auth-icon__link" href="#">
-              <img class="auth-icon__img" src="./icons/auth-icon-img.svg" alt="login user">               
+              <img class="auth-icon__img" src="./icons/auth-icon-img.svg" alt="login user">
               <!-- <object class="user-svg" id="user-svg" data="./icons/user-icon.svg" type="image/svg+xml"></object> -->
             </a>
             <a class="profile-icon__link" href="#" title="">
-              <svg class="user-svg" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path id="Subtract" d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14Z" fill="white"/>
-                <text x="50%" y="50%" text-anchor="middle" fill="#BB945F" font-size="15" line-height="20px" font-family="Inter" dy=".3em">JD</text>
-                </svg>                
+              <svg class="user-svg" width="28" height="28" viewBox="0 0 28 28" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path id="Subtract"
+                  d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14Z"
+                  fill="white" />
+                <text x="50%" y="50%" text-anchor="middle" fill="#BB945F" font-size="15" line-height="20px"
+                  font-family="Inter" dy=".3em">JD</text>
+              </svg>
               <!-- <object class="user-svg" id="user-svg" data="./icons/user-icon.svg" type="image/svg+xml"></object> -->
             </a>
 
@@ -775,7 +779,8 @@
                   <form class="find-card__input">
                     <p class="title header__title header__title--black">Brooklyn Public Library</p>
                     <input type="text" class="form" aria-label="input readers name" placeholder="Reader's name">
-                    <input type="text" class="form" minlength="8" aria-label="input card number" placeholder="Card number">
+                    <input type="text" class="form" minlength="8" aria-label="input card number"
+                      placeholder="Card number">
                   </form>
                   <button type="submit" class="find-card__button">Check the card</button>
                 </div>
@@ -789,7 +794,8 @@
                     a new account</p>
                 </div>
                 <div class="get-card__buttons">
-                  <button href="#register-modal" class="button-low modal-link" name="register" type="button">Sign Up</button>
+                  <button href="#register-modal" class="button-low modal-link" name="register" type="button">Sign
+                    Up</button>
                   <button href="#login-modal" class="button-low modal-link" name="login" type="button">Log in</button>
                 </div>
               </div>
@@ -847,7 +853,7 @@
     <div class="modal__body">
       <p class="title section__title section__title--low">LOGIN</p>
       <div class="modal__close-button">
-        <svg class="close-button-svg"  width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+        <svg class="close-button-svg" width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
           <line x1="0" y1="0" x2="15" y2="15" stroke="black" stroke-width="3" />
           <line x1="0" y1="15" x2="15" y2="0" stroke="black" stroke-width="3" />
         </svg>
@@ -867,7 +873,7 @@
     <div class="modal__body">
       <p class="title section__title section__title--low">REGISTER</p>
       <div class="modal__close-button">
-        <svg class="close-button-svg"  width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+        <svg class="close-button-svg" width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
           <line x1="0" y1="0" x2="15" y2="15" stroke="black" stroke-width="3" />
           <line x1="0" y1="15" x2="15" y2="0" stroke="black" stroke-width="3" />
         </svg>
@@ -883,33 +889,87 @@
         <input required minlength="8" id="SET-password" type="password" name="password">
         <button id="signup-button" type="submit">Sign Up</button>
       </form>
-      <p class="modal__text">Already have an account? <a href="#login-modal"  class="modal-link">Login</a></p>
+      <p class="modal__text">Already have an account? <a href="#login-modal" class="modal-link">Login</a></p>
     </div>
   </div>
 
-  <!-- <div class="modal" id="profile-modal">
-    <div class="modal__body">
-      <p class="title section__title section__title--low">REGISTER</p>
+  <div class="modal" id="profile-modal" style="opacity: 1; visibility: visible;">
+    <div class="profile">
       <div class="modal__close-button">
-        <svg class="close-button-svg"  width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+        <svg class="close-button-svg" width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
           <line x1="0" y1="0" x2="15" y2="15" stroke="black" stroke-width="3" />
           <line x1="0" y1="15" x2="15" y2="0" stroke="black" stroke-width="3" />
         </svg>
       </div>
-      <form class="form__modal" id="register-form">
-        <label for="SET-firstname">First name</label>
-        <input required id="SET-firstname" type="text" name="firstName">
-        <label for="SET-lastname">Last name</label>
-        <input required id="SET-lastname" type="text" name="lastName">
-        <label for="SET-email">E-mail</label>
-        <input required id="SET-email" type="email" name="email">
-        <label for="SET-password">Password</label>
-        <input required minlength="8" id="SET-password" type="password" name="password">
-        <button id="signup-button" type="submit">Sign Up</button>
-      </form>
-      <p class="modal__text">Already have an account? <a href="#login-modal"  class="modal-link">Login</a></p>
+
+      <div class="profile-content">
+        <div class="profile-content__bg">
+          <div class="profile__avatar"><svg class="user-svg" width="35" height="35" viewBox="0 0 28 28" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path id="Subtract"
+                d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14Z"
+                fill="white" />
+              <text x="50%" y="50%" text-anchor="middle" fill="#BB945F" font-size="15" line-height="20px"
+                font-family="Inter" dy=".3em">JD</text>
+            </svg> </div>
+          <div class="profile__name">
+            <p>John Doe</p>
+          </div>
+        </div>
+
+        <div class="profile-content__info">
+          <p class="title">My profile</p>
+          <div class="card-profile text">
+            <div class="card-profile__item">
+              <p>Visits</p>
+              <img src="./icons/profile-union.svg" alt="profile-union">
+              <div>23</div>
+            </div>
+            <div class="card-profile__item">
+              <p>Bonuses</p>
+              <img src="./icons/profile-star.svg" alt="profile-star">
+              <div>1240</div>
+            </div>
+            <div class="card-profile__item">
+              <p>Books</p>
+              <img src="./icons/profile-book.svg" alt="profile-book">
+              <div>3</div>
+            </div>
+          </div>
+          
+          <p>Rented books</p>
+          <div class="books-list">
+            
+            <ul>
+              <li>The Last Queen, Clive Irving</li>
+              <li>Dominicana, Angie Cruz</li>
+              <li>Dominicana, Angie Cruz</li>
+              <li>Dominicana, Angie Cruz</li>
+            </ul>
+          </div>
+          <div class="card-number">
+            <p>Card number</p>
+            <div class="">F00234030</div>
+            <a><img src="./icons/profile-icon-copy.svg" alt="profile-copy-icon"></a>
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+
+
     </div>
-  </div> -->
+
+
+  </div>
 
 
   <script src="./js/index.js"></script>

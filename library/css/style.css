@@ -1143,6 +1143,119 @@ font-weight: 700;
   display: block;
  } 
 
+
+
+ .profile {
+  width: 600px;
+  height: 400px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+  position: relative;
+ }
+
+ .profile-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+ }
+
+ .profile-content__bg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  background-color: var(--black-library);
+  width: 170px;
+  height: 403px;
+  flex-shrink: 0;
+
+ }
+
+ .profile__avatar {
+  display: flex;
+  width: 80px;
+  height: 80px;
+  background-color: var(--white);
+  padding: auto;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .profile__name {
+  display: flex;
+  width: 120px;
+  height: 30px;
+  background-color: var(--white);
+  justify-content: center;
+  align-items: center;
+ }
+
+.profile-content__info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  gap: 20px;
+}
+
+ .card-profile {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+ }
+
+
+ .card-profile__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+ }
+
+ .card-number {
+  display: flex;
+  flex-direction: row;
+  gap:15px;
+ }
+
+ .books-list {
+  display: flex;
+  overflow: scroll;
+  max-width: 350px;
+  max-height: 100px;
+  scrollbar-width: 3px;
+  scrollbar-color: #333 #f0f0f0;
+ }
+
+ .books-list ul {
+  margin: 0px 25px; 
+  
+ }
+
+ .books-list li {
+  list-style:square;
+ }
+
+.books-list::-webkit-scrollbar {
+  width: 5px; 
+  height: 5px;
+}
+
+.books-list::-webkit-scrollbar-thumb {
+  background-color: var(--main-library);
+}
+
+.books-list::-webkit-scrollbar-track {
+  background-color: var(--white);
+}
+
  
 /**_____________________________________________________ ROOT */
 

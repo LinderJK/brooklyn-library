@@ -248,9 +248,6 @@ loginButton.addEventListener('click', (evt) => {
 // }
 
 
-
-
-
 // переменная для хранения текущего залогиненого пользователя
 let loggedInUser;
 
