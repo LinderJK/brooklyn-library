@@ -66,9 +66,9 @@ signupButton.addEventListener('click', (evt) => {
   localSet(users);
   loginUser = user;
   console.log(loginUser);
-  user.login();
   modalClose(evt.target.closest('.modal'));
   evt.preventDefault();
+  user.login();
 
 });
 
@@ -136,10 +136,11 @@ loginButton.addEventListener('click', (evt)=>{
   loginUser = currentUser;
   console.log('this login', loginUser);
   console.log(loginUser === undefined);
-  currentUser.login();
-  
   modalClose(evt.target.closest('.modal'));
   evt.preventDefault();
+  currentUser.login();
+  
+  
  
   }
   
@@ -153,14 +154,21 @@ loginButton.addEventListener('click', (evt)=>{
 
 
 
-function logOut () {
+function updateLogutStatus () {
   users.forEach( (user) => {
     user.isLoggedIn = false;
   } );
   localSet(users);
 }
-logOut();
+updateLogutStatus();
 
+const logOutButton = document.querySelector('.logoutButton');
+console.log(logOutButton);
+logOutButton.addEventListener('click', ()=> {
+  location.reload();
+});
+
+ 
 
 const checkCardButton = document.querySelector('.find-card__button');
 checkCardButton.addEventListener('click', checkCard);
@@ -189,6 +197,8 @@ function checkCard() {
   }
 
 }
+
+
 
 
 //Конструктор пользователя
