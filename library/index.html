@@ -49,7 +49,7 @@
               <img class="auth-icon__img" src="./icons/auth-icon-img.svg" alt="login user">               
               <!-- <object class="user-svg" id="user-svg" data="./icons/user-icon.svg" type="image/svg+xml"></object> -->
             </a>
-            <a class="profile-icon__link" href="#">
+            <a class="profile-icon__link" href="#" title="">
               <svg class="user-svg" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path id="Subtract" d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14Z" fill="white"/>
                 <text x="50%" y="50%" text-anchor="middle" fill="#BB945F" font-size="15" line-height="20px" font-family="Inter" dy=".3em">JD</text>
@@ -864,6 +864,30 @@
   </div>
 
   <div class="modal" id="register-modal">
+    <div class="modal__body">
+      <p class="title section__title section__title--low">REGISTER</p>
+      <div class="modal__close-button">
+        <svg class="close-button-svg"  width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="0" x2="15" y2="15" stroke="black" stroke-width="3" />
+          <line x1="0" y1="15" x2="15" y2="0" stroke="black" stroke-width="3" />
+        </svg>
+      </div>
+      <form class="form__modal" id="register-form">
+        <label for="SET-firstname">First name</label>
+        <input required id="SET-firstname" type="text" name="firstName">
+        <label for="SET-lastname">Last name</label>
+        <input required id="SET-lastname" type="text" name="lastName">
+        <label for="SET-email">E-mail</label>
+        <input required id="SET-email" type="email" name="email">
+        <label for="SET-password">Password</label>
+        <input required minlength="8" id="SET-password" type="password" name="password">
+        <button id="signup-button" type="submit">Sign Up</button>
+      </form>
+      <p class="modal__text">Already have an account? <a href="#login-modal"  class="modal-link">Login</a></p>
+    </div>
+  </div>
+
+  <div class="modal" id="profile-modal">
     <div class="modal__body">
       <p class="title section__title section__title--low">REGISTER</p>
       <div class="modal__close-button">

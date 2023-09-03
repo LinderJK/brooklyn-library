@@ -1,8 +1,6 @@
 const users = userList();
 console.log(users);
 
-
-
 let loginUser;
 console.log('start', loginUser);
 console.log(loginUser === undefined);
@@ -62,10 +60,15 @@ signupButton.addEventListener('click', (evt) => {
   //генерируем карту
   // formData.CardNumber = createCard();
   console.log(formData)
-  let user = new User (formData);
+  const user = new User (formData);
   users.push(user);
   //генерируем карту
   localSet(users);
+  loginUser = user;
+  console.log(loginUser);
+  user.login();
+  modalClose(evt.target.closest('.modal'));
+  evt.preventDefault();
 
 });
 
@@ -128,24 +131,35 @@ loginButton.addEventListener('click', (evt)=>{
   console.log(currentUser);
 
   // тут вызов функции переделки страницы
-  currentUser.login();
+  
+  
   loginUser = currentUser;
   console.log('this login', loginUser);
   console.log(loginUser === undefined);
-
+  currentUser.login();
   
-
   modalClose(evt.target.closest('.modal'));
-
+  evt.preventDefault();
+ 
   }
-
+  
   else {
   console.log('Пользователь с таким email не найден или пароль неверный');
   evt.preventDefault();
   return;
   }
-  
+
 })
+
+
+
+function logOut () {
+  users.forEach( (user) => {
+    user.isLoggedIn = false;
+  } );
+  localSet(users);
+}
+logOut();
 
 
 const checkCardButton = document.querySelector('.find-card__button');
@@ -196,6 +210,7 @@ class User {
   login () {
     this.updateIcon();
     this.newVisit();
+    this.iconFullName();
     this.isLoggedIn = true;
 
   }
@@ -208,6 +223,15 @@ class User {
     users[userIndex].visits = this.visits;
     localSet(users);
   }
+
+  }
+
+  iconFullName () {
+    const profileLink = document.querySelector('.profile-icon__link');
+    const fullName = this.firstName + ' ' + this.lastName;
+    profileLink.setAttribute('title', fullName);
+
+
 
   }
 
