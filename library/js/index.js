@@ -1,30 +1,109 @@
+//Конструктор пользователя
+class User {
+  constructor({
+    email,
+    firstName,
+    lastName,
+    password,
+    bonus = 0,
+    books = {},
+    visits = 1,
+    cardNumber = 0,
+    isLoggedIn = true,
+  }) {
+    this.email = email;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.password = password
+    this.visits = visits;
+    this.bonus = bonus;
+    this.books = books;
+    this.cardNumber = cardNumber;
+    this.isLoggedIn = isLoggedIn;
+
+    if (!cardNumber) {
+      this.cardNumber = this.createCard();
+    }
+    else {
+      this.cardNumber = cardNumber;
+    }
+    
+
+  }
+
+  //метод обновления страницы при входе
+  login() {
+    this.updateIcon();
+    this.iconFullName();
+    this.updatePopupProfile();
+    this.isLoggedIn = true;
+
+  }
+
+  //счетчик посещений  FIX!
+  newVisit() {
+    this.visits++;
+    console.log(this.visits);
+    const userIndex = users.findIndex(user => user.email === this.email);
+    if (userIndex !== -1) {
+      users[userIndex].visits = this.visits;
+      localSet(users);
+    }
+
+  }
+
+  
+  iconFullName() {
+    const profileLink = document.querySelector('.profile-icon__link');
+    const fullName = this.firstName + ' ' + this.lastName;
+    profileLink.setAttribute('title', fullName);
+  }
+
+  updatePopupProfile() {
+    const popupText = document.querySelector('.popup-profile p b');
+    popupText.textContent = this.cardNumber;
+  }
+
+  createCard() {
+    const min = 100000000;
+    const max = 999999999;
+    let cardNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    cardNumber = cardNumber.toString(16).toUpperCase();
+    return cardNumber;
+  }
+
+  updateIcon() {
+    const symbol = (this.firstName[0] + this.lastName[0]).toUpperCase();
+    const svgCurrentUser = document.querySelector('.user-svg');
+    const authLink = document.querySelector('.auth-icon__link');
+    const profileLink = document.querySelector('.profile-icon__link');
+
+
+    authLink.classList.add('auth-icon__link-hide');
+    profileLink.classList.add('profile-icon__link-active');
+
+    let text = svgCurrentUser.querySelector('text');
+    text.textContent = `${symbol}`;
+
+  }
+
+
+
+}
+
 const users = userList();
 console.log(users);
 
-let loginUser;
-console.log('start', loginUser);
-console.log(loginUser === undefined);
-
-
-//забираем даннные из локал
+//забираем даннные из локал и преобразуем в экземпляр класса
 function userList() {
-  return JSON.parse(localStorage.getItem('users')) || [];
+  const userDataList = JSON.parse(localStorage.getItem('users')) || [];
+  return  userDataList.map(userData => {
+    return new User(userData);
+  });
 }
 
-//генератор уникального номера карты
-// function createCard() {
-//   const min = 100000000;
-//   const max = 999999999;
-
-//   let cardNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-//   cardNumber = cardNumber.toString(16).toUpperCase();
-
-//   return cardNumber;
-// }
-
-const signupButton = document.getElementById('signup-button');
-
 // Обработчик на кнопку регистрации
+const signupButton = document.getElementById('signup-button');
 signupButton.addEventListener('click', (evt) => {
   const inputs = document.querySelectorAll('#register-form input');
 
@@ -44,30 +123,23 @@ signupButton.addEventListener('click', (evt) => {
   formData.email = userEmail;
 
   // вызов функции поиска существующего пользоватля
-  // const flag = checkUser(userEmail, users);
   const userObj = findUser(userEmail);
   if (userObj !== undefined) {
-    console.log('Пользователь уже существует' );
+    console.log('Пользователь уже существует');
     evt.preventDefault();
     return;
   }
   
-  // для тестов можно удалить потом
-  // if (flag === false) {
-  //   console.log('Пользователь создан', flag);
-  // }
-
-  //генерируем карту
-  // formData.CardNumber = createCard();
-  console.log(formData)
-  const user = new User (formData);
-  users.push(user);
-  //генерируем карту
-  localSet(users);
-  loginUser = user;
-  console.log(loginUser);
   modalClose(evt.target.closest('.modal'));
+  //запрет перезагрузки страницы
   evt.preventDefault();
+
+  //создаем экземпляр добавляем в массив
+  const user = new User(formData);
+  users.push(user);
+  //обновляем хранилище
+  localSet(users);
+  //меняем вид страницы
   user.login();
 
 });
@@ -78,280 +150,130 @@ function localSet(users) {
 }
 
 // фукция поиска пользователя по почте и возврат обьекта
-function findUser (mail) {
-  // let flag = false;
+function findUser(mail) {
   return users.find(user => user.email === mail);
-  // users.forEach(user => {
-  //   if (user.email === mail) {
-  //     flag = true;
-  //     console.log("Этот пользватель существует", flag, user.email);
-  //   }
-  // });
-  // return flag;
 }
 
-
 // фукция поиска пользователя по карте и возврат обьекта
-function findCard (card) {
+function findCard(card) {
   return users.find(user => user.cardNumber === card);
 }
 
+function findIndex(email) {
+  return users.findIndex(user => user.email === email)
+}
+
 // функция валидации
-function validation (inputs) {
+function validation(inputs) {
   let isValid = true;
-  inputs.forEach((input)=> {
-    if (!input.checkValidity()){
+  inputs.forEach((input) => {
+    if (!input.checkValidity()) {
       isValid = false;
-      console.log ('NOT Valid');
+      console.log('NOT Valid');
     }
   });
   return isValid;
 }
 
-
-const loginButton = document.getElementById('login-button');
-
 //обработчик на кнопку входа
-loginButton.addEventListener('click', (evt)=>{
+const loginButton = document.getElementById('login-button');
+loginButton.addEventListener('click', (evt) => {
   const inputs = document.querySelectorAll('#login-form input');
   const inputAuthData = inputs[0].value;
   const inputPass = inputs[1].value;
 
+  //ищем пользователя по карте или почте
   let userObj = findUser(inputAuthData);
   if (userObj === undefined) {
-  userObj = findCard(inputAuthData);
+    userObj = findCard(inputAuthData);
+    console.log('Такого пользователя не существует');
   }
 
-    if (!validation(inputs)) {
+  if (!validation(inputs)) {
     return;
   }
-  if (userObj && userObj.password === inputPass) {
-  // const currentUser = new User (userObj);
-  const currentUser = new User (userObj);
-  console.log(currentUser);
 
-  // тут вызов функции переделки страницы
-  
-  
-  loginUser = currentUser;
-  console.log('this login', loginUser);
-  console.log(loginUser === undefined);
-  modalClose(evt.target.closest('.modal'));
-  evt.preventDefault();
-  currentUser.login();
-  
-  
- 
-  }
-  
-  else {
-  console.log('Пользователь с таким email не найден или пароль неверный');
-  evt.preventDefault();
-  return;
+  if (userObj && userObj.password === inputPass) {
+    // меняем флаг
+    userObj.isLoggedIn = true;
+    
+    // ищем позицию данного пользователя
+    const userIndex = findIndex(userObj.email);
+    if (userIndex !== -1) {
+      users[userIndex] = userObj;
+
+      // обновляем данные в Local Storage по индексу
+      localSet(users);
+    }
+
+    modalClose(evt.target.closest('.modal'));
+    evt.preventDefault();
+    userObj.login();
+
+  } else {
+    console.log('Пользователь с таким email не найден или пароль неверный');
+    evt.preventDefault();
+    return;
   }
 
 })
 
 
-
-function updateLogutStatus () {
-  users.forEach( (user) => {
-    user.isLoggedIn = false;
-  } );
-  localSet(users);
-}
-updateLogutStatus();
-
-const logOutButton = document.querySelector('.logoutButton');
-console.log(logOutButton);
-logOutButton.addEventListener('click', ()=> {
-  location.reload();
-});
-
- 
-
-const checkCardButton = document.querySelector('.find-card__button');
-checkCardButton.addEventListener('click', checkCard);
-
-function checkCard() {
-  const inputs = document.querySelectorAll('.find-card__input input');
-  const inputName = inputs[0].value.trim();
-  const inputCard = inputs[1].value;
-  console.log(inputName);
-
-  
-
-  for (const user of users) {
-    // console.log(user);
-    // console.log(user.cardNumber);
-    if (user.cardNumber === inputCard) {
-      let ar = user.lastName+user.firstName;
-      return console.log('sucsess card', user.cardNumber, user.lastName, user.firstName, ar);
-    }
-
-     if ((user.firstName + user.lastName) === inputName) {
-      let ar = user.firstName+user.lastName;
-      return console.log('sucsess name', user.cardNumber, user.lastName, user.firstName, ar);
-    }
-
-  }
-
-}
-
-
-
-
-//Конструктор пользователя
-class User {
-  constructor ({email, firstName, lastName, password, bonus = 0, books = {}, visits = 0}) {
-    this.email = email;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.password  = password
-    this.visits = visits;
-    this.bonus = bonus;
-    this.books = books;
-    this.isLoggedIn = false;
-
-    this.cardNumber = this.createCard();
-
-  }
-
-  login () {
-    this.updateIcon();
-    this.newVisit();
-    this.iconFullName();
-    this.updatePopup ();
-    this.isLoggedIn = true;
-
-  }
-
-  newVisit () {
-    this.visits++;
-    console.log(this.visits);
-    const userIndex = users.findIndex(user => user.email === this.email);
-    if (userIndex !== -1) {
-    users[userIndex].visits = this.visits;
-    localSet(users);
-  }
-
-  }
-
-  iconFullName () {
-    const profileLink = document.querySelector('.profile-icon__link');
-    const fullName = this.firstName + ' ' + this.lastName;
-    profileLink.setAttribute('title', fullName);
-  }
-
-  updatePopupProfile () {
-    const popupText = document.querySelector('.popup-profile p b');
-    popupText.textContent = this.cardNumber;
-  }
-
-  createCard() {
-    const min = 100000000;
-    const max = 999999999;
-    let cardNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-    cardNumber = cardNumber.toString(16).toUpperCase();
-    return cardNumber;
-  }
-
-  updateIcon () {
-  const symbol = (this.firstName[0] + this.lastName[0]).toUpperCase();
-  const svgCurrentUser = document.querySelector('.user-svg');
-  const authLink = document.querySelector('.auth-icon__link');
-  const profileLink = document.querySelector('.profile-icon__link');
-
-
-  authLink.classList.add('auth-icon__link-hide');
-  profileLink.classList.add('profile-icon__link-active');
-
-  let text = svgCurrentUser.querySelector('text');
-  text.textContent = `${symbol}`;
-
- }
-
-
-
-}
-
-
-// function updateIcon (name1='ab', name2='cd') {
-//   const symbol = (name1[0] + name2[0]).toUpperCase();
-//   const svgCurrentUser = document.querySelector('.user-svg');
-//   const svgAllUser = document.querySelector('.auth-icon__img');
-
-//   svgAllUser.classList.add('auth-icon__img-hide');
-//   svgCurrentUser.classList.add('user-svg-active');
-
-//   let text = svgCurrentUser.querySelector('text');
-//   text.textContent = `${symbol}`;
-
-//  }
-
-
-
-// check card -- Digital Library Cards
 // const checkCardButton = document.querySelector('.find-card__button');
-// console.log(checkCardButton);
 // checkCardButton.addEventListener('click', checkCard);
 
 // function checkCard() {
 //   const inputs = document.querySelectorAll('.find-card__input input');
+//   const inputName = inputs[0].value.trim();
+//   const inputCard = inputs[1].value;
+//   console.log(inputName);
 
-//   console.log(inputs);
-//   // console.log(button);
+
 
 //   for (const user of users) {
-//     console.log(user);
-//     console.log(user.CardNumber);
-//     if (user.CardNumber === inputs[1].value) {
-//       console.log
-//       return console.log('sucsess', user.CardNumber);
+//     // console.log(user);
+//     // console.log(user.cardNumber);
+//     if (user.cardNumber === inputCard) {
+//       let ar = user.lastName + user.firstName;
+//       return console.log('sucsess card', user.cardNumber, user.lastName, user.firstName, ar);
+//     }
+
+//     if ((user.firstName + user.lastName) === inputName) {
+//       let ar = user.firstName + user.lastName;
+//       return console.log('sucsess name', user.cardNumber, user.lastName, user.firstName, ar);
 //     }
 
 //   }
 
 // }
 
-// function updateIcon (name1, name2) {
-//   let symbol = (name1[0] + name2[0]).toUpperCase();
-
-//   document.addEventListener('DOMContentLoaded', function() {
-//     let svgObj = document.getElementById('user-svg').getSVGDocument();
-//     console.log(svgObj);
-//     // svgObj.setAttribute('data','./icons/user-icon.svg');
-//     // console.log(svgObj);
-//     let text = svgObj.querySelector('text');
-//     text.textContent = `${symbol}`;
-
-//   });
-
-//  }
-
-// updateIcon('John', 'Rhamber');
 
 
 
 
+// переменная для хранения текущего залогиненого пользователя
+let loggedInUser;
 
+// функция логина даже после обновления страницы в зависимости от флага
+function logInStarus() {
+  users.forEach((user) => {
+    if (user.isLoggedIn === true) {
+      loggedInUser = user;
+      user.login();
+    }
+    return;
+  });
+}
+logInStarus();
 
-
-
-
-
-
-
-// let user = usersList()[1];
-// console.log('object', user);
-// user.cardNumber = user.createCard;
-// console.log(user.createCard);
-// console.log('object', user);
-// let newUser = new User (user); 
-// let newUser2 = new User (user); 
-// users.push(newUser);
-// users.push(newUser2);
-// console.log(users);
-
-// console.log(newUser)
-// console.log({ ...user });
+// обработчик на кнопку выхода из аккаунта
+const logOutButton = document.querySelector('.logoutButton');
+logOutButton.addEventListener('click', function (evt) {
+  users.forEach ((user)=> {
+    if (user.isLoggedIn === true) {
+      user.isLoggedIn = false;
+      localSet(users);
+      document.location.reload();
+    }
+  })
+});

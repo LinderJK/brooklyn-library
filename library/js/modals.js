@@ -72,7 +72,7 @@ console.log(buyBookButton);
 
 buyBookButton.forEach((button) => {
   button.addEventListener('click', ()=>{
-    if (loginUser === undefined)
+    if (loggedInUser === undefined)
     modalOpen(document.getElementById('login-modal'));
   })
 })
