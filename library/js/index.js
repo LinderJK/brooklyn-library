@@ -211,6 +211,7 @@ class User {
     this.updateIcon();
     this.newVisit();
     this.iconFullName();
+    this.updatePopup ();
     this.isLoggedIn = true;
 
   }
@@ -230,9 +231,11 @@ class User {
     const profileLink = document.querySelector('.profile-icon__link');
     const fullName = this.firstName + ' ' + this.lastName;
     profileLink.setAttribute('title', fullName);
+  }
 
-
-
+  updatePopupProfile () {
+    const popupText = document.querySelector('.popup-profile p b');
+    popupText.textContent = this.cardNumber;
   }
 
   createCard() {
