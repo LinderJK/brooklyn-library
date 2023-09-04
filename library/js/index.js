@@ -10,6 +10,15 @@ class User {
     visits = 1,
     cardNumber = 0,
     isLoggedIn = true,
+    abonement = false,
+    paymentInfo = {
+      payNumber: null,
+      expirationCode:null,
+      CVC: null,
+      cardholderName: null,
+      postal: null,
+      cuty: null,
+    },
   }) {
     this.email = email;
     this.firstName = firstName;
@@ -20,6 +29,8 @@ class User {
     this.books = books;
     this.cardNumber = cardNumber;
     this.isLoggedIn = isLoggedIn;
+    this.abonement = abonement;
+    this.paymentInfo = paymentInfo;
 
     if (!cardNumber) {
       this.cardNumber = this.createCard();
@@ -37,20 +48,22 @@ class User {
     this.iconFullName();
     this.updatePopupProfile();
     this.isLoggedIn = true;
+    this.visits ++;
+    this.updateProfileInfo();
 
   }
 
   //счетчик посещений  FIX!
-  newVisit() {
-    this.visits++;
-    console.log(this.visits);
-    const userIndex = users.findIndex(user => user.email === this.email);
-    if (userIndex !== -1) {
-      users[userIndex].visits = this.visits;
-      localSet(users);
-    }
+  // newVisit() {
+  //   this.visits++;
+  //   console.log(this.visits);
+  //   const userIndex = users.findIndex(user => user.email === this.email);
+  //   if (userIndex !== -1) {
+  //     users[userIndex].visits = this.visits;
+  //     localSet(users);
+  //   }
 
-  }
+  // }
 
   
   iconFullName() {
@@ -87,12 +100,33 @@ class User {
 
   }
 
+  updateProfileInfo () {
+    const visits = document.querySelector('.visits');
+    visits.textContent = this.visits;
+    const bonus = document.querySelector('.bonus');
+    bonus.textContent = this.bonus;
+    console.log(visits);
+    const name = document.querySelector('.profile__name p');
+    name.textContent = this.firstName + ' ' + this.lastName;
+    const svg = document.querySelector('.profile__avatar .user-svg text');
+    svg.textContent = (this.firstName[0] + this.lastName[0]).toUpperCase();
+    const cardNumber = document.querySelector('.card-number div');
+    cardNumber.textContent = this.cardNumber;
+
+    console.log(cardNumber);
+
+    console.log(this.books);
+
+    
 
 
+
+  }
+  
 }
 
 const users = userList();
-console.log(users);
+console.log('это users', users);
 
 //забираем даннные из локал и преобразуем в экземпляр класса
 function userList() {
@@ -207,8 +241,10 @@ loginButton.addEventListener('click', (evt) => {
     }
 
     modalClose(evt.target.closest('.modal'));
-    evt.preventDefault();
     userObj.login();
+    evt.preventDefault();
+    document.location.reload();
+    
 
   } else {
     console.log('Пользователь с таким email не найден или пароль неверный');
@@ -250,18 +286,19 @@ loginButton.addEventListener('click', (evt) => {
 
 // переменная для хранения текущего залогиненого пользователя
 let loggedInUser;
-
 // функция логина даже после обновления страницы в зависимости от флага
 function logInStarus() {
   users.forEach((user) => {
     if (user.isLoggedIn === true) {
       loggedInUser = user;
       user.login();
+      
     }
     return;
   });
 }
 logInStarus();
+console.log('logged user',loggedInUser);
 
 // обработчик на кнопку выхода из аккаунта
 const logOutButton = document.querySelector('.logoutButton');
@@ -274,3 +311,78 @@ logOutButton.addEventListener('click', function (evt) {
     }
   })
 });
+
+
+
+
+
+
+function addBooks (button) {
+  
+  // const book = button.parentElement;
+  // const book1 = book.closest('.description');
+  // const book2 = book1.parentElement;
+
+//   const descriptionElement = document.querySelector('.book .description');
+//   console.log(descriptionElement);
+
+// // Найти кнопку <button class="button-low">Buy</button>
+//   const buyButton = document.querySelector('.book__button .button-low');
+//   console.log(buyButton);
+const book = button.closest('.book');
+const description = book.querySelector('.description').textContent;
+const name = description.trim().split('\n');
+const title = name[0].trim();
+const autor = name[1].trim();
+
+console.log(autor, title);
+
+
+
+loggedInUser.books = {
+  autor: autor,
+  title: title,
+}
+console.log('user thith books', loggedInUser);
+console.log(bookList);
+
+
+
+
+  // console.log(book2);
+  // console.log(book1);
+  // console.log(button);
+  // console.log(book);
+
+  return bookList;
+
+}
+
+
+
+function buyAbonement () {
+
+  
+
+}
+
+
+
+
+
+
+// function updateProfileInfo () {
+//   const visits = document.querySelector('.visits');
+//   visits.textContent = this.visits;
+//   const bonus = document.querySelector('.bonus');
+//   bonus.textContent = this.bonus;
+//   console.log(visits);
+
+  
+  
+
+
+// }
+
+// updateProfileInfo();
+

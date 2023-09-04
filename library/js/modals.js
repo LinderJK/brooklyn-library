@@ -72,9 +72,18 @@ console.log(buyBookButton);
 
 buyBookButton.forEach((button) => {
   button.addEventListener('click', ()=>{
-    if (loggedInUser === undefined)
-    modalOpen(document.getElementById('login-modal'));
+    if (loggedInUser === undefined) {
+      modalOpen(document.getElementById('login-modal'));
+    }
+    if (loggedInUser.abonement === false) {
+      modalOpen(document.getElementById('abonement-modal'));
+      // buyAbonement(button);
+    } 
+    // console.log(button);
+    addBooks(button);
   })
 })
+
+
 
 

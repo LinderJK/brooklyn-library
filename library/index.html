@@ -893,8 +893,8 @@
     </div>
   </div>
 
-  <div class="modal" id="profile-modal" style="opacity: 1; visibility: visible;">
-    <div class="profile">
+  <div class="modal" id="profile-modal">
+    <div class="modal__body profile-body">
       <div class="modal__close-button">
         <svg class="close-button-svg" width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
           <line x1="0" y1="0" x2="15" y2="15" stroke="black" stroke-width="3" />
@@ -904,14 +904,16 @@
 
       <div class="profile-content">
         <div class="profile-content__bg">
-          <div class="profile__avatar"><svg class="user-svg" width="35" height="35" viewBox="0 0 28 28" fill="none"
+          <div class="profile__avatar">
+            <svg class="user-svg" width="35" height="35" viewBox="0 0 28 28" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <path id="Subtract"
                 d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14Z"
                 fill="white" />
               <text x="50%" y="50%" text-anchor="middle" fill="#BB945F" font-size="15" line-height="20px"
                 font-family="Inter" dy=".3em">JD</text>
-            </svg> </div>
+            </svg>
+          </div>
           <div class="profile__name">
             <p>John Doe</p>
           </div>
@@ -923,12 +925,12 @@
             <div class="card-profile__item">
               <p>Visits</p>
               <img src="./icons/profile-union.svg" alt="profile-union">
-              <div>23</div>
+              <div class="visits">23</div>
             </div>
             <div class="card-profile__item">
               <p>Bonuses</p>
               <img src="./icons/profile-star.svg" alt="profile-star">
-              <div>1240</div>
+              <div class="bonus">1240</div>
             </div>
             <div class="card-profile__item">
               <p>Books</p>
@@ -936,10 +938,9 @@
               <div>3</div>
             </div>
           </div>
-          
+
           <p>Rented books</p>
           <div class="books-list">
-            
             <ul>
               <li>The Last Queen, Clive Irving</li>
               <li>Dominicana, Angie Cruz</li>
@@ -952,23 +953,57 @@
             <div class="">F00234030</div>
             <a><img src="./icons/profile-icon-copy.svg" alt="profile-copy-icon"></a>
           </div>
-
         </div>
-
-
       </div>
-
-
-
-
-
-
-
-
-
     </div>
+  </div>
 
 
+  <div class="modal" id="abonement-modal">
+    <div class="modal__body abonement-body">
+      <div class="modal__close-button">
+        <svg class="close-button-svg" width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="0" x2="15" y2="15" stroke="white" stroke-width="3" />
+          <line x1="0" y1="15" x2="15" y2="0" stroke="white" stroke-width="3" />
+        </svg>
+      </div>
+      <div class="abonement">
+        <div class="abonement__header">
+          <p>Buy a library card</p>
+        </div>
+        <div class="abonement__content">
+          <form class="abonement__form">
+            <label for="SET-payNumber">Bank card number</label>
+            <input required minlength="16" id="SET-payNumber" type="number" name="payNumber">
+            <label for="SET-expirationCode">Expiration code</label>
+            <div class="abonement__form-low">
+              <input required id="SET-expirationCode-first" type="number" name="expirationCode-first">
+              <input required id="SET-expirationCode-second" type="number" name="expirationCode-second">
+            </div>
+            <label minlength="3" for="SET-CVC">CVC</label>
+            <div class="abonement__form-low">
+              <input required id="SET-CVC" type="number" name="CVC">
+            </div>
+            <label for="SET-CardholderName">Cardholder name</label>
+            <input required id="SET-CardholderName" type="text" name="CardholderName">
+            <label for="SET-PostalCode">Postal code</label>
+            <input required id="SET-PostalCode" type="text" name="PostalCode">
+            <label for="SET-CityTown">City / Town</label>
+            <input required id="SET-CityTown" type="text" name="CityTown">
+            <div class="abonement__actions">
+              <button id="abonemetbuy-button" type="submit">Buy</button>
+              <div class="abonement__price">$ 25.00</div>
+            </div>
+          </form>
+          <div class="abonement__information">
+            <p>If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital
+              library card right now using this online form. Visitors to New York State can also use this form to apply
+              for a temporary card.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 
