@@ -71,18 +71,23 @@ const buyBookButton = document.querySelectorAll('.book__button button');
 console.log(buyBookButton);
 
 buyBookButton.forEach((button) => {
-  button.addEventListener('click', ()=>{
+  button.addEventListener('click', (evt)=>{
     if (loggedInUser === undefined) {
       modalOpen(document.getElementById('login-modal'));
     }
-    if (loggedInUser.abonement === false) {
+    else if (loggedInUser.abonement === false) {
       modalOpen(document.getElementById('abonement-modal'));
-      // buyAbonement(button);
-    } 
-    // console.log(button);
-    addBooks(button);
+      buyAbonement();
+      addBooks(button);
+    }
+    else if (loggedInUser.abonement === true) {
+      addBooks(button);
+    }
+    
+    
   })
 })
+
 
 
 

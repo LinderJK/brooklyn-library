@@ -500,8 +500,11 @@ strong {
   border: solid 1px var(--main-library);
   color: var(--main-library);
   background-color: white;
+  cursor: default;
+  pointer-events: none;
 
 }
+
 
 .book__preview {
   width: 200px;

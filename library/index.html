@@ -225,7 +225,7 @@
                     </p>
                   </div>
                   <div class="book__button">
-                    <button class="button-low">Buy</button>
+                    <button class="button-low button-low--press ">Buy</button>
                   </div>
                   <div class="book__preview">
                     <img src="./img/book/winter-book/winter-book-1.jpeg" alt="The Book Eaters By Sunyi Dean"
@@ -974,22 +974,22 @@
         <div class="abonement__content">
           <form class="abonement__form">
             <label for="SET-payNumber">Bank card number</label>
-            <input required minlength="16" id="SET-payNumber" type="number" name="payNumber">
+            <input required maxlength="19" minlength="16" id="SET-payNumber" type="text" name="payNumber">
             <label for="SET-expirationCode">Expiration code</label>
             <div class="abonement__form-low">
-              <input required id="SET-expirationCode-first" type="number" name="expirationCode-first">
-              <input required id="SET-expirationCode-second" type="number" name="expirationCode-second">
+              <input required id="SET-expirationCode" type="text" maxlength="2" name="expirationCodeOne">
+              <input required id="SET-expirationCode-second" type="text" maxlength="2" name="expirationCodeTwo">
             </div>
-            <label minlength="3" for="SET-CVC">CVC</label>
+            <label for="SET-CVC">CVC</label>
             <div class="abonement__form-low">
-              <input required id="SET-CVC" type="number" name="CVC">
+              <input required id="SET-CVC" type="text" minlength="3" maxlength="3" name="CVC">
             </div>
             <label for="SET-CardholderName">Cardholder name</label>
-            <input required id="SET-CardholderName" type="text" name="CardholderName">
+            <input required id="SET-CardholderName" type="text" name="cardholderName">
             <label for="SET-PostalCode">Postal code</label>
-            <input required id="SET-PostalCode" type="text" name="PostalCode">
+            <input required id="SET-PostalCode" type="text" name="postalCode">
             <label for="SET-CityTown">City / Town</label>
-            <input required id="SET-CityTown" type="text" name="CityTown">
+            <input required id="SET-CityTown" type="text" name="cityTown">
             <div class="abonement__actions">
               <button id="abonemetbuy-button" type="submit">Buy</button>
               <div class="abonement__price">$ 25.00</div>

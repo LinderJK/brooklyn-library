@@ -6,18 +6,19 @@ class User {
     lastName,
     password,
     bonus = 0,
-    books = {},
-    visits = 1,
+    books = [],
+    visits = 0,
     cardNumber = 0,
     isLoggedIn = true,
     abonement = false,
     paymentInfo = {
       payNumber: null,
-      expirationCode:null,
+      expirationCodeOne:null,
+      expirationCodeTwo:null,
       CVC: null,
       cardholderName: null,
-      postal: null,
-      cuty: null,
+      postalCode: null,
+      cityTown: null,
     },
   }) {
     this.email = email;
@@ -112,6 +113,8 @@ class User {
     svg.textContent = (this.firstName[0] + this.lastName[0]).toUpperCase();
     const cardNumber = document.querySelector('.card-number div');
     cardNumber.textContent = this.cardNumber;
+
+
 
     console.log(cardNumber);
 
@@ -209,6 +212,19 @@ function validation(inputs) {
   return isValid;
 }
 
+
+//update users data 
+function updateUsersData (user) {
+  const userIndex = findIndex(user.email);
+    if (userIndex !== -1) {
+      users[userIndex] = user;
+      // обновляем данные в Local Storage по индексу
+      localSet(users);
+    }
+
+}
+
+
 //обработчик на кнопку входа
 const loginButton = document.getElementById('login-button');
 loginButton.addEventListener('click', (evt) => {
@@ -232,13 +248,14 @@ loginButton.addEventListener('click', (evt) => {
     userObj.isLoggedIn = true;
     
     // ищем позицию данного пользователя
-    const userIndex = findIndex(userObj.email);
-    if (userIndex !== -1) {
-      users[userIndex] = userObj;
+    // const userIndex = findIndex(userObj.email);
+    // if (userIndex !== -1) {
+    //   users[userIndex] = userObj;
 
-      // обновляем данные в Local Storage по индексу
-      localSet(users);
-    }
+    //   // обновляем данные в Local Storage по индексу
+    //   localSet(users);
+    // }
+    updateUsersData(userObj);
 
     modalClose(evt.target.closest('.modal'));
     userObj.login();
@@ -329,6 +346,7 @@ function addBooks (button) {
 // // Найти кнопку <button class="button-low">Buy</button>
 //   const buyButton = document.querySelector('.book__button .button-low');
 //   console.log(buyButton);
+button.classList.add ('.button-low--press');
 const book = button.closest('.book');
 const description = book.querySelector('.description').textContent;
 const name = description.trim().split('\n');
@@ -336,15 +354,14 @@ const title = name[0].trim();
 const autor = name[1].trim();
 
 console.log(autor, title);
+const bookInfo = {autor: autor, title: title};
+loggedInUser.books.push(bookInfo);
+console.log(loggedInUser.books);
+console.log(typeof loggedInUser.books);
+  
 
-
-
-loggedInUser.books = {
-  autor: autor,
-  title: title,
-}
 console.log('user thith books', loggedInUser);
-console.log(bookList);
+// console.log(bookList);
 
 
 
@@ -354,17 +371,60 @@ console.log(bookList);
   // console.log(button);
   // console.log(book);
 
-  return bookList;
+  // return bookList;
 
 }
 
 
+
+// const buyButton = document.getElementById('abonemetbuy-button');
+// console.log(buyButton);
 
 function buyAbonement () {
+  const buyButton = document.getElementById('abonemetbuy-button');
+  const inputs = document.querySelectorAll('.abonement__form input');
+  buyButton.setAttribute('disabled', true);
+  buyButton.style.pointerEvents = 'none';
+  const inputsNumberType = Array.from(inputs).slice(0, 4);
+  const formData = {};
 
-  
+  inputs.forEach((elem)=> {
+    elem.addEventListener('input', (evt)=> {
+      if (!validation(inputs)) {
+        buyButton.setAttribute('disabled', true);
+        buyButton.style.pointerEvents = 'none';
+        return;
+      }
+      else {
+        buyButton.removeAttribute('disabled', true);
+        buyButton.style.pointerEvents = '';
+      }
+    })
+  })
+
+  buyButton.addEventListener('click', (evt) => {
+    // modalClose(evt.target.closest('.modal'));
+    inputs.forEach((elem)=>{
+      formData[elem.name] = elem.value.trim();
+    })
+    loggedInUser.paymentInfo = formData;
+    loggedInUser.abonement = true;
+    updateUsersData(loggedInUser);
+    console.log(formData);
+    console.log('updater ',loggedInUser);
+    evt.preventDefault();
+  });
+
+  inputsNumberType.forEach ((elem)=> {
+    elem.addEventListener('input', (evt)=>{
+      elem.value = elem.value.replace(/[^0-9\s]/g, '');
+    })
+  })
+
+
 
 }
+
 
 
 
