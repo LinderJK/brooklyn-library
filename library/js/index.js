@@ -7,7 +7,7 @@ class User {
     password,
     bonus = 0,
     books = [],
-    visits = 0,
+    visits = 1,
     cardNumber = 0,
     isLoggedIn = true,
     abonement = false,
@@ -371,7 +371,7 @@ checkCardButton.addEventListener('click', function () {
     return;
   }
   const fullName = findUser.firstName + ' ' + findUser.lastName;
-  
+
   if  (findUser !== undefined && fullName === inputName){
     findUser.updateProfileInfo();
     findUser.updateLibraryCards();

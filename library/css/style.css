@@ -312,10 +312,17 @@ strong {
 
 .slider__dot--active {
   background-color: var(--main-library);
+
 }
 
 .slider__dot:hover {
   background-color: var(--main-library);
+}
+
+.slider__navigation-item--active {
+  cursor: default;
+  pointer-events: none;
+
 }
 
 
@@ -446,13 +453,13 @@ strong {
   height: 0;
   position: absolute;
   opacity: 0;
-  transition: opacity 2s ease-in;
+  transition: opacity 1s ease-in;
 
 }
 
 .favorites-item--active {
   opacity: 1;
-  transition: opacity 2s ease-in;
+  transition: opacity 1s ease-in;
   visibility: visible;
   height: auto;
   position: static;
@@ -1202,7 +1209,7 @@ input::-webkit-inner-spin-button {
   width: 80px;
   height: 80px;
   background-color: var(--white);
-  padding: auto;
+  /* padding: auto; */
   justify-content: center;
   align-items: center;
 }
@@ -1242,10 +1249,12 @@ input::-webkit-inner-spin-button {
   height: 65px;
   margin: 0 auto;
   font-size: 10px;
-  line-height: 20px; /* 200% */
+  line-height: 20px;
+  /* 200% */
   letter-spacing: 0.2px;
 
 }
+
 .card-profile-low .card-profile__item {
   gap: 0px;
 }
@@ -1273,7 +1282,7 @@ input::-webkit-inner-spin-button {
   overflow: scroll;
   max-width: 350px;
   max-height: 100px;
-  scrollbar-width: 3px;
+  scrollbar-width: thin;
   scrollbar-color: #333 #f0f0f0;
 }
 
@@ -1401,13 +1410,14 @@ input::-webkit-inner-spin-button {
 }
 
 .abonement__price {
-font-family: Inter;
-font-size: 20px;
-font-style: normal;
-font-weight: 700;
-line-height: 20px; /* 100% */
-letter-spacing: 2px;
-text-transform: uppercase;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  /* 100% */
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .d-none {

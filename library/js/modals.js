@@ -68,13 +68,13 @@ function modalClose(modal) {
 function disableScroll() {
   document.body.style.overflowY = 'hidden';
   document.documentElement.style.overflowY = 'hidden';
-  document.body.style.paddingRight = '15px';
+  // document.body.style.paddingRight = '15px';
 }
 
 function enableScroll() {
   document.body.style.overflowY = '';
   document.documentElement.style.overflowY = '';
-  document.body.style.paddingRight = '';
+  // document.body.style.paddingRight = '';
 }
 
 

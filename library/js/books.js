@@ -46,5 +46,4 @@ radioFavorites.forEach ((elem, index)=>{
 })
 
 booksVisible();
-
 //TODO fix fade in animation
