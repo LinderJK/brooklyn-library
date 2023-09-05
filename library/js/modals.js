@@ -1,5 +1,17 @@
-const modalLinks = document.querySelectorAll('.modal-link');
+const modalLinks = document.querySelectorAll('a.modal-link');
 // console.log(modalLinks);
+
+const modalButton = document.querySelectorAll('button.modal-link');
+console.log('miodal button ', modalButton);
+
+modalButton.forEach ((elem)=> {
+  elem.addEventListener('click', (evt)=> {
+    const modalName = elem.getAttribute('name');
+    const currentModal = document.getElementById(modalName);
+    modalOpen(currentModal);
+    evt.preventDefault();
+  })
+})
 
 
 for (let index = 0; index < modalLinks.length; index++) {

@@ -51,6 +51,7 @@ class User {
     this.updateProfileInfo();
     this.updateButtonsView();
     this.updateLibraryCards();
+    this.updateLibraryCardsInfo ()
 
   }
 
@@ -107,7 +108,7 @@ class User {
     update(visits, self.visits);
     const bonus = document.querySelectorAll('.card-profile__bonus');
     update(bonus, self.bonus);
-    const name = document.querySelectorAll('.profile__name p');
+    const name = document.querySelector('.profile__name p');
     name.textContent = this.firstName + ' ' + this.lastName;
     const svg = document.querySelector('.profile__avatar .user-svg text');
     svg.textContent = (this.firstName[0] + this.lastName[0]).toUpperCase();
@@ -171,10 +172,23 @@ class User {
     buttonFindCard.classList.add('d-none');
     const profile = document.querySelector('.card-profile-low');
     profile.classList.remove('d-none');
-    const inputs = document.querySelectorAll('.find-card__input input');
-    inputs[0].value = `${this.firstName + ' ' + this.lastName}`;
-    inputs[1].value = `${this.cardNumber}`;
+    // const inputs = document.querySelectorAll('.find-card__input input');
+    // inputs[0].value = `${this.firstName + ' ' + this.lastName}`;
+    // inputs[1].value = `${this.cardNumber}`;
+  }
 
+  hideibraryCards () {
+    const buttonFindCard = document.querySelector('.find-card__button');
+    
+      buttonFindCard.classList.remove('d-none');
+      const profile = document.querySelector('.card-profile-low');
+      profile.classList.add('d-none');
+    
+    
+
+  }
+
+  updateLibraryCardsInfo () {
     const text = document.querySelectorAll('.get-card__text p');
     const buttons = document.querySelectorAll('.get-card__buttons button');
     console.log(buttons);
@@ -344,33 +358,42 @@ loginButton.addEventListener('click', (evt) => {
 })
 
 
-// const checkCardButton = document.querySelector('.find-card__button');
-// checkCardButton.addEventListener('click', checkCard);
 
-// function checkCard() {
-//   const inputs = document.querySelectorAll('.find-card__input input');
-//   const inputName = inputs[0].value.trim();
-//   const inputCard = inputs[1].value;
-//   console.log(inputName);
+// поиск карты и отображение информациии
+const checkCardButton = document.querySelector('.find-card__button');
+checkCardButton.addEventListener('click', function () {
+
+  const inputs = document.querySelectorAll('.find-card__input input');
+  const inputName = inputs[0].value.trim();
+  const inputCard = inputs[1].value;
+  const findUser = findCard(inputCard);
+  if (!findUser) {
+    return;
+  }
+  const fullName = findUser.firstName + ' ' + findUser.lastName;
+  
+  if  (findUser !== undefined && fullName === inputName){
+    findUser.updateProfileInfo();
+    findUser.updateLibraryCards();
+
+    setTimeout(() => {
+      findUser.hideibraryCards ();
+      inputs.forEach ((elem)=> {
+        elem.value = '';
+      })
+    }, 10000);
+
+    
+  }
+
+  return;
+
+});
 
 
 
-//   for (const user of users) {
-//     // console.log(user);
-//     // console.log(user.cardNumber);
-//     if (user.cardNumber === inputCard) {
-//       let ar = user.lastName + user.firstName;
-//       return console.log('sucsess card', user.cardNumber, user.lastName, user.firstName, ar);
-//     }
 
-//     if ((user.firstName + user.lastName) === inputName) {
-//       let ar = user.firstName + user.lastName;
-//       return console.log('sucsess name', user.cardNumber, user.lastName, user.firstName, ar);
-//     }
 
-//   }
-
-// }
 
 
 // переменная для хранения текущего залогиненого пользователя
