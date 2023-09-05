@@ -1249,6 +1249,10 @@ input::-webkit-inner-spin-button {
   gap: 15px;
 }
 
+.user-card-number {
+  color: var(--main-library);
+}
+
 .books-list {
   display: flex;
   overflow: scroll;

@@ -79,7 +79,6 @@ buyBookButton.forEach((button) => {
     else if (loggedInUser.abonement === false) {
       modalOpen(document.getElementById('abonement-modal'));
       buyAbonement();
-      addBooks(button);
     }
     else if (loggedInUser.abonement === true) {
       addBooks(button);

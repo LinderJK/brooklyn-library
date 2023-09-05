@@ -51,7 +51,7 @@ class User {
     this.isLoggedIn = true;
     this.visits ++;
     this.updateProfileInfo();
-    this.updateButtonsView;
+    this.updateButtonsView();
 
   }
 
@@ -103,24 +103,34 @@ class User {
   }
 
   updateProfileInfo () {
-    const visits = document.querySelector('.visits');
+    const visits = document.querySelector('.card-profile__visits');
     visits.textContent = this.visits;
-    const bonus = document.querySelector('.bonus');
+    const bonus = document.querySelector('.card-profile__bonus');
     bonus.textContent = this.bonus;
-    console.log(visits);
     const name = document.querySelector('.profile__name p');
     name.textContent = this.firstName + ' ' + this.lastName;
     const svg = document.querySelector('.profile__avatar .user-svg text');
     svg.textContent = (this.firstName[0] + this.lastName[0]).toUpperCase();
-    const cardNumber = document.querySelector('.card-number div');
+    const cardNumber = document.querySelector('.user-card-number');
     cardNumber.textContent = this.cardNumber;
+    const booksList = document.querySelector('.books-list ul');
+    console.log(booksList);
 
+    this.books.forEach((elem)=> {
+      let newLi = document.createElement('li');
+      newLi.innerHTML = `${elem.title + ', ' + elem.autor}`;
+      booksList.append(newLi);
+    })
 
+    if (this.books.length < 1) {
+      console.log(this.books.length < 1);
+      let newLi = document.createElement('li');
+      newLi.innerHTML = 'No books added';
+      booksList.append(newLi);
+    } 
 
-    console.log(cardNumber);
-
-    console.log(this.books);
-
+    const booksCounter = document.querySelector('.card-profile__books');
+    booksCounter.textContent = this.books.length;
   }
 
   findBook (autor, title) {
@@ -203,8 +213,10 @@ signupButton.addEventListener('click', (evt) => {
   users.push(user);
   //обновляем хранилище
   localSet(users);
+  loggedInUser = user;
   //меняем вид страницы
   user.login();
+  
 
 });
 
@@ -249,6 +261,9 @@ function updateUsersData (user) {
       users[userIndex] = user;
       // обновляем данные в Local Storage по индексу
       localSet(users);
+      user.updateProfileInfo();
+
+
     }
 
 }
@@ -427,6 +442,7 @@ function buyAbonement () {
     console.log(formData);
     console.log('updater ',loggedInUser);
     evt.preventDefault();
+    modalClose(evt.target.closest('.modal'));
   });
 
   inputsNumberType.forEach ((elem)=> {
