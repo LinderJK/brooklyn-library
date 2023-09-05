@@ -51,6 +51,7 @@ class User {
     this.isLoggedIn = true;
     this.visits ++;
     this.updateProfileInfo();
+    this.updateButtonsView;
 
   }
 
@@ -120,10 +121,36 @@ class User {
 
     console.log(this.books);
 
-    
+  }
 
+  findBook (autor, title) {
+  let a =  this.books.some(elem => elem.autor === autor);
+  let b =  this.books.some(elem => elem.title === title);
+  return a && b;
 
+  }
 
+  // Метод для обновления вида кнопок
+  updateButtonsView() {
+    const buyBookButtons = document.querySelectorAll('.book__button button');
+
+    buyBookButtons.forEach((button) => {
+      const book = button.closest('.book');
+      const description = book.querySelector('.description').textContent;
+      const name = description.trim().split('\n');
+      const title = name[0].trim();
+      const autor = name[1].trim();
+
+      const isOwned = this.findBook(autor, title);
+
+      if (isOwned) {
+        button.classList.add('button-low--press');
+        button.textContent = 'Own';
+      } else {
+        button.classList.remove('button-low--press');
+        button.textContent = 'Buy';
+      }
+    });
   }
   
 }
@@ -199,6 +226,8 @@ function findCard(card) {
 function findIndex(email) {
   return users.findIndex(user => user.email === email)
 }
+
+
 
 // функция валидации
 function validation(inputs) {
@@ -309,6 +338,7 @@ function logInStarus() {
     if (user.isLoggedIn === true) {
       loggedInUser = user;
       user.login();
+      user.updateButtonsView();
       
     }
     return;
@@ -335,43 +365,27 @@ logOutButton.addEventListener('click', function (evt) {
 
 
 function addBooks (button) {
-  
-  // const book = button.parentElement;
-  // const book1 = book.closest('.description');
-  // const book2 = book1.parentElement;
+  const book = button.closest('.book');
+  const description = book.querySelector('.description').textContent;
+  const name = description.trim().split('\n');
+  const title = name[0].trim();
+  const autor = name[1].trim();
 
-//   const descriptionElement = document.querySelector('.book .description');
-//   console.log(descriptionElement);
+  if (loggedInUser.findBook (autor, title)) {
+    button.classList.add('button-low--press');
+    button.textContent = 'Own';
+    return;
+  }
 
-// // Найти кнопку <button class="button-low">Buy</button>
-//   const buyButton = document.querySelector('.book__button .button-low');
-//   console.log(buyButton);
-button.classList.add ('.button-low--press');
-const book = button.closest('.book');
-const description = book.querySelector('.description').textContent;
-const name = description.trim().split('\n');
-const title = name[0].trim();
-const autor = name[1].trim();
+  const bookInfo = {autor: autor, title: title};
 
-console.log(autor, title);
-const bookInfo = {autor: autor, title: title};
-loggedInUser.books.push(bookInfo);
-console.log(loggedInUser.books);
-console.log(typeof loggedInUser.books);
-  
+  if (!loggedInUser.findBook (autor, title)) {
+    loggedInUser.books.push(bookInfo);
+    button.classList.add('button-low--press');
+    button.textContent = 'Own';
+    updateUsersData(loggedInUser);
 
-console.log('user thith books', loggedInUser);
-// console.log(bookList);
-
-
-
-
-  // console.log(book2);
-  // console.log(book1);
-  // console.log(button);
-  // console.log(book);
-
-  // return bookList;
+  }
 
 }
 

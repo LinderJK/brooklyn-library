@@ -71,6 +71,7 @@ const buyBookButton = document.querySelectorAll('.book__button button');
 console.log(buyBookButton);
 
 buyBookButton.forEach((button) => {
+  
   button.addEventListener('click', (evt)=>{
     if (loggedInUser === undefined) {
       modalOpen(document.getElementById('login-modal'));
