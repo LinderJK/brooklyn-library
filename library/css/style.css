@@ -1235,6 +1235,21 @@ input::-webkit-inner-spin-button {
   gap: 20px;
 }
 
+.card-profile-low {
+  display: flex;
+  gap: 35px;
+  width: 170px;
+  height: 65px;
+  margin: 0 auto;
+  font-size: 10px;
+  line-height: 20px; /* 200% */
+  letter-spacing: 0.2px;
+
+}
+.card-profile-low .card-profile__item {
+  gap: 0px;
+}
+
 
 .card-profile__item {
   display: flex;
@@ -1393,6 +1408,10 @@ font-weight: 700;
 line-height: 20px; /* 100% */
 letter-spacing: 2px;
 text-transform: uppercase;
+}
+
+.d-none {
+  display: none;
 }
 
 

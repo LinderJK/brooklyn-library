@@ -13,8 +13,8 @@ class User {
     abonement = false,
     paymentInfo = {
       payNumber: null,
-      expirationCodeOne:null,
-      expirationCodeTwo:null,
+      expirationCodeOne: null,
+      expirationCodeTwo: null,
       CVC: null,
       cardholderName: null,
       postalCode: null,
@@ -35,11 +35,10 @@ class User {
 
     if (!cardNumber) {
       this.cardNumber = this.createCard();
-    }
-    else {
+    } else {
       this.cardNumber = cardNumber;
     }
-    
+
 
   }
 
@@ -49,25 +48,18 @@ class User {
     this.iconFullName();
     this.updatePopupProfile();
     this.isLoggedIn = true;
-    this.visits ++;
     this.updateProfileInfo();
     this.updateButtonsView();
+    this.updateLibraryCards();
 
   }
 
-  //счетчик посещений  FIX!
-  // newVisit() {
-  //   this.visits++;
-  //   console.log(this.visits);
-  //   const userIndex = users.findIndex(user => user.email === this.email);
-  //   if (userIndex !== -1) {
-  //     users[userIndex].visits = this.visits;
-  //     localSet(users);
-  //   }
 
-  // }
+  newVisit() {
+    this.visits++;
+  }
 
-  
+
   iconFullName() {
     const profileLink = document.querySelector('.profile-icon__link');
     const fullName = this.firstName + ' ' + this.lastName;
@@ -102,12 +94,20 @@ class User {
 
   }
 
-  updateProfileInfo () {
-    const visits = document.querySelector('.card-profile__visits');
-    visits.textContent = this.visits;
-    const bonus = document.querySelector('.card-profile__bonus');
-    bonus.textContent = this.bonus;
-    const name = document.querySelector('.profile__name p');
+  updateProfileInfo() {
+    const self = this;
+
+    function update (param, value) {
+      param.forEach( (elem)=>{
+        elem.textContent = value;
+      })
+    }
+    const visits = document.querySelectorAll('.card-profile__visits');
+    console.log(visits);
+    update(visits, self.visits);
+    const bonus = document.querySelectorAll('.card-profile__bonus');
+    update(bonus, self.bonus);
+    const name = document.querySelectorAll('.profile__name p');
     name.textContent = this.firstName + ' ' + this.lastName;
     const svg = document.querySelector('.profile__avatar .user-svg text');
     svg.textContent = (this.firstName[0] + this.lastName[0]).toUpperCase();
@@ -116,7 +116,7 @@ class User {
     const booksList = document.querySelector('.books-list ul');
     console.log(booksList);
 
-    this.books.forEach((elem)=> {
+    this.books.forEach((elem) => {
       let newLi = document.createElement('li');
       newLi.innerHTML = `${elem.title + ', ' + elem.autor}`;
       booksList.append(newLi);
@@ -127,16 +127,18 @@ class User {
       let newLi = document.createElement('li');
       newLi.innerHTML = 'No books added';
       booksList.append(newLi);
-    } 
+    }
 
-    const booksCounter = document.querySelector('.card-profile__books');
+    const booksCounter = document.querySelectorAll('.card-profile__books');
+    console.log(booksCounter);
+    update(booksCounter, self.books.length);
     booksCounter.textContent = this.books.length;
   }
 
-  findBook (autor, title) {
-  let a =  this.books.some(elem => elem.autor === autor);
-  let b =  this.books.some(elem => elem.title === title);
-  return a && b;
+  findBook(autor, title) {
+    let a = this.books.some(elem => elem.autor === autor);
+    let b = this.books.some(elem => elem.title === title);
+    return a && b;
 
   }
 
@@ -162,7 +164,32 @@ class User {
       }
     });
   }
-  
+
+  // Метод для обноленния раздела Digital Library Cards
+  updateLibraryCards() {
+    const buttonFindCard = document.querySelector('.find-card__button');
+    buttonFindCard.classList.add('d-none');
+    const profile = document.querySelector('.card-profile-low');
+    profile.classList.remove('d-none');
+    const inputs = document.querySelectorAll('.find-card__input input');
+    inputs[0].value = `${this.firstName + ' ' + this.lastName}`;
+    inputs[1].value = `${this.cardNumber}`;
+
+    const text = document.querySelectorAll('.get-card__text p');
+    const buttons = document.querySelectorAll('.get-card__buttons button');
+    console.log(buttons);
+
+    buttons.forEach ((elem)=>{
+      elem.classList.add('d-none');
+    })
+    buttons[buttons.length - 1].classList.remove('d-none');
+
+    // buttons.classList.add('d-none');
+
+    text[0].textContent = 'Visit your profile';
+    text[1].textContent = 'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.';
+  }
+
 }
 
 const users = userList();
@@ -171,7 +198,7 @@ console.log('это users', users);
 //забираем даннные из локал и преобразуем в экземпляр класса
 function userList() {
   const userDataList = JSON.parse(localStorage.getItem('users')) || [];
-  return  userDataList.map(userData => {
+  return userDataList.map(userData => {
     return new User(userData);
   });
 }
@@ -203,7 +230,7 @@ signupButton.addEventListener('click', (evt) => {
     evt.preventDefault();
     return;
   }
-  
+
   modalClose(evt.target.closest('.modal'));
   //запрет перезагрузки страницы
   evt.preventDefault();
@@ -214,9 +241,10 @@ signupButton.addEventListener('click', (evt) => {
   //обновляем хранилище
   localSet(users);
   loggedInUser = user;
+  loggedInUser.newVisit();
   //меняем вид страницы
-  user.login();
-  
+  loggedInUser.login();
+
 
 });
 
@@ -255,16 +283,16 @@ function validation(inputs) {
 
 
 //update users data 
-function updateUsersData (user) {
+function updateUsersData(user) {
   const userIndex = findIndex(user.email);
-    if (userIndex !== -1) {
-      users[userIndex] = user;
-      // обновляем данные в Local Storage по индексу
-      localSet(users);
-      user.updateProfileInfo();
+  if (userIndex !== -1) {
+    users[userIndex] = user;
+    // обновляем данные в Local Storage по индексу
+    localSet(users);
+    user.updateProfileInfo();
 
 
-    }
+  }
 
 }
 
@@ -290,7 +318,7 @@ loginButton.addEventListener('click', (evt) => {
   if (userObj && userObj.password === inputPass) {
     // меняем флаг
     userObj.isLoggedIn = true;
-    
+
     // ищем позицию данного пользователя
     // const userIndex = findIndex(userObj.email);
     // if (userIndex !== -1) {
@@ -299,13 +327,13 @@ loginButton.addEventListener('click', (evt) => {
     //   // обновляем данные в Local Storage по индексу
     //   localSet(users);
     // }
+    userObj.newVisit();
     updateUsersData(userObj);
-
     modalClose(evt.target.closest('.modal'));
     userObj.login();
     evt.preventDefault();
     document.location.reload();
-    
+
 
   } else {
     console.log('Пользователь с таким email не найден или пароль неверный');
@@ -353,19 +381,18 @@ function logInStarus() {
     if (user.isLoggedIn === true) {
       loggedInUser = user;
       user.login();
-      user.updateButtonsView();
-      
+
     }
     return;
   });
 }
 logInStarus();
-console.log('logged user',loggedInUser);
+console.log('logged user', loggedInUser);
 
 // обработчик на кнопку выхода из аккаунта
 const logOutButton = document.querySelector('.logoutButton');
 logOutButton.addEventListener('click', function (evt) {
-  users.forEach ((user)=> {
+  users.forEach((user) => {
     if (user.isLoggedIn === true) {
       user.isLoggedIn = false;
       localSet(users);
@@ -379,22 +406,25 @@ logOutButton.addEventListener('click', function (evt) {
 
 
 
-function addBooks (button) {
+function addBooks(button) {
   const book = button.closest('.book');
   const description = book.querySelector('.description').textContent;
   const name = description.trim().split('\n');
   const title = name[0].trim();
   const autor = name[1].trim();
 
-  if (loggedInUser.findBook (autor, title)) {
+  if (loggedInUser.findBook(autor, title)) {
     button.classList.add('button-low--press');
     button.textContent = 'Own';
     return;
   }
 
-  const bookInfo = {autor: autor, title: title};
+  const bookInfo = {
+    autor: autor,
+    title: title
+  };
 
-  if (!loggedInUser.findBook (autor, title)) {
+  if (!loggedInUser.findBook(autor, title)) {
     loggedInUser.books.push(bookInfo);
     button.classList.add('button-low--press');
     button.textContent = 'Own';
@@ -409,7 +439,7 @@ function addBooks (button) {
 // const buyButton = document.getElementById('abonemetbuy-button');
 // console.log(buyButton);
 
-function buyAbonement () {
+function buyAbonement() {
   const buyButton = document.getElementById('abonemetbuy-button');
   const inputs = document.querySelectorAll('.abonement__form input');
   buyButton.setAttribute('disabled', true);
@@ -417,14 +447,13 @@ function buyAbonement () {
   const inputsNumberType = Array.from(inputs).slice(0, 4);
   const formData = {};
 
-  inputs.forEach((elem)=> {
-    elem.addEventListener('input', (evt)=> {
+  inputs.forEach((elem) => {
+    elem.addEventListener('input', (evt) => {
       if (!validation(inputs)) {
         buyButton.setAttribute('disabled', true);
         buyButton.style.pointerEvents = 'none';
         return;
-      }
-      else {
+      } else {
         buyButton.removeAttribute('disabled', true);
         buyButton.style.pointerEvents = '';
       }
@@ -433,20 +462,20 @@ function buyAbonement () {
 
   buyButton.addEventListener('click', (evt) => {
     // modalClose(evt.target.closest('.modal'));
-    inputs.forEach((elem)=>{
+    inputs.forEach((elem) => {
       formData[elem.name] = elem.value.trim();
     })
     loggedInUser.paymentInfo = formData;
     loggedInUser.abonement = true;
     updateUsersData(loggedInUser);
     console.log(formData);
-    console.log('updater ',loggedInUser);
+    console.log('updater ', loggedInUser);
     evt.preventDefault();
     modalClose(evt.target.closest('.modal'));
   });
 
-  inputsNumberType.forEach ((elem)=> {
-    elem.addEventListener('input', (evt)=>{
+  inputsNumberType.forEach((elem) => {
+    elem.addEventListener('input', (evt) => {
       elem.value = elem.value.replace(/[^0-9\s]/g, '');
     })
   })
@@ -468,11 +497,10 @@ function buyAbonement () {
 //   bonus.textContent = this.bonus;
 //   console.log(visits);
 
-  
-  
+
+
 
 
 // }
 
 // updateProfileInfo();
-
