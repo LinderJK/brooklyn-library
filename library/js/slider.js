@@ -8,7 +8,6 @@ let currentIndex = 0;
 
 dots.forEach((dot, index) => {
   dot.addEventListener('click', () => {
-    console.log(dot, index);
     imageSlide(index);
     updateStyleDots();
     disableButtons();
@@ -19,7 +18,6 @@ function imageSlide(index) {
   currentIndex = index;
   let translateXValue = currentIndex * 475;
   sliderContainer.style.transform = `translateX(-${translateXValue}px)`;
-  console.log(`translateX(-${translateXValue}px)`, index, currentIndex);
   return currentIndex;
 
 }

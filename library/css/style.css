@@ -248,7 +248,6 @@ strong {
 
 .slider__image-wrapper {
   overflow: hidden;
-  /* position: relative; */
 }
 
 .slider__image-list {
@@ -528,10 +527,6 @@ strong {
   object-fit: cover;
 
 }
-
-/* .favorites-list>.favorites__item:nth-child(n+5) {
-  display: none;
-} */
 
 /* *______________________________COFFEE-SHOP SECTION___ */
 
@@ -837,13 +832,11 @@ input::-webkit-inner-spin-button {
     max-width: 450px;
   }
 
-  .slider__image-list {
-    /* column-gap: 0px; */
-  }
+  .slider__image-list {}
 
   .slider__image-wrapper {
     width: 450px;
-    /* margin: 0 auto; */
+
   }
 
   .slider__items {
@@ -852,7 +845,6 @@ input::-webkit-inner-spin-button {
     flex-wrap: nowrap;
     justify-content: center;
     column-gap: 50px;
-    /* position: relative; */
   }
 
   .slider__button-prev,
@@ -1209,7 +1201,6 @@ input::-webkit-inner-spin-button {
   width: 80px;
   height: 80px;
   background-color: var(--white);
-  /* padding: auto; */
   justify-content: center;
   align-items: center;
 }
@@ -1359,7 +1350,6 @@ input::-webkit-inner-spin-button {
   flex-direction: column;
   gap: 10px;
   max-width: 200px;
-  /* Увеличим максимальную ширину формы */
 }
 
 .abonement__form input {
@@ -1397,7 +1387,6 @@ input::-webkit-inner-spin-button {
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-  /* 133.333% */
   letter-spacing: 2px;
 }
 
@@ -1415,7 +1404,6 @@ input::-webkit-inner-spin-button {
   font-style: normal;
   font-weight: 700;
   line-height: 20px;
-  /* 100% */
   letter-spacing: 2px;
   text-transform: uppercase;
 }

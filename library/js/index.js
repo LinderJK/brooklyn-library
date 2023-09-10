@@ -42,7 +42,6 @@ class User {
 
   }
 
-  //метод обновления страницы при входе
   login() {
     this.updateIcon();
     this.iconFullName();
@@ -51,15 +50,13 @@ class User {
     this.updateProfileInfo();
     this.updateButtonsView();
     this.updateLibraryCards();
-    this.updateLibraryCardsInfo ()
+    this.updateLibraryCardsInfo()
 
   }
-
 
   newVisit() {
     this.visits++;
   }
-
 
   iconFullName() {
     const profileLink = document.querySelector('.profile-icon__link');
@@ -98,13 +95,12 @@ class User {
   updateProfileInfo() {
     const self = this;
 
-    function update (param, value) {
-      param.forEach( (elem)=>{
+    function update(param, value) {
+      param.forEach((elem) => {
         elem.textContent = value;
       })
     }
     const visits = document.querySelectorAll('.card-profile__visits');
-    console.log(visits);
     update(visits, self.visits);
     const bonus = document.querySelectorAll('.card-profile__bonus');
     update(bonus, self.bonus);
@@ -115,7 +111,6 @@ class User {
     const cardNumber = document.querySelector('.user-card-number');
     cardNumber.textContent = this.cardNumber;
     const booksList = document.querySelector('.books-list ul');
-    console.log(booksList);
 
     this.books.forEach((elem) => {
       let newLi = document.createElement('li');
@@ -124,14 +119,12 @@ class User {
     })
 
     if (this.books.length < 1) {
-      console.log(this.books.length < 1);
       let newLi = document.createElement('li');
       newLi.innerHTML = 'No books added';
       booksList.append(newLi);
     }
 
     const booksCounter = document.querySelectorAll('.card-profile__books');
-    console.log(booksCounter);
     update(booksCounter, self.books.length);
     booksCounter.textContent = this.books.length;
   }
@@ -143,7 +136,6 @@ class User {
 
   }
 
-  // Метод для обновления вида кнопок
   updateButtonsView() {
     const buyBookButtons = document.querySelectorAll('.book__button button');
 
@@ -166,39 +158,31 @@ class User {
     });
   }
 
-  // Метод для обноленния раздела Digital Library Cards
   updateLibraryCards() {
     const buttonFindCard = document.querySelector('.find-card__button');
     buttonFindCard.classList.add('d-none');
     const profile = document.querySelector('.card-profile-low');
     profile.classList.remove('d-none');
-    // const inputs = document.querySelectorAll('.find-card__input input');
-    // inputs[0].value = `${this.firstName + ' ' + this.lastName}`;
-    // inputs[1].value = `${this.cardNumber}`;
+
   }
 
-  hideibraryCards () {
+  hideibraryCards() {
     const buttonFindCard = document.querySelector('.find-card__button');
-    
-      buttonFindCard.classList.remove('d-none');
-      const profile = document.querySelector('.card-profile-low');
-      profile.classList.add('d-none');
-    
-    
+
+    buttonFindCard.classList.remove('d-none');
+    const profile = document.querySelector('.card-profile-low');
+    profile.classList.add('d-none');
 
   }
 
-  updateLibraryCardsInfo () {
+  updateLibraryCardsInfo() {
     const text = document.querySelectorAll('.get-card__text p');
     const buttons = document.querySelectorAll('.get-card__buttons button');
-    console.log(buttons);
 
-    buttons.forEach ((elem)=>{
+    buttons.forEach((elem) => {
       elem.classList.add('d-none');
     })
     buttons[buttons.length - 1].classList.remove('d-none');
-
-    // buttons.classList.add('d-none');
 
     text[0].textContent = 'Visit your profile';
     text[1].textContent = 'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.';
@@ -207,9 +191,7 @@ class User {
 }
 
 const users = userList();
-console.log('это users', users);
 
-//забираем даннные из локал и преобразуем в экземпляр класса
 function userList() {
   const userDataList = JSON.parse(localStorage.getItem('users')) || [];
   return userDataList.map(userData => {
@@ -217,27 +199,22 @@ function userList() {
   });
 }
 
-// Обработчик на кнопку регистрации
 const signupButton = document.getElementById('signup-button');
 signupButton.addEventListener('click', (evt) => {
   const inputs = document.querySelectorAll('#register-form input');
 
-  //Вызов функции валидации
   if (!validation(inputs)) {
     return;
   }
 
-  //генерируем новый обьект из полей формы
   const formData = {};
   inputs.forEach(input => {
     formData[input.name] = input.value.trim();
   });
 
-  //делаем нормальный email
   const userEmail = formData.email.trim().toLowerCase();
   formData.email = userEmail;
 
-  // вызов функции поиска существующего пользоватля
   const userObj = findUser(userEmail);
   if (userObj !== undefined) {
     console.log('Пользователь уже существует');
@@ -246,33 +223,25 @@ signupButton.addEventListener('click', (evt) => {
   }
 
   modalClose(evt.target.closest('.modal'));
-  //запрет перезагрузки страницы
   evt.preventDefault();
-
-  //создаем экземпляр добавляем в массив
   const user = new User(formData);
   users.push(user);
-  //обновляем хранилище
   localSet(users);
   loggedInUser = user;
   loggedInUser.newVisit();
-  //меняем вид страницы
   loggedInUser.login();
 
 
 });
 
-//запись в локал пользователя
 function localSet(users) {
   localStorage.setItem('users', JSON.stringify(users));
 }
 
-// фукция поиска пользователя по почте и возврат обьекта
 function findUser(mail) {
   return users.find(user => user.email === mail);
 }
 
-// фукция поиска пользователя по карте и возврат обьекта
 function findCard(card) {
   return users.find(user => user.cardNumber === card);
 }
@@ -281,9 +250,6 @@ function findIndex(email) {
   return users.findIndex(user => user.email === email)
 }
 
-
-
-// функция валидации
 function validation(inputs) {
   let isValid = true;
   inputs.forEach((input) => {
@@ -295,30 +261,23 @@ function validation(inputs) {
   return isValid;
 }
 
-
-//update users data 
 function updateUsersData(user) {
   const userIndex = findIndex(user.email);
   if (userIndex !== -1) {
     users[userIndex] = user;
-    // обновляем данные в Local Storage по индексу
     localSet(users);
     user.updateProfileInfo();
-
 
   }
 
 }
 
-
-//обработчик на кнопку входа
 const loginButton = document.getElementById('login-button');
 loginButton.addEventListener('click', (evt) => {
   const inputs = document.querySelectorAll('#login-form input');
   const inputAuthData = inputs[0].value;
   const inputPass = inputs[1].value;
 
-  //ищем пользователя по карте или почте
   let userObj = findUser(inputAuthData);
   if (userObj === undefined) {
     userObj = findCard(inputAuthData);
@@ -330,24 +289,13 @@ loginButton.addEventListener('click', (evt) => {
   }
 
   if (userObj && userObj.password === inputPass) {
-    // меняем флаг
     userObj.isLoggedIn = true;
-
-    // ищем позицию данного пользователя
-    // const userIndex = findIndex(userObj.email);
-    // if (userIndex !== -1) {
-    //   users[userIndex] = userObj;
-
-    //   // обновляем данные в Local Storage по индексу
-    //   localSet(users);
-    // }
     userObj.newVisit();
     updateUsersData(userObj);
     modalClose(evt.target.closest('.modal'));
     userObj.login();
     evt.preventDefault();
     document.location.reload();
-
 
   } else {
     console.log('Пользователь с таким email не найден или пароль неверный');
@@ -357,9 +305,6 @@ loginButton.addEventListener('click', (evt) => {
 
 })
 
-
-
-// поиск карты и отображение информациии
 const checkCardButton = document.querySelector('.find-card__button');
 checkCardButton.addEventListener('click', function () {
 
@@ -372,33 +317,22 @@ checkCardButton.addEventListener('click', function () {
   }
   const fullName = findUser.firstName + ' ' + findUser.lastName;
 
-  if  (findUser !== undefined && fullName === inputName){
+  if (findUser !== undefined && fullName === inputName) {
     findUser.updateProfileInfo();
     findUser.updateLibraryCards();
 
     setTimeout(() => {
-      findUser.hideibraryCards ();
-      inputs.forEach ((elem)=> {
+      findUser.hideibraryCards();
+      inputs.forEach((elem) => {
         elem.value = '';
       })
     }, 10000);
-
-    
   }
-
   return;
-
 });
 
-
-
-
-
-
-
-// переменная для хранения текущего залогиненого пользователя
 let loggedInUser;
-// функция логина даже после обновления страницы в зависимости от флага
+
 function logInStarus() {
   users.forEach((user) => {
     if (user.isLoggedIn === true) {
@@ -410,9 +344,7 @@ function logInStarus() {
   });
 }
 logInStarus();
-console.log('logged user', loggedInUser);
 
-// обработчик на кнопку выхода из аккаунта
 const logOutButton = document.querySelector('.logoutButton');
 logOutButton.addEventListener('click', function (evt) {
   users.forEach((user) => {
@@ -423,11 +355,6 @@ logOutButton.addEventListener('click', function (evt) {
     }
   })
 });
-
-
-
-
-
 
 function addBooks(button) {
   const book = button.closest('.book');
@@ -457,11 +384,6 @@ function addBooks(button) {
 
 }
 
-
-
-// const buyButton = document.getElementById('abonemetbuy-button');
-// console.log(buyButton);
-
 function buyAbonement() {
   const buyButton = document.getElementById('abonemetbuy-button');
   const inputs = document.querySelectorAll('.abonement__form input');
@@ -484,15 +406,12 @@ function buyAbonement() {
   })
 
   buyButton.addEventListener('click', (evt) => {
-    // modalClose(evt.target.closest('.modal'));
     inputs.forEach((elem) => {
       formData[elem.name] = elem.value.trim();
     })
     loggedInUser.paymentInfo = formData;
     loggedInUser.abonement = true;
     updateUsersData(loggedInUser);
-    console.log(formData);
-    console.log('updater ', loggedInUser);
     evt.preventDefault();
     modalClose(evt.target.closest('.modal'));
   });
@@ -503,27 +422,4 @@ function buyAbonement() {
     })
   })
 
-
-
 }
-
-
-
-
-
-
-
-// function updateProfileInfo () {
-//   const visits = document.querySelector('.visits');
-//   visits.textContent = this.visits;
-//   const bonus = document.querySelector('.bonus');
-//   bonus.textContent = this.bonus;
-//   console.log(visits);
-
-
-
-
-
-// }
-
-// updateProfileInfo();
